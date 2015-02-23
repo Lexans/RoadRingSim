@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9acec9bb-9eb7-40a9-a597-2c265b126894" name="UMLUseCaseDiagram1" linkedPackageId="55a81fd0-7b78-44af-b1ba-4f460a8f9b97" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="2616a7a2-526f-4d69-ade8-34d6ff04beb6">
+      <profileInstance Id="f450fbf0-55e1-496a-bbae-ed97384f282d" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b19f67bf-b072-477c-9293-245421859951">
+      <profileInstance Id="46042fc8-e5a3-4cf9-9005-d98aa002ae10" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" name="RoadRingSim" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="58c31d1f-9593-44ff-b141-0a1ba1a54637" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="4dbd16de-6cf9-4f1b-bf09-714bbafb789f" name="Пользователь" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c1660a11-3139-48bb-b115-15d3e241a77a" />
+        <targetEnds>
+          <association Id="571dd788-4cb6-4f3b-9ac9-6d7ca04c8bfc" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="запуск моделирования перекрестка" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4f118e41-b1f1-4a94-82b1-b8154c841a76" LastKnownName="запуск моделирования перекрестка" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1a95e19b-9a0c-4e86-8bec-f456168f2924" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="626ff051-a5df-418d-a569-c69f201a06f7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="da32412a-997f-4e21-a607-41fdd1297cb8" name="запуск моделирования перекрестка" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a9c06c08-8e9b-4dd0-83d1-664a1c5a1734" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fd6524cb-77d3-4459-be73-10c8bd133c5a" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="12b58f45-8a2f-453a-b8a3-8ccc8fd5a49c" name="Расширенный пользователь" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9644a780-0638-41ca-9a96-9270c122ef6a" />
+        <targetEnds>
+          <association Id="5cc0d3f4-f71f-4550-8ff8-eb753a3ea039" isDerived="false" sourceEndRoleName="Расширенный пользователь" targetEndRoleName="Расширенный пользователь" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="12b58f45-8a2f-453a-b8a3-8ccc8fd5a49c" LastKnownName="Расширенный пользователь" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="86142cbf-1299-4012-b8c1-07e5bfd4b96b" name="Расширенный пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f5a6ecf2-4c96-4aab-bcc5-b999cf52248b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7a8e6cf7-e3e3-4518-bc57-77e05e27fb0e" name="Расширенный пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="96d5acde-e829-4141-aa45-62852fce4d77" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="07d77abc-0623-4938-b70a-7b7d6c0244e9" />
+          </association>
+          <association Id="ba606dc2-7586-4dc0-9fbe-dac1876020b9" isDerived="false" sourceEndRoleName="Расширенный пользователь" targetEndRoleName="запуск моделирования перекрестка" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4f118e41-b1f1-4a94-82b1-b8154c841a76" LastKnownName="запуск моделирования перекрестка" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="aa7a8a93-9177-47d2-a880-c20e45656f2c" name="Расширенный пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6ad5190b-3654-4e68-95da-ad75dc181e57" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0e340b9-b902-48ef-8445-a2fd823d4480" name="запуск моделирования перекрестка" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8da63b73-d077-47a7-8627-6abd59ffdb6f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ef6a0bd2-6475-4633-863a-eb4f70c354a7" />
+          </association>
+          <association Id="a56c15ad-b7a7-4fce-9152-24c3416eca76" isDerived="false" sourceEndRoleName="Расширенный пользователь" targetEndRoleName="изменение закона распределения" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="aa9b9359-0a75-4b5d-b5aa-c2c26f5e873a" LastKnownName="изменение закона распределения" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b638cf7f-1979-4c8f-b087-a3a4baef2647" name="Расширенный пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="76d1878a-faea-46a7-bcac-c7bcd99bb405" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5d122739-587d-4124-a001-7e8150b48f30" name="изменение закона распределения" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7f18e81f-454c-400f-9cce-2c3075f20db9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="55584508-094d-44b5-9a98-b973e6785d38" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="73ff6a45-5fa6-4988-8476-d7c6295ccf13" name="Суперпользователь" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="167fa083-ba51-4790-890f-e2ae25ac77f6" />
+        <targetEnds>
+          <association Id="f84f4832-6774-4517-90df-a290f5bcc9a3" isDerived="false" sourceEndRoleName="Суперпользователь" targetEndRoleName="управление моделями перекрестков" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3c9c3886-64b8-4049-a967-282e2581e8fe" LastKnownName="управление моделями перекрестков" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cab8cdc9-c1ba-422e-ab8d-e3fbc112d8c3" name="Суперпользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="20e38cdd-bad5-47e9-ace1-d028b534c5c0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2b20055a-857b-48c6-ad72-75a9841d48f4" name="управление моделями перекрестков" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="210f68a9-da83-4e72-8278-d5c424932a38" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="779f4533-ea91-4cf6-b83c-eee3adfe33cb" />
+          </association>
+          <association Id="f711e74e-63f9-441d-9188-8ec01172f013" isDerived="false" sourceEndRoleName="Суперпользователь" targetEndRoleName="запуск моделирования перекрестка" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4f118e41-b1f1-4a94-82b1-b8154c841a76" LastKnownName="запуск моделирования перекрестка" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c0b6595b-04ec-4cc1-bfa6-a847711fbf51" name="Суперпользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1fbde489-36a4-49a6-8fb2-126af46ca0ad" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e390ca71-5255-4a00-af3e-249060040cd4" name="запуск моделирования перекрестка" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e1950528-ee9a-4f6c-be23-5dde6549a78c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6e4ab9c0-c90c-447a-9d16-04bcd7ef9ab2" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="4f118e41-b1f1-4a94-82b1-b8154c841a76" name="запуск моделирования перекрестка" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="15a910a5-ead6-408b-a212-cfa04e619f73" />
+        <additions>
+          <include Id="bfdd61fe-f2b5-40f9-9f71-e4c58bd701c6">
+            <useCaseMoniker Id="5b4b56ad-ddff-4100-9e5a-75fc4f7baf0d" LastKnownName="выбор модели перекрестка" />
+            <elementDefinition Id="254cd823-7a3d-4e3c-a948-b02ba48e9a97" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="5b4b56ad-ddff-4100-9e5a-75fc4f7baf0d" name="выбор модели перекрестка" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e8bc5543-3759-48d7-b81d-a7cad56f8dd6" />
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="865a2c03-f9e5-4aaa-9a9f-97f49b601d0d" name="изменение закона распределения машин" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="88c891be-a675-47b5-9b34-a4dbaf7d6bc4" />
+        <generalsInternal>
+          <generalization Id="3758ef3c-0e67-4d87-b2a0-b128159434c9" isSubstitutable="false">
+            <useCaseMoniker Id="aa9b9359-0a75-4b5d-b5aa-c2c26f5e873a" LastKnownName="изменение закона распределения" />
+            <elementDefinition Id="7b7189d3-365d-47ba-829a-3d82783f5dc1" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="a8e5fe76-dc09-473b-8bd8-f8abf4680df2" name="изменение закона распределения пешеходов" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8d3cf5ed-9fe4-48ca-9364-5c629ef200c9" />
+        <generalsInternal>
+          <generalization Id="e45ccd6a-194b-4f37-86f3-010d0b541451" isSubstitutable="false">
+            <useCaseMoniker Id="aa9b9359-0a75-4b5d-b5aa-c2c26f5e873a" LastKnownName="изменение закона распределения" />
+            <elementDefinition Id="2a989ebb-302d-4648-9cf2-b530de983d8d" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="aa9b9359-0a75-4b5d-b5aa-c2c26f5e873a" name="изменение закона распределения" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e60baccd-3177-4dfe-8ea8-ab702dfc19ff" />
+        <generalsInternal>
+          <generalization Id="456cc1f5-6c19-440f-abf7-bae6a20a04dd" isSubstitutable="false">
+            <useCaseMoniker Id="3c9c3886-64b8-4049-a967-282e2581e8fe" LastKnownName="управление моделями перекрестков" />
+            <elementDefinition Id="08030069-df95-4b56-ba39-f7c1c7302907" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="3c9c3886-64b8-4049-a967-282e2581e8fe" name="управление моделями перекрестков" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b347bc07-01c5-4126-91cf-f31e70565dbf" />
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="96083887-c2d0-4c07-a676-e5f0b5b40adf" name="удаление модели" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c005ed75-c15e-4fbd-9416-2d6bdb5314fd" />
+        <generalsInternal>
+          <generalization Id="3a19ea0d-f382-4938-9a9f-6c582c9fbcd8" isSubstitutable="false">
+            <useCaseMoniker Id="3c9c3886-64b8-4049-a967-282e2581e8fe" LastKnownName="управление моделями перекрестков" />
+            <elementDefinition Id="0a73e2a3-54c1-4207-b5de-83f124ffe266" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="f0c4917d-b2cd-4f77-9db9-8bf70ceb339c" name="создание модели" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c50a54f2-a159-49bb-a284-b7ca7ef9e7b9" />
+        <generalsInternal>
+          <generalization Id="4421310a-f082-462e-820e-f67bed45cdb3" isSubstitutable="false">
+            <useCaseMoniker Id="3c9c3886-64b8-4049-a967-282e2581e8fe" LastKnownName="управление моделями перекрестков" />
+            <elementDefinition Id="b10a3f90-f70f-42c8-bc01-10b77423df3b" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include Id="cdf9635c-9814-4690-8de9-e6a26971399d">
+            <useCaseMoniker Id="264d0baf-4382-449b-8ec6-0420c05ca706" LastKnownName="изменение модели" />
+            <elementDefinition Id="d066c23c-b2c8-4306-91a9-9fd023d044b7" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="264d0baf-4382-449b-8ec6-0420c05ca706" name="изменение модели" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="db38593e-4bab-49bc-9e1b-da314e3a3479" />
+        <generalsInternal>
+          <generalization Id="d5e8a2b3-432d-4bf1-8ee2-5c21bd9a2d2f" isSubstitutable="false">
+            <useCaseMoniker Id="3c9c3886-64b8-4049-a967-282e2581e8fe" LastKnownName="управление моделями перекрестков" />
+            <elementDefinition Id="9f3ec3bf-0218-4955-9f6a-4033b06e91e2" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="fd6f775f-e186-4e7c-9090-a3e33fda4bdd" name="добавление светофора" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bc5272b7-da26-431f-9083-5bc32bbb8d7a" />
+        <generalsInternal>
+          <generalization Id="870ff704-79bd-4d0e-a2e9-d0f0ca77d137" isSubstitutable="false">
+            <useCaseMoniker Id="264d0baf-4382-449b-8ec6-0420c05ca706" LastKnownName="изменение модели" />
+            <elementDefinition Id="0dd54663-2beb-4303-98b3-19135dd39ec2" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="30e83a99-1572-47f2-9a46-a7f365af023f" name="добавление знаков" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="99c7200a-1663-4a9b-8056-83f6c904e711" />
+        <generalsInternal>
+          <generalization Id="fb1693b7-9bbc-40f9-842b-b1c005817b2a" isSubstitutable="false">
+            <useCaseMoniker Id="264d0baf-4382-449b-8ec6-0420c05ca706" LastKnownName="изменение модели" />
+            <elementDefinition Id="f636cd5c-912d-4eb3-a611-8d8ad6a276ae" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="642a80ed-36e5-43d7-830e-9e2c1643e0d9" name="задание количества полос" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4426b3ca-9259-4f97-829c-86150f303e0f" />
+        <generalsInternal>
+          <generalization Id="350f9a00-dd6b-4670-8cab-0adf92696015" isSubstitutable="false">
+            <useCaseMoniker Id="264d0baf-4382-449b-8ec6-0420c05ca706" LastKnownName="изменение модели" />
+            <elementDefinition Id="9880d347-77f9-482f-8724-8132c4a57aa4" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="bcc51b53-f128-4b0e-ade7-4fbb0bac8781" name="управление пользователями" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a7e13d8c-9ccf-461e-b8a3-5a3e12fccdd0" />
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="c3775ddd-ea48-4bb3-994d-eb96548301f4" name="изменения уровня прав пользователя" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bb6103ff-e92f-4fa4-9c72-11cffff74df7" />
+        <generalsInternal>
+          <generalization Id="3d25cb08-4945-44e0-b412-216884aeae53" isSubstitutable="false">
+            <useCaseMoniker Id="bcc51b53-f128-4b0e-ade7-4fbb0bac8781" LastKnownName="управление пользователями" />
+            <elementDefinition Id="7d89f9c3-b59f-40c4-8f6b-033b5744cc97" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="64215dad-5db9-44a8-875c-081bf51839a0" name="удаление пользователя" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e2d4a0fe-2e74-4954-8c8c-0604b6e38af7" />
+        <generalsInternal>
+          <generalization Id="7afe46e7-9572-4c15-84c7-8152f9220399" isSubstitutable="false">
+            <useCaseMoniker Id="bcc51b53-f128-4b0e-ade7-4fbb0bac8781" LastKnownName="управление пользователями" />
+            <elementDefinition Id="e68e8824-dc57-478c-958e-17d987758dbb" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="3b4655ef-cd22-419f-949c-379154ddf155" name="добавление пользоавателя" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="937c1b2d-28d4-471c-8166-d936b9edd20c" />
+        <generalsInternal>
+          <generalization Id="43be57fc-bd77-4e4d-b294-6ea987ebed29" isSubstitutable="false">
+            <useCaseMoniker Id="bcc51b53-f128-4b0e-ade7-4fbb0bac8781" LastKnownName="управление пользователями" />
+            <elementDefinition Id="a07f3a9b-2802-4ad2-81fb-23692cd28a78" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include Id="7cafa435-c396-48ba-a50a-eff598bcce46">
+            <useCaseMoniker Id="c3775ddd-ea48-4bb3-994d-eb96548301f4" LastKnownName="изменения уровня прав пользователя" />
+            <elementDefinition Id="f5f54790-5720-460d-b592-9de3c8115420" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" LastKnownName="RoadRingSim" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="55a81fd0-7b78-44af-b1ba-4f460a8f9b97" name="ModelingProject1">
+    <elementDefinition Id="b9ebb5db-5cbe-44fe-aff7-86d5e22013e2" />
+  </package>
+</useCaseModelRoot>
