@@ -16,7 +16,12 @@ namespace RoadRingSim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            var auth = new Forms.AuthForm();
+            if (auth.ShowDialog() == DialogResult.OK)
+            {
+                (new Forms.FormMain()).Show();
+            }
         }
     }
 }
