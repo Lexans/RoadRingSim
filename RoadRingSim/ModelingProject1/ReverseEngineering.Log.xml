@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///D:/PROGRAM FILES/OFFICE/VISUALSTUDIOULTIMATE2013/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Журнал создания кода/преобразования текста">
+  <MessageClass Name="Message" Label="Сообщение" Option="Показывать информационные сообщения" />
+  <MessageClass Name="Warning" Label="Предупреждение" Option="Показывать предупреждения" />
+  <MessageClass Name="Error" Label="Ошибка" Option="Показывать ошибки" />
+  <MessageClass Name="Property" Label="Свойство" Option="Показывать метаданные" />
+  <MessageClass Name="Diagnostic" Label="Сообщение" Option="Показывать диагностические сообщения" />
+  <Message Timestamp="2015-03-25T18:02:53" Importance="High" Text="Реконструирование запущено." />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;Integer&quot; -  (PrimitiveType)" />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim&quot; -  (Package)" />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core&quot; -  (Package)" />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains&quot; -  (Package)" />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="Medium" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains::DomainObject&quot; -  (Class)" />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains::DomainObject::DomainObject&quot; -  (Operation)" />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains::DomainObject::ID&quot; -  (Property)" />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="High" Text="Полностью реконструировано (1) типов." />
+  <Message Timestamp="2015-03-25T18:02:56" Importance="High" Text="Операция реконструирования завершена; ошибок: (0), предупреждений: (0)." />
+</Log>
