@@ -72,20 +72,6 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="0b928899-4e8f-44d2-bbfa-f5cc2184d396">
-      <profileInstance Id="36c80b4d-41fd-4b5d-81ab-0c22019f3483" name="CSharpProfile">
-        <elementDefinition Id="94d9819e-107c-4a1c-8c92-35127552ba61" />
-      </profileInstance>
-      <elementDefinition Id="7fe610c8-1ab0-4534-be90-890f7c2bf0e6" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="d195b109-078d-4f11-a0f3-158c1e83edb7">
-      <profileInstance Id="a1a90842-ae09-4521-878a-80f7cbcb5ad8" name="TextTemplateBindings">
-        <elementDefinition Id="fb78ae51-99cb-4b56-8286-28c34d0f812a" />
-      </profileInstance>
-      <elementDefinition Id="f800ef5b-24e4-4fd9-9c25-f229d1679e33" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasPackages>
       <package Id="bd5877b8-b11f-4d71-a0b5-6fcefcc5315c" name="RoadRingSim" visibility="Private">
@@ -4366,6 +4352,18 @@
           <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
         </profileInstance>
         <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="0b928899-4e8f-44d2-bbfa-f5cc2184d396">
+        <profileInstance Id="36c80b4d-41fd-4b5d-81ab-0c22019f3483" name="CSharpProfile">
+          <elementDefinition Id="94d9819e-107c-4a1c-8c92-35127552ba61" />
+        </profileInstance>
+        <elementDefinition Id="7fe610c8-1ab0-4534-be90-890f7c2bf0e6" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="d195b109-078d-4f11-a0f3-158c1e83edb7">
+        <profileInstance Id="a1a90842-ae09-4521-878a-80f7cbcb5ad8" name="TextTemplateBindings">
+          <elementDefinition Id="fb78ae51-99cb-4b56-8286-28c34d0f812a" />
+        </profileInstance>
+        <elementDefinition Id="f800ef5b-24e4-4fd9-9c25-f229d1679e33" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>
