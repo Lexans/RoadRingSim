@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RoadRingSim.Forms
 {
-    public partial class AuthForm : Form
+    public partial class FormAuth : Form
     {
-        public AuthForm()
+        public FormAuth()
         {
             InitializeComponent();
         }

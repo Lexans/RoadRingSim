@@ -1,6 +1,6 @@
 ﻿namespace RoadRingSim.Forms
 {
-    partial class AuthForm
+    partial class FormAuth
     {
         /// <summary>
         /// Required designer variable.
@@ -54,7 +54,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(264, 110);
+            this.buttonCancel.Location = new System.Drawing.Point(281, 116);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(84, 23);
             this.buttonCancel.TabIndex = 2;
@@ -64,7 +64,7 @@
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(173, 110);
+            this.buttonOk.Location = new System.Drawing.Point(190, 116);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 3;
@@ -90,11 +90,11 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Пароль";
             // 
-            // AuthForm
+            // FormAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 145);
+            this.ClientSize = new System.Drawing.Size(377, 151);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonOk);
@@ -104,7 +104,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AuthForm";
+            this.Name = "FormAuth";
             this.Text = "Авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();

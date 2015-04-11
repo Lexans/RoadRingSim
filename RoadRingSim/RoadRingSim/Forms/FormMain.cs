@@ -15,7 +15,6 @@ namespace RoadRingSim.Forms
         public FormMain()
         {
             InitializeComponent();
-            var user = new UserDAO();
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using RoadRingSim.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace RoadRingSim
@@ -17,7 +19,12 @@ namespace RoadRingSim
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var auth = new Forms.AuthForm();
+#if !DEBUG
+            FormSplashscreen fs = new FormSplashscreen();
+            fs.ShowDialog();
+#endif
+
+            var auth = new Forms.FormAuth();
             if (auth.ShowDialog() == DialogResult.OK)
             {
                 (new Forms.FormMain()).Show();
