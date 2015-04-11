@@ -9,15 +9,21 @@ using RoadRingSim.Core.Domains;
 
 namespace RoadRingSim.Data.DAO
 {
-    class DAO
+
+    /// <summary>
+    /// базовый класс для классов работы с базой данных
+    /// </summary>
+    public class DAO
     {
         private static SQLiteConnection _connection;
+        
         public static SQLiteConnection Connection
         {
             get {
                 if(_connection == null)
                 {
-                    var connectionString = "data source = roadRing.db; New=True; UseUTF16Encoding=TRUE"; //название файла и кодировка
+                    //название файла бд и кодировка
+                    var connectionString = "data source = roadRing.db; New=True; UseUTF16Encoding=TRUE";
                     _connection = new SQLiteConnection(connectionString);
                     if (_connection.State == ConnectionState.Closed)
                     {
@@ -29,17 +35,17 @@ namespace RoadRingSim.Data.DAO
         }
 
         /// <summary>
-        /// метод выполения запросов
+        /// выполнение запросов к базе данных
         /// </summary>
         /// <param name="query">строка запроса</param>
-        /// <returns>список столбцов</returns>
+        /// <returns>таблица результата. Первая размерность - строка. Вторая размерность - столбец</returns>
         public List<List<object>> ExecuteQuery(string query)
         {
             var res = new List<List<object>>();
-            var comand = Connection.CreateCommand();
-            comand.CommandText = query;
+            var command = Connection.CreateCommand();
+            command.CommandText = query;
 
-            var reader = comand.ExecuteReader();
+            var reader = command.ExecuteReader();
             while(reader.Read())
             {
                 var list = new List<object>();
@@ -51,12 +57,17 @@ namespace RoadRingSim.Data.DAO
             return res;
         }
 
+        /// <summary>
+        /// получение максимального идентификатора записи в таблице
+        /// </summary>
+        /// <param name="tableName">имя таблицы</param>
+        /// <returns>максимальный идентификатор записи в таблице</returns>
         protected int GetMaxID(string tableName)
         {
             int id = 0;
-            var maxId = ExecuteQuery("SELECT max(id) from " + tableName);
+            var maxId = ExecuteQuery("SELECT max(ID) from " + tableName);
             if (maxId.Count > 0 && maxId[0][0].ToString().Length > 0)
-                id = int.Parse(maxId[0][0]);
+                id = Int32.Parse((String)maxId[0][0]);
             
             return id;
         }

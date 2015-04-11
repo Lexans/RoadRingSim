@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domains\DomainObject.cs" />
-    <Compile Include="Domains\Role.cs" />
+    <Compile Include="Domains\UserRole.cs" />
     <Compile Include="Domains\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace RoadRingSim.Core.Domains
 {
-    class User:DomainObject
+
+    /// <summary>
+    /// модель пользователя
+    /// </summary>
+    public class User:DomainObject
     {
         public string Login { get; set; }
         public string Password { get; set; }
-        public Role Role { get; set; }
+        public UserRole Role { get; set; }
     }
 }

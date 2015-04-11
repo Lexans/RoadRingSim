@@ -7,35 +7,37 @@ using RoadRingSim.Core.Domains;
 
 namespace RoadRingSim.Data.DAO
 {
+
+    /// <summary>
+    /// класс работы с таблицей "роль_пользователей"
+    /// </summary>
     class UserRoleDAO: DAO
     {
-
-        public UserRoleDAO GetById(int id)
+        /// <summary>
+        /// получение объекта роли по ID роли
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>роль с нужным ID</returns>
+        public UserRole SelectById(int id)
         {
-            ExecuteQuery("select * from user_role where id=" + id).FirstOrDefault();
+            UserRole role = new UserRole();
+            role.RoleName = 
+            (String)(ExecuteQuery("SELECT `RoleName` FROM UserRole WHERE ID=" + id).FirstOrDefault())[0];
+
+            return role;
         }
 
-        //дописать
-        private List<Role> GetByQuery(string query)
+        /// <summary>
+        /// обновление списка пользователей с заданной ролью в поле Users
+        /// </summary>
+        /// <param name="role">роль, в которой нужно инициализировать поле Users</param>
+        /// <returns>роль с инициализированным полем Users</returns>
+        public UserRole UpdateUserRole(UserRole role)
         {
-            var res = new List<User>();
-            var list = ExecuteQuery(query);
-            foreach (var r in list)
-            {
-                var user = new UserDAO();
-                user.id = int.Parse(r[0].ToString());
-                user.Login = r[1].ToString();
-                user.Password = r[2].ToString();
-                res.Add(user);
-            }
-            return res;
-        }
+            UserDAO ud = new UserDAO();
+            role.Users = ud.Select("SELECT * FROM `User` WHERE RoleID=" + role.ID);
 
-
-        private User Update()
-        {
-            ...
-              //роль берем из user dao
+            return role;
         }
     }
 }
