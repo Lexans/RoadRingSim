@@ -12,6 +12,10 @@ namespace RoadRingSim.Data.DAO
     /// </summary>
     public class UserDAO : DAO
     {
+        /// <summary>
+        /// объект текущего авторизованного пользователя
+        /// </summary>
+        public static User CurentUser;
 
         /// <summary>
         /// сохраняет пользователя в базе данных
