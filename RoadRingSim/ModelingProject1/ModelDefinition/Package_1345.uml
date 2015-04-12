@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="e39cd21e-c8f3-4609-848b-564d0c92d14a"
+  name="System"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="14b7adad-3fcf-488b-95ba-97db45d4df78"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c23da7a4-10e8-4d2c-be77-2d08ef57b9b3"
+        LastKnownName="Collections"
+        LastKnownLocation="Package1_1345.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="df5ba66e-bf6c-49cd-b445-11f009e01483"
+        name="Object"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="1dba3578-f5de-4117-9cc3-3ae90e6b97f1"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="957f1d78-d80d-46d6-95c6-6e332f942c1a"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8f252562-1e1d-4e6e-b2e7-b80b0627230c">
+                <propertyInstance
+                  Id="180511d1-59ee-44a5-8d25-94252abe2cb8"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e72563b3-edfd-4c91-bade-df506a919abb">
+                <propertyInstance
+                  Id="75ae45f2-0fe8-42a3-a83e-4d847e1f6fcd"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5a77c83d-9a1f-4bab-87b7-ca742faeb871">
+                <propertyInstance
+                  Id="2e7f5c6f-4c51-4b86-835b-7f92ff8dba69"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c76a5875-5eb8-4ec9-a339-447783da8316">
+                <propertyInstance
+                  Id="f8ad78e5-28d1-423a-8cbc-f00d72ea644f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b3e0fb09-3af5-43cf-a0b2-67f329c02e7f">
+                <propertyInstance
+                  Id="220fa0bb-af37-43c4-9dc8-d001cf21aecc"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b1ead655-6eab-4726-851f-3e6dba8974ef"
+        LastKnownName="Data"
+        LastKnownLocation="Package_1346.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -6,14 +6,25 @@
   <MessageClass Name="Error" Label="Ошибка" Option="Показывать ошибки" />
   <MessageClass Name="Property" Label="Свойство" Option="Показывать метаданные" />
   <MessageClass Name="Diagnostic" Label="Сообщение" Option="Показывать диагностические сообщения" />
-  <Message Timestamp="2015-03-25T18:02:53" Importance="High" Text="Реконструирование запущено." />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;Integer&quot; -  (PrimitiveType)" />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim&quot; -  (Package)" />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core&quot; -  (Package)" />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains&quot; -  (Package)" />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="Medium" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains::DomainObject&quot; -  (Class)" />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains::DomainObject::DomainObject&quot; -  (Operation)" />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains::DomainObject::ID&quot; -  (Property)" />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="High" Text="Полностью реконструировано (1) типов." />
-  <Message Timestamp="2015-03-25T18:02:56" Importance="High" Text="Операция реконструирования завершена; ошибок: (0), предупреждений: (0)." />
+  <Message Timestamp="2015-04-12T13:47:06" Importance="High" Text="Реконструирование запущено." />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;Integer&quot; -  (PrimitiveType)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim&quot; -  (Package)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core&quot; -  (Package)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains&quot; -  (Package)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Core::Domains::UserRole&quot; -  (Class)   (реконструирован частично - определение не обновлено) " />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data&quot; -  (Package)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO&quot; -  (Package)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO::DAO&quot; -  (Class)   (реконструирован частично - определение не обновлено) " />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Medium" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO::UserRoleDAO&quot; -  (Class)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO::UserRoleDAO::SelectById&quot; -  (Operation)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO::UserRoleDAO::SelectById::id&quot; -  (Parameter)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO::UserRoleDAO::UpdateUserRole&quot; -  (Operation)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO::UserRoleDAO::UpdateUserRole::role&quot; -  (Parameter)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Элемент реконструирован в модели UML: &quot;ModelingProject1::RoadRingSim::Data::DAO::UserRoleDAO::UserRoleDAO&quot; -  (Operation)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Отношение реконструировано в модели UML: ModelingProject1::RoadRingSim::Data::DAO::UserRoleDAO в ModelingProject1::RoadRingSim::Data::DAO::DAO (Generalization)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Отношение реконструировано в модели UML: ModelingProject1::RoadRingSim::Core::Domains::UserRole в ModelingProject1::RoadRingSim::Core::Domains::DomainObject (Generalization)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="Diagnostic" Text="Отношение реконструировано в модели UML: ModelingProject1::RoadRingSim::Data::DAO::UserDAO в ModelingProject1::RoadRingSim::Data::DAO::DAO (Generalization)" />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="High" Text="Полностью реконструировано (1) типов." />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="High" Text="Частично реконструировано (2) типов.  Эти типы не были включены в исходный выбор, поэтому их полные определения не реконструированы.  Данная пустая операция лишь проверила наличие этих типов в модели UML, поскольку они необходимы для полного описания других элементов." />
+  <Message Timestamp="2015-04-12T13:47:07" Importance="High" Text="Операция реконструирования завершена; ошибок: (0), предупреждений: (0)." />
 </Log>
