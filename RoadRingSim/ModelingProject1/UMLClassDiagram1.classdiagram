@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="1cd0fed9-beeb-4e65-ad8b-b457cd94c5ed" name="UMLClassDiagram1" linkedPackageId="944b08d3-346e-4cb8-ac7a-47991ab5ff92" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="1cd0fed9-beeb-4e65-ad8b-b457cd94c5ed" name="UMLClassDiagram1" linkedPackageId="944b08d3-346e-4cb8-ac7a-47991ab5ff92" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="08c7d17d-ce6b-4822-9709-84fb673aebcf" name="namespace" profile="CSharpProfile">
       <elementDefinition Id="7f0fdd35-91d0-40f2-9689-12d9d60c3097" />
@@ -2336,13 +2336,6 @@
                       </association>
                     </targetEnds>
                     <ownedAttributesInternal>
-                      <property Id="54683557-ac7a-4c7e-a5cb-5e8c3fcf368c" name="Human" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <description>пешеход текущей клетки</description>
-                        <elementDefinition Id="ba65c6ea-08c9-4687-8641-9798b2c3ca3c" />
-                        <type_NamedElement>
-                          <referencedTypeMoniker Id="7c8f765d-b3a8-4385-b981-b3c7c29dd21c" LastKnownName="Human" />
-                        </type_NamedElement>
-                      </property>
                       <property Id="10e198d3-8970-4223-8cb1-80b3bcc127da" name="Car" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                         <description>машина текущей клетки (null если отсутвует)</description>
                         <elementDefinition Id="a4638908-e7f3-41b2-a6a0-d9b8cc3d98e1" />
@@ -2351,47 +2344,29 @@
                         </type_NamedElement>
                       </property>
                       <property Id="021a8ae0-980a-46e8-aad8-c8cf7f333776" name="LineNumber" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <description>номер полосы</description>
+                        <description>номер полосы
+нумерация начинается по правую сторону от направления движения</description>
                         <elementDefinition Id="e6e704d9-6e14-4f32-a9d6-214b4b50de3a" />
                         <type_NamedElement>
                           <referencedTypeMoniker Id="1ef14ec4-e493-40d9-baea-db5510aed65c" LastKnownName="int" />
                         </type_NamedElement>
                       </property>
-                      <property Id="8912a6b0-e606-4e0e-bae2-e02bed7c286e" name="CellType" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <elementDefinition Id="ca95f493-bc04-4c0b-b8c9-8d8dfc7f8ec9" />
+                      <property Id="b60a3f14-9538-43d2-a42c-4cea507e0a2e" name="X" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="d3a4aaa3-b087-4e54-91f1-512b5a1d9c01" />
                         <type_NamedElement>
-                          <referencedTypeMoniker Id="5fa0f0bb-967e-4228-8ab0-cf029cdad60f" LastKnownName="CellTypes" />
+                          <referencedTypeMoniker Id="a407f4c6-0b2f-47eb-9fac-5907c51dd2ef" LastKnownName="int" />
                         </type_NamedElement>
                       </property>
-                      <property Id="1ccc983a-eac1-448f-a5cf-75c5d08e0482" name="Derection" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <description>сторона движения по направлению вперед</description>
-                        <elementDefinition Id="d3235339-eddf-4d24-90b9-077908e76c89" />
+                      <property Id="16168aeb-d356-4059-bc5a-48f3d3e11136" name="Y" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="a8ddfc2a-7ad5-4516-9469-addd43970c32" />
                         <type_NamedElement>
-                          <referencedTypeMoniker Id="fd0ee312-18de-48d2-9068-fa1d4f4f0991" LastKnownName="Directions" />
+                          <referencedTypeMoniker Id="755c2d2a-3627-4718-9368-1183cd529740" LastKnownName="int" />
                         </type_NamedElement>
                       </property>
                     </ownedAttributesInternal>
                     <ownedOperationsInternal>
                       <operation Id="1493303c-5b41-40e5-a7d9-1dbb6a5d0938" name="Cell" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                         <elementDefinition Id="7d36e934-1594-42f2-8da4-ada040e0688c" />
-                        <ownedParameters>
-                          <operationHasOwnedParameters>
-                            <parameter Id="3a10ae29-5854-447b-94e4-08fce285c078" name="LineNumber" direction="In">
-                              <elementDefinition Id="59586cab-245d-4172-b407-25a69f61af18" />
-                              <type_NamedElement>
-                                <referencedTypeMoniker Id="9fe54ad3-bc61-498a-bf7b-2b46c8cbb211" LastKnownName="int" />
-                              </type_NamedElement>
-                            </parameter>
-                          </operationHasOwnedParameters>
-                          <operationHasOwnedParameters>
-                            <parameter Id="debe05b6-8118-4936-8a36-c3a01fc3bb78" name="CellType" direction="In">
-                              <elementDefinition Id="801e56ed-4273-4ac4-ab8f-8dc8f3bd08a4" />
-                              <type_NamedElement>
-                                <referencedTypeMoniker Id="5fa0f0bb-967e-4228-8ab0-cf029cdad60f" LastKnownName="CellTypes" />
-                              </type_NamedElement>
-                            </parameter>
-                          </operationHasOwnedParameters>
-                        </ownedParameters>
                       </operation>
                     </ownedOperationsInternal>
                   </class>
@@ -2471,118 +2446,6 @@
                       </association>
                     </targetEnds>
                     <ownedAttributesInternal>
-                      <property Id="7d50d589-1725-48ac-8472-ab72e9afde4c" name="X" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <description>положение по горизонтали в клетках</description>
-                        <appliedStereotypesInternal>
-                          <stereotypeInstance Id="26b96cea-040f-47f3-a0b1-967218fb064a" name="property" profile="CSharpProfile">
-                            <elementDefinition Id="55d2edd3-356d-49cd-b599-da26caa11f47" />
-                            <propertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="0a4cb2e6-c284-49b9-abe2-784191714f22">
-                                <propertyInstance Id="a3c48c2f-6c5a-4338-a298-38ffacb461c0" name="ClrAttributes">
-                                  <elementDefinition Id="8651017a-ab4d-4916-8b0a-4cbfd2054098" />
-                                </propertyInstance>
-                                <elementDefinition Id="42ee8122-be40-4312-a2fd-1a81d734d273" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="06f60d75-0681-43bd-b584-695dbd8c0b36">
-                                <propertyInstance Id="0966ff48-5999-4980-8acc-42733be03058" name="Get" value="none">
-                                  <elementDefinition Id="0e985dcd-835e-4bd6-9e37-b797e10166cf" />
-                                </propertyInstance>
-                                <elementDefinition Id="400f3e88-007d-483d-bfdb-18f5136f5bb4" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="1d8da511-670b-4362-9828-eea0e8ba93ac">
-                                <propertyInstance Id="121899b6-dc13-42b2-b9d6-dce410f42de1" name="HasBody" value="false">
-                                  <elementDefinition Id="cb483432-15ba-4b33-bd83-1d0ebbe5c681" />
-                                </propertyInstance>
-                                <elementDefinition Id="cac1f614-163c-4b4c-bfac-661898d21d1c" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="4994a140-1a32-408a-b8cd-f784aa48ef0f">
-                                <propertyInstance Id="fa79f0b5-271c-4cc8-bb29-1f3976573198" name="IsUnsafe" value="false">
-                                  <elementDefinition Id="7ef6af78-9761-41e7-92f8-d021984ff296" />
-                                </propertyInstance>
-                                <elementDefinition Id="25f38827-5551-44ff-96df-1cf05971a1a5" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="2d360d27-9a52-44a7-84b2-dc900b9694af">
-                                <propertyInstance Id="d8d7f159-ead9-4688-8e14-78d9140cf3e6" name="Inheritance" value="none">
-                                  <elementDefinition Id="66634ce3-02d2-4b6a-b368-c574048af875" />
-                                </propertyInstance>
-                                <elementDefinition Id="fe81bd01-51ea-4f3d-831c-f82aeb9fd91a" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="52e84eb9-362b-47c6-9ffb-c36e2e72ff73">
-                                <propertyInstance Id="6d325d09-de39-4a2d-8c72-b3073565c7c0" name="PackageVisibility" value="internal">
-                                  <elementDefinition Id="ad19b108-5e36-49ac-87e3-b9f6e853169d" />
-                                </propertyInstance>
-                                <elementDefinition Id="329333d0-f339-4c58-8156-669c231f390b" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="cd61d52e-8c64-4ac0-bc38-9f560f0e9a18">
-                                <propertyInstance Id="ab9045a5-89bf-4da3-8f57-4f66fdf96d83" name="Set" value="none">
-                                  <elementDefinition Id="2f9c0914-1385-4d2d-8357-2a2bb3df8e1c" />
-                                </propertyInstance>
-                                <elementDefinition Id="01a7f4b0-87f5-4ed8-8552-bd4d39f5fbab" />
-                              </stereotypeInstanceHasPropertyInstances>
-                            </propertyInstances>
-                          </stereotypeInstance>
-                        </appliedStereotypesInternal>
-                        <elementDefinition Id="e4e49637-513d-4f5d-8694-a18be296a896" />
-                        <type_NamedElement>
-                          <referencedTypeMoniker Id="28ce121b-2209-44fc-b6dc-c2ec86daa30f" LastKnownName="int" />
-                        </type_NamedElement>
-                      </property>
-                      <property Id="8c2f0576-7358-4a41-8960-7fee1d1803eb" name="Y" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <description>положение по вертикали в кретках</description>
-                        <appliedStereotypesInternal>
-                          <stereotypeInstance Id="05c6f4df-dcc3-47c8-9b18-b24492103fc7" name="property" profile="CSharpProfile">
-                            <elementDefinition Id="d95cb1f5-a361-4892-9211-d2ebccd4a01a" />
-                            <propertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="37a4d11a-0dde-4e95-b725-863fa9836a08">
-                                <propertyInstance Id="6fcc9e05-4a26-40c7-8606-4750d1668cd3" name="ClrAttributes">
-                                  <elementDefinition Id="5bd69df1-7fc6-45a5-8bb2-8f161674093f" />
-                                </propertyInstance>
-                                <elementDefinition Id="4ddcc9bc-2a85-4859-9e14-c79683a7baec" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="76c1ab20-5b71-408b-9799-89e341a8462a">
-                                <propertyInstance Id="c84c0e23-587a-450d-b011-9003b557abb7" name="Get" value="none">
-                                  <elementDefinition Id="61d0fa04-7e57-4c98-9172-bd8fd2b63daf" />
-                                </propertyInstance>
-                                <elementDefinition Id="59efdd10-1912-4691-a59f-44d720da47bf" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="9abfb094-f31b-4682-a3a7-7344b9b3aae8">
-                                <propertyInstance Id="be74eca7-e8d5-4378-8b38-092f4e117055" name="HasBody" value="false">
-                                  <elementDefinition Id="589920b8-0fbc-4695-a56f-d76ed2d9f01c" />
-                                </propertyInstance>
-                                <elementDefinition Id="1f95f653-4bcc-4eee-9bcb-6da8597810ee" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="6fde1644-b81d-4e6c-9709-838e0ff2fa1c">
-                                <propertyInstance Id="4688f833-e720-4721-a20b-6dbf1ecd85fc" name="IsUnsafe" value="false">
-                                  <elementDefinition Id="9c1a065d-8278-49a0-bf3a-497bcfe93acc" />
-                                </propertyInstance>
-                                <elementDefinition Id="f981779b-a67a-4ea4-bc7a-b760d4486292" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="b2f5c1f7-53a8-408a-883e-cb55c4010fd0">
-                                <propertyInstance Id="744f5496-8202-484f-8548-6fecbd040f1b" name="Inheritance" value="none">
-                                  <elementDefinition Id="89e86312-cd91-4dc5-afb7-b77da6f90514" />
-                                </propertyInstance>
-                                <elementDefinition Id="27d5c159-e4a4-4753-b301-5454249a7911" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="1a8a91d9-9578-4e74-abce-4bf566b8b3ec">
-                                <propertyInstance Id="48975077-d432-4f18-a9d9-7c4d57b26727" name="PackageVisibility" value="internal">
-                                  <elementDefinition Id="662ac7fe-4ef9-4828-85e2-2b429d7b611c" />
-                                </propertyInstance>
-                                <elementDefinition Id="283960ad-c986-4ebc-b78a-573d697ffe5c" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="7028cb92-3b85-4b15-acb2-a3f65ae90489">
-                                <propertyInstance Id="87948a48-12e2-4de6-bef0-be5894b2132f" name="Set" value="none">
-                                  <elementDefinition Id="9830919f-813c-416b-a5c9-6802304d8e01" />
-                                </propertyInstance>
-                                <elementDefinition Id="52622b37-940a-4ea9-ab07-7fb444bff8fb" />
-                              </stereotypeInstanceHasPropertyInstances>
-                            </propertyInstances>
-                          </stereotypeInstance>
-                        </appliedStereotypesInternal>
-                        <elementDefinition Id="ebefce8a-b7c6-4286-8d0b-8d40c8d1291b" />
-                        <type_NamedElement>
-                          <referencedTypeMoniker Id="b637a426-da60-48e0-97cb-edb14245fea7" LastKnownName="int" />
-                        </type_NamedElement>
-                      </property>
                       <property Id="48feab42-0297-4fa2-9ad0-f214eb7b94be" name="RouteTo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                         <description>маршрут движения машины</description>
                         <appliedStereotypesInternal>
@@ -2645,65 +2508,44 @@
                           <referencedTypeMoniker Id="588a3795-b6db-48d9-8256-f14eba0e6c48" LastKnownName="Routes" />
                         </type_NamedElement>
                       </property>
+                      <property Id="516f5b26-cf38-40d7-a27f-fb2348603040" name="Location" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="8491a050-6b85-441a-a25e-22873aebabfe" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="6e608195-1497-4182-87c1-619d8787d71e" LastKnownName="Cell" />
+                        </type_NamedElement>
+                      </property>
+                      <property Id="b9fdc255-bfea-452f-aaa1-84ad22217bf8" name="CurrentState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="1e578ad6-7302-4725-854a-0b1b5b9c4dbf" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="f9ecec27-4eea-4a9f-bcdb-771bd1bf2afe" LastKnownName="CarStates" />
+                        </type_NamedElement>
+                      </property>
+                      <property Id="eeecb43e-5fb7-49f1-9d83-a7a59d14bc93" name="Color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <description>цвет машины</description>
+                        <elementDefinition Id="5aae7f28-d976-4a4f-a29b-9aa5e7e7a10b" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="c5e8196f-8a94-422c-a71d-d766b3a22c24" LastKnownName="Color" />
+                        </type_NamedElement>
+                      </property>
                     </ownedAttributesInternal>
                     <ownedOperationsInternal>
-                      <operation Id="e6abf6d3-464f-4540-aab0-b83dabf03462" name="MoveForward" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-                        <description>движение мешины вперед. Определяетчя полем Direction текущей клетки</description>
-                        <appliedStereotypesInternal>
-                          <stereotypeInstance Id="2d2f9aca-e49d-46f2-b79b-dd83bb93880b" name="method" profile="CSharpProfile">
-                            <elementDefinition Id="e8581013-25ce-4802-b8e3-f2c6819cd66b" />
-                            <propertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="6a47eca4-5446-43f0-9d77-3794f45ca70e">
-                                <propertyInstance Id="290fe8ff-602b-4ea7-92a3-03292cc63249" name="ClrAttributes">
-                                  <elementDefinition Id="ebea8d14-095f-4ab0-95ea-022679980f22" />
-                                </propertyInstance>
-                                <elementDefinition Id="e4b83512-bdb7-4159-b7d8-79fc444d32b2" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="5d0369c6-b71a-4dac-be32-a4456f894ad0">
-                                <propertyInstance Id="6f5c13f1-ae65-4d17-8ca7-2ed18d0940ef" name="IsPartial" value="false">
-                                  <elementDefinition Id="4ae3dff2-4ac3-46d4-9e01-2ed17b5e8c13" />
-                                </propertyInstance>
-                                <elementDefinition Id="d0628a57-c1ce-470b-ac24-207139fae0e7" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="a7a8767c-4773-4e36-94f0-59f75e3de972">
-                                <propertyInstance Id="7f9697fa-8739-4f5a-9e06-85ff7317a14f" name="IsUnsafe" value="false">
-                                  <elementDefinition Id="30a8406e-fc17-4789-aad2-b8c5d3d59b6b" />
-                                </propertyInstance>
-                                <elementDefinition Id="fd1d01ee-6af2-4ffe-babf-a3ff860ab8e4" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="de4ff73d-e7c6-4c69-addc-4b2079caa51c">
-                                <propertyInstance Id="0f41a6ab-15ea-4945-bb3b-7b2552d8f06b" name="Inheritance" value="none">
-                                  <elementDefinition Id="e73d4df8-ff0f-4e6c-bde2-4b4838cf4444" />
-                                </propertyInstance>
-                                <elementDefinition Id="66ed5513-0f59-45d5-9a2a-15cd15e4100e" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="ca677dca-4e0b-4204-8b68-2bbfb7451fe4">
-                                <propertyInstance Id="1491fec9-dc54-4108-a191-ad7a1ecc5d86" name="PackageVisibility" value="internal">
-                                  <elementDefinition Id="13ec8dfa-db42-4114-868e-c648142a952b" />
-                                </propertyInstance>
-                                <elementDefinition Id="4b1c169e-a9cf-42b8-9c08-dc228c4119b9" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="ab35ce8b-54ad-49dc-bfdc-0d8acdfee982">
-                                <propertyInstance Id="f2fc57e1-690e-4514-9474-84a40251457c" name="params" value="false">
-                                  <elementDefinition Id="ed165617-a8ae-4085-90d9-7d0c3b555f06" />
-                                </propertyInstance>
-                                <elementDefinition Id="111fe667-5117-41c3-a6d8-c2acb3c5328b" />
-                              </stereotypeInstanceHasPropertyInstances>
-                            </propertyInstances>
-                          </stereotypeInstance>
-                        </appliedStereotypesInternal>
-                        <elementDefinition Id="eeeb85cf-e413-4a72-a5da-99df2d53ac13" />
-                      </operation>
                       <operation Id="54d23eba-5bae-4e51-b26e-91fab23a9970" name="Car" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                         <elementDefinition Id="07f42a28-b781-44fc-9a4c-909548eb0150" />
                       </operation>
-                      <operation Id="7eb3a5ee-3bd3-4ab0-889d-61894d5d2c88" name="TurnLeft" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-                        <description>поворот налево или смена полосы</description>
-                        <elementDefinition Id="e97721b9-2cf5-4ce2-9991-1d51f9ebeb10" />
-                      </operation>
-                      <operation Id="3bfc3b1c-cb18-4196-9185-378db5b8e3d3" name="TurnRight" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-                        <description>поворот направо или смена полосы</description>
-                        <elementDefinition Id="8eff192e-b3c2-4a9f-954e-14b04f091903" />
+                      <operation Id="22810066-f772-489a-80bb-0d90db3c9288" name="NeedRingLine" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                        <description>полоса, которую нужно занять этой машине на кольце
+исходя из RouteFrom и RouteTo (чем дальше ехать, тем больше номер полосы)</description>
+                        <elementDefinition Id="36328e74-cf70-43d6-951b-e005363fa057" />
+                        <ownedParameters>
+                          <operationHasOwnedParameters>
+                            <parameter Id="bd9afe9c-6113-41dc-a9cc-fd772a9c8782" direction="Return">
+                              <elementDefinition Id="441fc36d-c765-4c32-a329-e006e9d009c5" />
+                              <type_NamedElement>
+                                <referencedTypeMoniker Id="05936512-53c5-4ffc-bc36-f22767ee4433" LastKnownName="int" />
+                              </type_NamedElement>
+                            </parameter>
+                          </operationHasOwnedParameters>
+                        </ownedParameters>
                       </operation>
                     </ownedOperationsInternal>
                   </class>
@@ -2841,52 +2683,6 @@
                       </property>
                     </ownedAttributesInternal>
                     <ownedOperationsInternal>
-                      <operation Id="0f12090c-3038-4639-9a76-04dbd713e5d4" name="MoveForward" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-                        <appliedStereotypesInternal>
-                          <stereotypeInstance Id="4c647a36-eff2-4e74-b011-efaa623515a6" name="method" profile="CSharpProfile">
-                            <elementDefinition Id="24cde7f1-5d20-4a74-8702-0997d947a472" />
-                            <propertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="78cae72a-ba77-4c94-a38b-4d334c0b94cc">
-                                <propertyInstance Id="3b599a49-f308-4d3e-826a-c409a2393c0d" name="ClrAttributes">
-                                  <elementDefinition Id="1f57ca06-72f7-4358-ac66-cc6e704b7e0c" />
-                                </propertyInstance>
-                                <elementDefinition Id="98b3876c-89aa-40f0-bce5-0706fd89efd4" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="d08f87df-2677-4753-8571-4567e77d7a21">
-                                <propertyInstance Id="ff0176b6-a638-4ff4-a2ed-e9f7f8b71032" name="IsPartial" value="false">
-                                  <elementDefinition Id="b89820d1-2d5e-48ee-95cc-e82c7bb5a2bb" />
-                                </propertyInstance>
-                                <elementDefinition Id="1821e421-11eb-4b70-a4e0-d70511882f47" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="90129da0-7221-4348-95dc-0951fac9aa66">
-                                <propertyInstance Id="e99c2f85-8b1d-432d-9e59-a9ea729274d7" name="IsUnsafe" value="false">
-                                  <elementDefinition Id="d318b0f4-56ae-4398-8b90-088db73fa3d0" />
-                                </propertyInstance>
-                                <elementDefinition Id="49e659a3-f58a-41c2-a3d4-54b8e7b8c6ab" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="1f476482-e934-4b8f-ba9d-f6af09e9a380">
-                                <propertyInstance Id="e22815ab-ae00-4616-8000-61b2e33d65a9" name="Inheritance" value="none">
-                                  <elementDefinition Id="12f8d1a2-1e69-488e-be2c-8306babf7ee2" />
-                                </propertyInstance>
-                                <elementDefinition Id="78609424-dbed-43b3-8dbe-a8ec9afc06ed" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="a315cd0f-27bd-4d30-8198-b58783966a48">
-                                <propertyInstance Id="00c7f090-e48a-4c5e-b189-b3bee8e63455" name="PackageVisibility" value="internal">
-                                  <elementDefinition Id="70b0ee49-9ec7-492d-b60f-63d988e4aed8" />
-                                </propertyInstance>
-                                <elementDefinition Id="8ad08f8c-7f2c-46b4-aab8-90de479f5d52" />
-                              </stereotypeInstanceHasPropertyInstances>
-                              <stereotypeInstanceHasPropertyInstances Id="895072cd-3144-4912-b337-ae379783deff">
-                                <propertyInstance Id="405c9264-90ad-4101-976c-1f580fad6eaa" name="params" value="false">
-                                  <elementDefinition Id="75ec996c-d612-462b-91a4-d28db11bc10c" />
-                                </propertyInstance>
-                                <elementDefinition Id="562f8b10-f553-44c0-bc7c-2e65fdb475d6" />
-                              </stereotypeInstanceHasPropertyInstances>
-                            </propertyInstances>
-                          </stereotypeInstance>
-                        </appliedStereotypesInternal>
-                        <elementDefinition Id="61b30ff8-1a60-41ea-93dc-7d41d0731020" />
-                      </operation>
                       <operation Id="01092750-2e94-483f-8091-9f735bebdcc5" name="Human" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                         <elementDefinition Id="1a8ab756-c86a-4519-9188-f8948f42291e" />
                       </operation>
@@ -2931,22 +2727,43 @@
                     <ownedLiterals>
                       <enumerationLiteral Id="3c812f7e-7c43-42cc-82e9-ed7194a42a53" name="Top">
                         <elementDefinition Id="34f28801-8974-4e64-940d-ba2518833974" />
+                        <specification>
+                          <literalInteger Id="5eca80c8-bedb-422e-ad3a-bf08d4a848ff" name="Integer" value="1">
+                            <elementDefinition Id="06fecf9b-21e8-4a75-bcb1-0240d3bc3184" />
+                          </literalInteger>
+                        </specification>
                       </enumerationLiteral>
                       <enumerationLiteral Id="494c62c5-9df3-439f-80c9-5c700a334b20" name="Bottom">
                         <elementDefinition Id="83cf6605-7483-496d-898b-afbf5a28cdf9" />
+                        <specification>
+                          <literalInteger Id="2ddb7039-f8a5-4361-805b-d01b7fe96cb6" name="Integer" value="3">
+                            <elementDefinition Id="44f8088d-25d6-4be7-a04b-2cda9058b95a" />
+                          </literalInteger>
+                        </specification>
                       </enumerationLiteral>
                       <enumerationLiteral Id="9949c239-b726-4562-9751-f9ac2ca65a20" name="Left">
                         <elementDefinition Id="02cd077a-78f1-4924-a30b-0ed32e4a33d2" />
+                        <specification>
+                          <literalInteger Id="aa613573-7337-4f0e-a5e7-773031583f80" name="Integer" value="4">
+                            <elementDefinition Id="a76f825c-1cbb-4574-a98d-70f2e3c17ee0" />
+                          </literalInteger>
+                        </specification>
                       </enumerationLiteral>
                       <enumerationLiteral Id="962a15ed-54df-4fe4-889a-de689546fddd" name="Right">
                         <elementDefinition Id="7f720a55-8abb-4ed9-b910-406e366b1d34" />
+                        <specification>
+                          <literalInteger Id="727861d8-09fc-4f8d-ad9e-4c296fe70a99" name="Integer" value="2">
+                            <elementDefinition Id="c8b3c228-0d83-4132-9141-605dd61b114a" />
+                          </literalInteger>
+                        </specification>
                       </enumerationLiteral>
                     </ownedLiterals>
                   </enumeration>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
                   <class Id="86becdf9-a64a-41fa-b1fe-a18ea68b1b49" name="Render" isAbstract="false" isLeaf="true" isActiveClass="false">
-                    <description>класс отрисовки среды симуляции. Патерн одиночка</description>
+                    <description>класс отрисовки среды симуляции.
+должен отслеживать состояние модели и обновлять визуализацию</description>
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="d7acb061-a64a-4ca9-b9cd-67ad9515cb4c" name="class" profile="CSharpProfile">
                         <elementDefinition Id="f4800be0-8f83-4a90-b252-6884ed3849c3" />
@@ -3413,12 +3230,6 @@
                 <packageHasNamedElement>
                   <enumeration Id="d2abcf3d-80c8-4a4f-b66f-7bf8495cda20" name="CellTypes" isAbstract="false" isLeaf="false">
                     <elementDefinition Id="fb45d3ba-fd10-48aa-b6ed-9da1bbee215f" />
-                    <suppliersInternal>
-                      <dependency Id="270e25a0-1daf-4681-a7c2-023366090564">
-                        <classMoniker Id="b1631935-6055-4be3-bd4f-74ad74ce5ab5" LastKnownName="Cell" />
-                        <elementDefinition Id="de78ea4f-1214-4810-981e-6cb47f2db671" />
-                      </dependency>
-                    </suppliersInternal>
                     <ownedLiterals>
                       <enumerationLiteral Id="ec2f3eb6-8682-4a42-871d-791bfe0ade1c" name="Ring">
                         <description>клетка кольца</description>
@@ -3449,12 +3260,6 @@
                   <enumeration Id="ecbf5217-9bc3-414a-85ff-1ca69365c28b" name="Directions" isAbstract="false" isLeaf="false">
                     <description>сторона движения по направлению вперед</description>
                     <elementDefinition Id="df071f87-604a-4363-9aea-658239a8f73f" />
-                    <suppliersInternal>
-                      <dependency Id="185cda0b-b6d1-46f0-b410-efd069fd5f25">
-                        <classMoniker Id="b1631935-6055-4be3-bd4f-74ad74ce5ab5" LastKnownName="Cell" />
-                        <elementDefinition Id="df545f19-a61f-4e55-95c8-8bcadf6ae16b" />
-                      </dependency>
-                    </suppliersInternal>
                     <ownedLiterals>
                       <enumerationLiteral Id="9b15f99e-2a13-41e6-b853-67f8938c39b1" name="Up">
                         <elementDefinition Id="3a514f4a-ac5e-4ab0-91a3-8ebf8a2a04cb" />
@@ -3470,6 +3275,152 @@
                       </enumerationLiteral>
                     </ownedLiterals>
                   </enumeration>
+                </packageHasNamedElement>
+                <packageHasNamedElement>
+                  <class Id="5e1cda74-b9bc-4c95-b01d-63259db3d5b4" name="RoadCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <description>дорога вне колььца</description>
+                    <elementDefinition Id="f2df124b-cc83-41cd-9528-96afe578d910" />
+                    <generalsInternal>
+                      <generalization Id="08f92715-daad-4463-984c-7b4f10359e93" isSubstitutable="false">
+                        <classMoniker Id="b1631935-6055-4be3-bd4f-74ad74ce5ab5" LastKnownName="Cell" />
+                        <elementDefinition Id="d8b10371-f32b-46f2-81b5-82c63c67eb23" />
+                      </generalization>
+                    </generalsInternal>
+                    <ownedAttributesInternal>
+                      <property Id="1dd0ac19-a1e7-4a45-b4bd-2f631390ab99" name="Next" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <description>ссылка на клетку, в которую машина попадет двигаясь вперед</description>
+                        <elementDefinition Id="b5e86054-4db1-4ffd-817d-6b5932cd6a81" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="0c6840c0-d816-477f-ab76-68397c828eec" LastKnownName="Cell" />
+                        </type_NamedElement>
+                      </property>
+                    </ownedAttributesInternal>
+                  </class>
+                </packageHasNamedElement>
+                <packageHasNamedElement>
+                  <class Id="458cd82a-0e6b-4e00-abfa-d42365284824" name="RingCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <description>кольцо дороги</description>
+                    <elementDefinition Id="6c4be22e-d852-47c0-9cc7-2b37ec0204e6" />
+                    <generalsInternal>
+                      <generalization Id="7295d1db-7854-4cd9-93f0-a146b889b871" isSubstitutable="false">
+                        <classMoniker Id="b1631935-6055-4be3-bd4f-74ad74ce5ab5" LastKnownName="Cell" />
+                        <elementDefinition Id="9b3f6b2a-5efe-4e43-be4e-2e345db3c89c" />
+                      </generalization>
+                    </generalsInternal>
+                    <ownedAttributesInternal>
+                      <property Id="b94dcf8b-dfcc-434a-92c0-5840a79388bc" name="Next" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <description>ссылка на клетку, в которую машина попадет двигаясь вперед</description>
+                        <elementDefinition Id="7ed8399e-a213-4ea2-be37-082bc7128534" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="e315c7d0-74bb-4de3-8857-a005c713ef3c" LastKnownName="RingCell" />
+                        </type_NamedElement>
+                      </property>
+                    </ownedAttributesInternal>
+                  </class>
+                </packageHasNamedElement>
+                <packageHasNamedElement>
+                  <enumeration Id="913d9af1-b827-4674-a2e3-9e7a90e2597b" name="CarStates" isAbstract="false" isLeaf="false">
+                    <description>возможные состояния машины по типу текущей выполняемой задачи</description>
+                    <elementDefinition Id="cd0fea9e-bdd0-4a87-8489-c8d2383af670" />
+                    <suppliersInternal>
+                      <dependency Id="568680b7-8cbd-4b3d-a23a-3059473dbb55">
+                        <classMoniker Id="ddfb07c4-3bde-44e9-93ae-98dc28d113e9" LastKnownName="Car" />
+                        <elementDefinition Id="8ed5d0c7-c7d5-4548-b618-2e6b2ee9b3c4" />
+                      </dependency>
+                    </suppliersInternal>
+                    <ownedLiterals>
+                      <enumerationLiteral Id="d9a72dd0-4a0f-4a13-ab70-647a0e15e875" name="MoveToRing">
+                        <description>движение к кольцу</description>
+                        <elementDefinition Id="a4befa61-6f46-49c0-a49e-50d1c62ef13b" />
+                      </enumerationLiteral>
+                      <enumerationLiteral Id="23449369-4268-4d63-953c-d2e5f09eb9eb" name="EntryRing">
+                        <description>въезд на кольцо</description>
+                        <elementDefinition Id="642c80c2-5b49-4588-9b73-d1ca01769e24" />
+                      </enumerationLiteral>
+                      <enumerationLiteral Id="0dca0e3e-e651-4724-bf12-7d70e9f95419" name="DepartRing">
+                        <description>выезд из кольца</description>
+                        <elementDefinition Id="f508e8b5-78ea-4951-b727-430d9b4e3b07" />
+                      </enumerationLiteral>
+                      <enumerationLiteral Id="d0ea4826-60b3-4e23-82ef-e29a1c0875ed" name="MoveOnRing">
+                        <description>движение по кольцу</description>
+                        <elementDefinition Id="859bcb9b-ae78-44c0-bdbb-1f438158e9d4" />
+                      </enumerationLiteral>
+                    </ownedLiterals>
+                  </enumeration>
+                </packageHasNamedElement>
+                <packageHasNamedElement>
+                  <class Id="d21946dc-2278-490f-b433-9f22338b52f9" name="DepartCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <description>клетка, по которой выезжают из кольца</description>
+                    <elementDefinition Id="40d28d0c-ee95-42f1-b6f6-7469970cc6b7" />
+                    <suppliersInternal>
+                      <dependency Id="8320c641-4f51-4af3-ae5c-fadfec1bdb23">
+                        <enumerationMoniker Id="d054e08c-a2cf-4871-8a16-d14c68753bc6" LastKnownName="Routes" />
+                        <elementDefinition Id="7c3bfb82-f4c0-44c7-87f6-f55a8a5825cb" />
+                      </dependency>
+                    </suppliersInternal>
+                    <generalsInternal>
+                      <generalization Id="55043665-c6da-4c31-962e-8262efd04d9f" isSubstitutable="false">
+                        <classMoniker Id="458cd82a-0e6b-4e00-abfa-d42365284824" LastKnownName="RingCell" />
+                        <elementDefinition Id="26d7203b-47c2-453f-9ee5-870e6a0d0bb3" />
+                      </generalization>
+                    </generalsInternal>
+                    <ownedAttributesInternal>
+                      <property Id="2d9e9b29-cb8f-4a47-a7bf-09cdcbd43922" name="Route" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <description>направление выезда</description>
+                        <elementDefinition Id="903602cf-5d91-4516-b5be-fb85cf7e4212" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="f2e33319-01c9-4eb1-90bb-ef836a2266d4" LastKnownName="Routes" />
+                        </type_NamedElement>
+                      </property>
+                      <property Id="e85f4ae0-5e06-4599-84ee-579cc06557d0" name="NextDepart" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="5c188fd7-b8f6-41a5-b239-19ea39f5d3f1" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="87b4911b-3129-4ae6-bc1b-8beecd236d5c" LastKnownName="Cell" />
+                        </type_NamedElement>
+                      </property>
+                    </ownedAttributesInternal>
+                  </class>
+                </packageHasNamedElement>
+                <packageHasNamedElement>
+                  <class Id="236b9651-2581-4d95-b283-77fe4239c564" name="EntryCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <description>клетка, по котрой въезжают на кольцо на нужную полосу</description>
+                    <elementDefinition Id="950b2aff-b23f-4072-9fdc-d5d8d0c69ee2" />
+                    <generalsInternal>
+                      <generalization Id="9dada4ba-1bb6-403e-8156-5649c261c349" isSubstitutable="false">
+                        <classMoniker Id="458cd82a-0e6b-4e00-abfa-d42365284824" LastKnownName="RingCell" />
+                        <elementDefinition Id="bd1da7cf-d4fa-4ef5-b07e-68e0f827d200" />
+                      </generalization>
+                    </generalsInternal>
+                    <ownedAttributesInternal>
+                      <property Id="7e644339-7c06-494a-b6b8-e680fa5855d7" name="NextRingLine" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <description>ссылка на клетку следующей по счету полосы на кольце.
+требуется для занятия нужной полосы при въезде</description>
+                        <elementDefinition Id="1e6355d2-4f4b-4c22-bd83-36d8979db41b" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="53669a88-70ea-4913-993e-24399f651b08" LastKnownName="EntryCell" />
+                        </type_NamedElement>
+                      </property>
+                    </ownedAttributesInternal>
+                  </class>
+                </packageHasNamedElement>
+                <packageHasNamedElement>
+                  <class Id="72791329-08cf-43b9-89fb-aedb21e0507d" name="CrossWalkCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="240ee053-7f31-4859-94d2-30432d5ca28f" />
+                    <generalsInternal>
+                      <generalization Id="2ad5f620-74f8-4aff-b2bb-667c8580056a" isSubstitutable="false">
+                        <classMoniker Id="b1631935-6055-4be3-bd4f-74ad74ce5ab5" LastKnownName="Cell" />
+                        <elementDefinition Id="a788310d-fc70-4900-b079-3956aca6088e" />
+                      </generalization>
+                    </generalsInternal>
+                    <ownedAttributesInternal>
+                      <property Id="cf6f36eb-43a0-4c3b-98a4-adf9d0a4f5ce" name="Pedestrian" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="d0a93b36-6ef8-4e8a-a4a9-51e4cb6a48ee" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="2f3dccbe-310f-45b3-a861-89915a44c358" LastKnownName="Human" />
+                        </type_NamedElement>
+                      </property>
+                    </ownedAttributesInternal>
+                  </class>
                 </packageHasNamedElement>
               </packagedElements>
             </package>
@@ -4857,16 +4808,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="28ce121b-2209-44fc-b6dc-c2ec86daa30f" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
-        <elementDefinition Id="b9096387-3ead-4182-9e9f-a830074d1e12" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="b637a426-da60-48e0-97cb-edb14245fea7" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
-        <elementDefinition Id="b9096387-3ead-4182-9e9f-a830074d1e12" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="3bc8bca2-c18f-4db3-8b8d-9ab7b0caf2f6" name="Human" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Human">
         <elementDefinition Id="a73b1807-fb42-4814-a404-da0c68335ad6" />
       </referencedType>
@@ -4899,11 +4840,6 @@
     <packageHasNamedElement>
       <referencedType Id="c98d606a-b439-4abf-b8b9-fbf4ccb10245" name="Car" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Car">
         <elementDefinition Id="55c58714-0491-4574-a1e8-c064d623c1cd" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="7c8f765d-b3a8-4385-b981-b3c7c29dd21c" name="Human" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Human">
-        <elementDefinition Id="a73b1807-fb42-4814-a404-da0c68335ad6" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -5037,16 +4973,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="5fa0f0bb-967e-4228-8ab0-cf029cdad60f" name="CellTypes" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::CellTypes">
-        <elementDefinition Id="fb45d3ba-fd10-48aa-b6ed-9da1bbee215f" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="fd0ee312-18de-48d2-9068-fa1d4f4f0991" name="Directions" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Directions">
-        <elementDefinition Id="df071f87-604a-4363-9aea-658239a8f73f" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="8c764cf6-d3a4-43e4-9b3d-69a0c248bb4f" name="Cell" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Cell">
         <elementDefinition Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb" />
       </referencedType>
@@ -5084,6 +5010,66 @@
     <packageHasNamedElement>
       <referencedType Id="588a3795-b6db-48d9-8256-f14eba0e6c48" name="Routes" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Routes">
         <elementDefinition Id="59e8190f-0485-409c-9ab9-3bcfb15836e4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a407f4c6-0b2f-47eb-9fac-5907c51dd2ef" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="b9096387-3ead-4182-9e9f-a830074d1e12" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="755c2d2a-3627-4718-9368-1183cd529740" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="b9096387-3ead-4182-9e9f-a830074d1e12" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6e608195-1497-4182-87c1-619d8787d71e" name="Cell" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Cell">
+        <elementDefinition Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0c6840c0-d816-477f-ab76-68397c828eec" name="Cell" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Cell">
+        <elementDefinition Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f9ecec27-4eea-4a9f-bcdb-771bd1bf2afe" name="CarStates" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::CarStates">
+        <elementDefinition Id="cd0fea9e-bdd0-4a87-8489-c8d2383af670" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c5e8196f-8a94-422c-a71d-d766b3a22c24" name="Color" isAbstract="false" isLeaf="false" cachedFullName="Color">
+        <elementDefinition Id="eab9bd06-1bbc-4ee6-8e1d-aa13cd24fa1c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e315c7d0-74bb-4de3-8857-a005c713ef3c" name="RingCell" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::RingCell">
+        <elementDefinition Id="6c4be22e-d852-47c0-9cc7-2b37ec0204e6" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f2e33319-01c9-4eb1-90bb-ef836a2266d4" name="Routes" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Routes">
+        <elementDefinition Id="59e8190f-0485-409c-9ab9-3bcfb15836e4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="53669a88-70ea-4913-993e-24399f651b08" name="EntryCell" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::EntryCell">
+        <elementDefinition Id="950b2aff-b23f-4072-9fdc-d5d8d0c69ee2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="87b4911b-3129-4ae6-bc1b-8beecd236d5c" name="Cell" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Cell">
+        <elementDefinition Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2f3dccbe-310f-45b3-a861-89915a44c358" name="Human" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::RoadRingSim::Core::Human">
+        <elementDefinition Id="a73b1807-fb42-4814-a404-da0c68335ad6" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="05936512-53c5-4ffc-bc36-f22767ee4433" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="b9096387-3ead-4182-9e9f-a830074d1e12" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
