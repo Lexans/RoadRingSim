@@ -89,5 +89,16 @@ namespace RoadRingSim.Data.DAO
             }
             return res;
         }
+        public User UserByLoginPassword(string login, string password)
+        {
+            long passHash = 0;
+            for (int i = 0; i < password.Length; i++)
+                passHash = passHash * 3 + password[i].GetHashCode() * 7;
+            var list = Select(
+                String.Format("SELECT * FROM User WHERE Login = {0} AND Password = {1}", login, passHash));
+            User res = list.FirstOrDefault();
+            CurentUser = res;
+            return res;
+        }
     }
 }

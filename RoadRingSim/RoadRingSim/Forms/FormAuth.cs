@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoadRingSim.Data.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,11 +20,15 @@ namespace RoadRingSim.Forms
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(textBoxLogin.Text)
+            if (!String.IsNullOrEmpty(textBoxLogin.Text)
                 && !String.IsNullOrEmpty(textBoxPassword.Text))
             {
-                DialogResult = DialogResult.OK;
+                UserDAO uDAO = new UserDAO();
+                uDAO.UserByLoginPassword(textBoxLogin.Text, textBoxPassword.Text);
+                if (uDAO == null) MessageBox.Show("Неверные данные", "Ошибка");
+                else DialogResult = DialogResult.OK;
             }
+            
         }
     }
 }
