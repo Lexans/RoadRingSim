@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="d27cea10-71c2-469c-bd73-be90f61f2b3b"
   name="Core"
@@ -78,6 +78,9 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false">
+            <description>список всех машин. Сначала сортируется по приоритету по клетки
+потом по признаку нахождения на дороге (дорога приоритетнее кольцо)
+</description>
             <appliedStereotypesInternal>
               <stereotypeInstance
                 Id="b5b8c641-fde6-41fb-93e4-d1dc8076d74f"
@@ -458,7 +461,7 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false">
-            <description>ширина и высота поля</description>
+            <description>максимальная координата x и y</description>
             <appliedStereotypesInternal>
               <stereotypeInstance
                 Id="892bd17e-4146-40ea-b35a-d4a3a5f4821d"
@@ -522,6 +525,12 @@
                 LastKnownName="int"
                 LastKnownLocation="Package_2127.uml" />
             </type_NamedElement>
+            <defaultValue>
+              <literalString
+                Id="38cca228-05f5-4219-8ec7-d8ff22f6405f"
+                name="DefaultValue"
+                value="30" />
+            </defaultValue>
           </property>
           <property
             Id="48e023a4-541e-4e3c-9ccd-eb64c5368445"
@@ -537,47 +546,8 @@
             <description>состояние светофора</description>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="ce5c5d79-39e1-4699-a418-b9492f931d25"
-                LastKnownName="bool"
-                LastKnownLocation="Package_2127.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="f82b46b0-3905-40d8-86e2-4df8f68cc655"
-            name="TimeOfNextHuman"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <description>время появления следующего пешехода, получаемое реализацией случайной веиличины
-</description>
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="260bbe88-daf7-40e7-b24d-b488c22f21e6"
-                LastKnownName="uint"
-                LastKnownLocation="Package_1801.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="68d0872c-6a71-432f-b042-41cf4934640d"
-            name="TimesOfNextCar"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <description>время появления следующей машины, получаемое </description>
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="7b40d489-2faf-4ca2-ac25-cb93c7c48917"
-                LastKnownName="uint[]"
+                Id="d11d5946-fb28-48d6-90be-ea4ce87921a2"
+                LastKnownName="LigthStates"
                 LastKnownLocation="Package_1801.uml" />
             </type_NamedElement>
           </property>
@@ -597,6 +567,24 @@
               <classMoniker
                 Id="a6fe5450-7b22-4ab6-90f3-2519d66bef13"
                 LastKnownName="Environment"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="537142a1-d761-42ad-b44b-771cdb671389"
+            name="Creators"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ce231d98-5147-47cb-bf2d-234db5251429"
+                LastKnownName="List&lt;ObjectCreator&gt;"
                 LastKnownLocation="Package_1801.uml" />
             </type_NamedElement>
           </property>
@@ -669,7 +657,9 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <description>инициализация всех полей</description>
+          </operation>
           <operation
             Id="9a37412f-f58f-4d50-be62-e1018a5dbe72"
             name="CalcDistance"
@@ -737,13 +727,13 @@
           </operation>
           <operation
             Id="1b6fa076-4a37-464b-b61e-395017faa390"
-            name="Initialisation"
+            name="BuildMap"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false">
-            <description>посторение CellMap в соответвии с заданными количествами полос и начличия светофоров</description>
+            <description>полное построение CellMap</description>
           </operation>
           <operation
             Id="12c4a01f-d4ff-43f0-bc91-1e521f651836"
@@ -754,6 +744,41 @@
             concurrency="Sequential"
             isQuery="false">
             <description>создает новые объекты (пешеходы, магины, сигналы светофорв) и планирует их создание в соотвтвии с законами распределния</description>
+          </operation>
+          <operation
+            Id="e026985c-9556-4e96-b1b1-cf48678a2822"
+            name="CreateAllNewObject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>вызывает все ObjectCreator'ы из списка Creators</description>
+          </operation>
+          <operation
+            Id="15c621d8-ea8c-4b50-b4c4-7dc2ddc84908"
+            name="AddCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>добавление клеток в первый квадрант матрицы с отражением на все оставльные квадранты</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="41402951-c7ce-42cf-b230-a54f73e8dfef"
+                  name="NewCell"
+                  direction="In">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
+                      LastKnownName="Cell"
+                      LastKnownLocation="Package_1801.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -809,6 +834,45 @@
                 <memberEnd
                   Id="ab815ca8-e3cf-4943-9990-fef7a5bc0820"
                   name="Environment"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ec4150d3-576f-443c-9dee-ae38affb10ef"
+            isDerived="false"
+            sourceEndRoleName="Cell"
+            targetEndRoleName="Human"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a73b1807-fb42-4814-a404-da0c68335ad6"
+              LastKnownName="Human"
+              LastKnownLocation="Package_1801.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="98bdb74f-d694-4bca-bbd5-90a70fca69b0"
+                  name="Cell"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8cd8fa39-6c2a-4ff2-bb0e-7541144f90cb"
+                  name="Human"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -896,6 +960,43 @@
                 LastKnownLocation="Package_2127.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="7e0c9a96-6f23-425e-8d57-c416c61acd8b"
+            name="Priority"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>уровень приоритета клетки: 0 или 1</description>
+            <defaultValue>
+              <literalString
+                Id="2c7ad784-0817-428f-8a49-8cfccdaec046"
+                name="DefaultValue"
+                value="0" />
+            </defaultValue>
+          </property>
+          <property
+            Id="a2d2c5eb-95ea-44c1-9dad-9d86c5fdb4c7"
+            name="CrossWalk"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="a73b1807-fb42-4814-a404-da0c68335ad6"
+                LastKnownName="Human"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -905,7 +1006,37 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <description>помещает клетку в позицию X,Y в Environment.CellMap</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bca627e7-b2c8-4711-9ef5-6e6d66410127"
+                  name="X"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b9096387-3ead-4182-9e9f-a830074d1e12"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_2127.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a3d3332c-027e-43af-8ba2-aba93a94c686"
+                  name="Y"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b9096387-3ead-4182-9e9f-a830074d1e12"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_2127.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1136,7 +1267,7 @@
           </property>
           <property
             Id="1e578ad6-7302-4725-854a-0b1b5b9c4dbf"
-            name="CurrentState"
+            name="GoalState"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1171,6 +1302,119 @@
                 LastKnownLocation="Package_1801.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="4c8b5288-6844-4535-84ba-4fe38ae543bd"
+            name="NeedRingLineNumber"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>желаемая линия кольца кольца исходя из RouteFrom и RouteTo</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cdf41155-8651-4ee8-9bc1-4f8b6efe24bf"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b5a1bfb-6790-4a35-8891-9ca2dcb27f38">
+                    <propertyInstance
+                      Id="6167cd31-e3fc-4ec7-a220-c31a37d9ea7a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e9f32e72-48e7-4b84-bbb7-4e5fa57819f4">
+                    <propertyInstance
+                      Id="e4f6f0df-da4b-4116-8a99-f03d639d72b9"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="847d1525-8c7c-4893-956f-cf2dd1d0c67e">
+                    <propertyInstance
+                      Id="a9202876-0900-493a-bf66-e24509464bdd"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12fa78dc-47e3-46ac-98fc-331bc5fe8637">
+                    <propertyInstance
+                      Id="f3b9d7e7-b509-45d3-94a5-3eb310f3b890"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="acef01ea-ec12-4242-8a44-ff8a77740e9f">
+                    <propertyInstance
+                      Id="d20cbe1c-bac2-4286-b776-75c0f44f8376"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="53b87ccd-a00a-4efe-a975-25d90370c91b">
+                    <propertyInstance
+                      Id="d8498580-ee0c-4616-8890-607b94b48954"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e295da3-a0fe-46e6-89c6-17e764cdf0f5">
+                    <propertyInstance
+                      Id="dce96ddc-e3af-44d5-bc85-e75c405aa4f0"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b9096387-3ead-4182-9e9f-a830074d1e12"
+                LastKnownName="int"
+                LastKnownLocation="Package_2127.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="95f0de01-4041-4c79-a054-3ea1553802f5"
+            name="ID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>номер объекта, присваемый при создании. Служит для учета объекта в ррендере</description>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b9096387-3ead-4182-9e9f-a830074d1e12"
+                LastKnownName="int"
+                LastKnownLocation="Package_2127.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="be55f7af-b408-4dae-a8bc-4e31b55943e4"
+            name="MaxID"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>поле масимального используемого ID, для присвоения ID новым объектам</description>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b9096387-3ead-4182-9e9f-a830074d1e12"
+                LastKnownName="int"
+                LastKnownLocation="Package_2127.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1180,27 +1424,57 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <description>создается новая машина произвольного цвета. Ее состояние - ожидание въезда
+направление RouteTo задается произвольно
+</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="20c06361-2d90-4598-a3a3-db449e686dc0"
+                  name="Location"
+                  direction="In">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
+                      LastKnownName="Cell"
+                      LastKnownLocation="Package_1801.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
-            Id="36328e74-cf70-43d6-951b-e005363fa057"
-            name="NeedRingLine"
+            Id="83676487-0c4e-4e74-89bd-caf66e79817c"
+            name="TryMoveForward"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false">
-            <description>полоса, которую нужно занять этой машине на кольце
-исходя из RouteFrom и RouteTo (чем дальше ехать, тем больше номер полосы)</description>
+            <description>логика движения машины</description>
+          </operation>
+          <operation
+            Id="1b3bb78c-eeaf-4187-92e4-091bab978433"
+            name="MoveNext"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>переход на следующую клетку, если там нет пешехода и нет машины</description>
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="441fc36d-c765-4c32-a329-e006e9d009c5"
-                  direction="Return">
+                  Id="bab835de-fdb7-429f-b08a-6a1267b54738"
+                  name="NextCell"
+                  direction="In">
+                  <description>клетка, в которую ехать</description>
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="b9096387-3ead-4182-9e9f-a830074d1e12"
-                      LastKnownName="int"
-                      LastKnownLocation="Package_2127.uml" />
+                    <classMoniker
+                      Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
+                      LastKnownName="Cell"
+                      LastKnownLocation="Package_1801.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1259,15 +1533,6 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <suppliersInternal>
-          <dependency
-            Id="6c89970f-224f-40a8-9580-0ac1959224b9">
-            <classMoniker
-              Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
-              LastKnownName="Cell"
-              LastKnownLocation="Package_1801.uml" />
-          </dependency>
-        </suppliersInternal>
         <targetEnds>
           <association
             Id="a337d994-39f9-4129-869a-578e824f7f27"
@@ -1325,7 +1590,7 @@
         <ownedAttributesInternal>
           <property
             Id="4bfa7883-90e2-480f-bc9a-40f82f658ce8"
-            name="Position"
+            name="Location"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1393,11 +1658,62 @@
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <type_NamedElement>
+              <classMoniker
+                Id="240ee053-7f31-4859-94d2-30432d5ca28f"
+                LastKnownName="CrossWalkCell"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4cb0ba5a-7745-4bea-a5bf-cb36f7c97b73"
+            name="Color"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>произвольный цвет пешехода</description>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="eab9bd06-1bbc-4ee6-8e1d-aa13cd24fa1c"
+                LastKnownName="Color"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d0870911-5100-456d-8047-cc80d9e58c7a"
+            name="ID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>номер объекта, присваемый при создании. Служит для учета объекта в ррендере</description>
+            <type_NamedElement>
               <undefinedTypeMoniker
                 Id="b9096387-3ead-4182-9e9f-a830074d1e12"
                 LastKnownName="int"
                 LastKnownLocation="Package_2127.uml" />
             </type_NamedElement>
+          </property>
+          <property
+            Id="c6379aec-089d-4271-bec5-d5e9cc0071a5"
+            name="MaxID"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>поле масимального используемого ID, для присвоения ID новым объектам</description>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -1408,7 +1724,19 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <description>создается новый человечек произвольного цвета</description>
+          </operation>
+          <operation
+            Id="8805fd77-dc2b-4731-adaf-7f808884c14d"
+            name="TryMoveForward"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>если по CrossWalkCell.Next нет Car и Human, светофор отсутвует или горит красный, то переместиться вперед по NextCrossWalk</description>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1461,6 +1789,20 @@
             <classMoniker
               Id="55c58714-0491-4574-a1e8-c064d623c1cd"
               LastKnownName="Car"
+              LastKnownLocation="Package_1801.uml" />
+          </dependency>
+          <dependency
+            Id="332c0be1-34a8-47af-965f-2e9709f3a9e8">
+            <classMoniker
+              Id="950b2aff-b23f-4072-9fdc-d5d8d0c69ee2"
+              LastKnownName="EntryCell"
+              LastKnownLocation="Package_1801.uml" />
+          </dependency>
+          <dependency
+            Id="36d58c90-1c44-4cba-a234-3ee19dbffdbe">
+            <classMoniker
+              Id="f2df124b-cc83-41cd-9528-96afe578d910"
+              LastKnownName="RoadCell"
               LastKnownLocation="Package_1801.uml" />
           </dependency>
         </suppliersInternal>
@@ -1733,271 +2075,9 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="9cd64868-a239-48b4-aaca-f1fe1d3b6ea5"
-            name="RedrawCar"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <description>плавно перерисовывает машину в новом потоке из позиции XFrom,YFrom к текущему положению машины</description>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="8833d362-42f1-4391-9627-4f949bbd04f9"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a02a9af6-f720-43f8-98d5-d5f96b6eeeb4">
-                    <propertyInstance
-                      Id="c8e246db-b3ed-4f3c-8270-8b29d1d49c68"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d6c58203-977a-4fb1-9df8-62df4e49ed7a">
-                    <propertyInstance
-                      Id="a926ba3b-cfb7-4ab6-8c44-1fd4e0207ab8"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="787c187c-7182-4c4a-bac8-805dd8247fbb">
-                    <propertyInstance
-                      Id="b646ed2e-12ae-4855-9414-6466fba22d4d"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="1d21d80e-2d94-4dcd-8d7f-a540d6adde39">
-                    <propertyInstance
-                      Id="0ac83bd0-a154-4883-8add-05e0d0c8f199"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="410dc516-e024-4cfe-be91-b14699a34dec">
-                    <propertyInstance
-                      Id="5483b3c0-e6fb-4c14-a3eb-c91fa66bd9e0"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d6374b2c-c098-40f7-8636-0bd89736e944">
-                    <propertyInstance
-                      Id="5a695c38-2083-495f-a602-7d7c57a0cd87"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="234b4f3c-7410-4f22-b35d-dc0a6e33a3c9"
-                  name="Car"
-                  direction="In">
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="55c58714-0491-4574-a1e8-c064d623c1cd"
-                      LastKnownName="Car"
-                      LastKnownLocation="Package_1801.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="50e4b1b8-06fa-4676-afb3-f7631ffc6585"
-                  name="XFrom"
-                  direction="In" />
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="4d51f864-8122-492d-9275-2903d0323d08"
-                  name="YFrom"
-                  direction="In" />
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="a8c4ff67-da3d-446a-a432-8736bc935db3"
-            name="RedrawHuman"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <description>перерисовка пешехода из позиции FromPos в новую позицию, взятую из Human.Pos</description>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="b761a921-b948-4375-9960-cd6ed8f65e78"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="5681af8a-8e4f-47aa-be39-87d0276f3c60">
-                    <propertyInstance
-                      Id="fbf1ab5a-d2e5-40d3-b3d2-857efeb088d9"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="0ae504b4-e8c3-473e-b677-1821374a9e58">
-                    <propertyInstance
-                      Id="615f726a-931a-437a-b853-7a030887a855"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="db07b8cc-3d02-41aa-b13c-a41bb9fad2fb">
-                    <propertyInstance
-                      Id="abd8cea4-4d89-4cb5-be4c-add4649db8af"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="b3c33a8c-84fb-4c3b-82ec-99ac919b33c6">
-                    <propertyInstance
-                      Id="fb065baf-50c9-421e-a011-15cd281c11a4"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d9f95121-54ef-4166-a270-df2dee39407b">
-                    <propertyInstance
-                      Id="6a2933c2-7489-4ed3-a08d-3e87ff1aa181"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="65419991-c0b6-4e94-9b3d-d92b5fb473d3">
-                    <propertyInstance
-                      Id="94a651fc-580d-47d1-81b1-a1a9e023fe59"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="594cff2a-ac3e-471d-a092-402f3fc1cb96"
-                  name="Crosswalk"
-                  direction="In">
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="a73b1807-fb42-4814-a404-da0c68335ad6"
-                      LastKnownName="Human"
-                      LastKnownLocation="Package_1801.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="3440ea54-b50a-4665-a9a2-07f0038bbeb0"
-                  name="PosFrom"
-                  direction="In">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="b9096387-3ead-4182-9e9f-a830074d1e12"
-                      LastKnownName="int"
-                      LastKnownLocation="Package_2127.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="b22eaf17-9ded-4cef-a4e4-bf7be357afc7"
-            name="DrawStreets"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <description>отрисовывает вертикальную и горизонтальную улицы</description>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="777debe3-9b80-4bc9-9424-9e0aebfb1122"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="e7702e70-b141-47d4-a726-dcb873af3235">
-                    <propertyInstance
-                      Id="caec613e-d8f0-48c6-a29a-551095fbaacb"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="1d03f755-9e23-4df0-a36d-cbba4e20fd8d">
-                    <propertyInstance
-                      Id="08abb22e-9c77-4d6c-b083-7f5142115f42"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="063cec23-3639-4599-b6af-69d64a8a9710">
-                    <propertyInstance
-                      Id="c89bdcd5-658a-4238-b6bd-f6652f550599"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="f621eb97-aca5-406c-8cad-425b38c585ad">
-                    <propertyInstance
-                      Id="1cb3cbec-8551-4937-b0ce-3b7b27ef025a"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="200f84a6-d75d-4f90-8ca3-55d2d028b56c">
-                    <propertyInstance
-                      Id="8b58628d-f7ff-40ce-a0df-0b8572cad324"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="1feb5dd7-9a2f-463b-b836-d32f4c3fc88d">
-                    <propertyInstance
-                      Id="7384b22d-799a-474f-9c1b-62c7a42ee5f4"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="8db4d515-8c4b-4456-be0a-5e6e15ee7654"
-                  name="LinesVertical"
-                  direction="In">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="b9096387-3ead-4182-9e9f-a830074d1e12"
-                      LastKnownName="int"
-                      LastKnownLocation="Package_2127.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="e48fdb3c-fe51-46be-b653-70b04f906c17"
-                  name="LinesHorisontal"
-                  direction="In">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="b9096387-3ead-4182-9e9f-a830074d1e12"
-                      LastKnownName="int"
-                      LastKnownLocation="Package_2127.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
             Id="ea052366-8ca4-4461-ab4f-36f7fa3ba852"
-            name="DrawRing"
+            name="DrawCells"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2066,6 +2146,7 @@
           <operation
             Id="a75f3653-ce3c-45d5-86c2-4b8b00c304c1"
             name="DrawSigns"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2151,6 +2232,14 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="20d1bc71-2d99-41ac-8264-39c3665500e9"
+            name="Initialise"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2264,7 +2353,7 @@
         <ownedAttributesInternal>
           <property
             Id="b5e86054-4db1-4ffd-817d-6b5932cd6a81"
-            name="Next"
+            name="NextRoadCell"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2278,6 +2367,25 @@
               <classMoniker
                 Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
                 LastKnownName="Cell"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ff54c442-f016-4cd5-b047-7639e071ef94"
+            name="Route"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>расположение дороги</description>
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="59e8190f-0485-409c-9ab9-3bcfb15836e4"
+                LastKnownName="Routes"
                 LastKnownLocation="Package_1801.uml" />
             </type_NamedElement>
           </property>
@@ -2305,7 +2413,7 @@
         <ownedAttributesInternal>
           <property
             Id="7ed8399e-a213-4ea2-be37-082bc7128534"
-            name="Next"
+            name="NextRingCell"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2359,9 +2467,12 @@
           </enumerationLiteral>
           <enumerationLiteral
             Id="859bcb9b-ae78-44c0-bdbb-1f438158e9d4"
-            name="MoveOnRing">
-            <description>движение по кольцу</description>
+            name="MoveToDepart">
+            <description>движение по кольцу к выезду</description>
           </enumerationLiteral>
+          <enumerationLiteral
+            Id="bfba12d9-e9c9-477d-9556-a92fbc07535b"
+            name="DepartMap" />
         </ownedLiterals>
       </enumeration>
     </packageHasNamedElement>
@@ -2395,7 +2506,7 @@
         <ownedAttributesInternal>
           <property
             Id="903602cf-5d91-4516-b5be-fb85cf7e4212"
-            name="Route"
+            name="DepartRoute"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2472,6 +2583,25 @@
                 LastKnownLocation="Package_1801.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="f6c1565e-0934-4973-8556-ab121b557479"
+            name="Route"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>направление въезда</description>
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="59e8190f-0485-409c-9ab9-3bcfb15836e4"
+                LastKnownName="Routes"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -2487,13 +2617,14 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <description>клетка пешеходного перехода</description>
         <generalsInternal>
           <generalization
-            Id="a788310d-fc70-4900-b079-3956aca6088e"
+            Id="3e944b42-1638-4cc5-b46e-70d380e9fd2a"
             isSubstitutable="false">
             <classMoniker
-              Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
-              LastKnownName="Cell"
+              Id="f2df124b-cc83-41cd-9528-96afe578d910"
+              LastKnownName="RoadCell"
               LastKnownLocation="Package_1801.uml" />
           </generalization>
         </generalsInternal>
@@ -2509,6 +2640,7 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false">
+            <description>пешеход, находящийся в клетке пешехдного перехода</description>
             <type_NamedElement>
               <classMoniker
                 Id="a73b1807-fb42-4814-a404-da0c68335ad6"
@@ -2516,8 +2648,421 @@
                 LastKnownLocation="Package_1801.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="2580b85e-1ea9-4da7-82ea-82cec00ddea9"
+            name="NextCrossWalk"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>следующая клетка для перехода по пешеходному переходу</description>
+            <type_NamedElement>
+              <classMoniker
+                Id="240ee053-7f31-4859-94d2-30432d5ca28f"
+                LastKnownName="CrossWalkCell"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="33d1091f-9bf0-41dd-b434-0ddb5869047b"
+        name="NewCarsCell"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="34998224-3b6c-4336-869f-fd6da37faf5b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="f2df124b-cc83-41cd-9528-96afe578d910"
+              LastKnownName="RoadCell"
+              LastKnownLocation="Package_1801.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d0c946ea-aca7-4bc6-8958-0c1a73c758e9"
+        name="ObjectCreator"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="86f1b1ad-510b-4c94-b70e-d17aac67abe7"
+            name="TimeOfNextObject"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="260bbe88-daf7-40e7-b24d-b488c22f21e6"
+                LastKnownName="uint"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a534d30c-8078-4e9d-9b2a-3d8c1f3448b7"
+            name="GetTimeInterval"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8e96c46e-ca1a-4804-a2ad-ed3f9074290b"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b9096387-3ead-4182-9e9f-a830074d1e12"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_2127.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3a905809-b9de-4839-8def-b58bb3b66845"
+            name="CreateNewObject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c99b862b-e1b0-4f05-b636-a445fda9371d"
+        name="ObjectCreator"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <description>создатели новых объектов на карте</description>
+        <targetEnds>
+          <association
+            Id="05f53967-a82a-470d-8231-fbcf62e26799"
+            isDerived="false"
+            sourceEndRoleName="ObjectCreator"
+            targetEndRoleName="Environment"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a6fe5450-7b22-4ab6-90f3-2519d66bef13"
+              LastKnownName="Environment"
+              LastKnownLocation="Package_1801.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fc531f9f-aeda-4fda-9e7d-3062443bba62"
+                  name="ObjectCreator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b0fe4671-ebaa-4f7e-b683-95fd734286a8"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="8bc2ffec-c1b7-48ce-819d-1901b54dde4f"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="35d921e6-2010-4d3d-91b3-7bf75c4b106a"
+                  name="Environment"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="cc305bb3-19fc-4729-853b-52b46ce73fc9"
+            name="TimeOfNextCar"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="260bbe88-daf7-40e7-b24d-b488c22f21e6"
+                LastKnownName="uint"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="17f4aa4c-c926-4861-9ade-cbe7acc805c1"
+            name="Location"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>клектка, в которой будет создан объект</description>
+            <type_NamedElement>
+              <classMoniker
+                Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
+                LastKnownName="Cell"
+                LastKnownLocation="Package_1801.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="78b05a74-b57b-4cc7-988c-cb57804cd4b6"
+            name="PlanNew"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>на основе реализации случайной величины вычисляет новое значение TimeOfNextCar</description>
+          </operation>
+          <operation
+            Id="046c9630-2e77-4b1d-865f-beecb4c56f38"
+            name="ObjectCreator"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>инициализирует поле TimeOfNextCar вызывая метод PlanNew</description>
+          </operation>
+          <operation
+            Id="e8e951cc-2db1-407a-8fbb-d143be19dcb1"
+            name="TryCreate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>создает новый объект если пришло время и планирует следующий.
+Необходимо вызывать каждую единицу модельного времени</description>
+          </operation>
+          <operation
+            Id="4d802315-dbd4-4d7c-a584-cd5a45c8776b"
+            name="CreateObject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>логика создания конкретного объекта</description>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="37a316fc-c7a6-46c7-b026-322548654d18"
+        name="CarCreator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="110aa19e-471d-44e7-8700-b0f02f2e759f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c99b862b-e1b0-4f05-b636-a445fda9371d"
+              LastKnownName="ObjectCreator"
+              LastKnownLocation="Package_1801.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="bf4c1a17-27b8-4f17-b918-93e4c1f53669"
+            name="CreateObject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="b4851d6f-d761-46dc-b94a-9543aab30287"
+            name="PlanNew"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="db1f7505-9a3d-4550-a0a4-abb328f5e1da"
+        name="HumanCreator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="9b1ef5d4-6257-4bea-8072-5b0e4e87d9cc"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c99b862b-e1b0-4f05-b636-a445fda9371d"
+              LastKnownName="ObjectCreator"
+              LastKnownLocation="Package_1801.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="544ff635-0aa6-4000-b9f2-0b279b98e453"
+            name="CreateObject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="63083710-555d-47e8-a832-8cd379c8440e"
+            name="PlanNew"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="9bfb1ffc-2560-480c-a135-0d3fdbd6ad97"
+        name="List&lt;ObjectCreators&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c6a2ca01-d203-42f8-8570-4d2b9778cfe0"
+        name="LightCreator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <description>Изменение сигнала светофора</description>
+        <generalsInternal>
+          <generalization
+            Id="a05e1774-c330-46e5-ba54-54ff663f8d08"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c99b862b-e1b0-4f05-b636-a445fda9371d"
+              LastKnownName="ObjectCreator"
+              LastKnownLocation="Package_1801.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="2cc3d502-380f-49a6-b677-15ff3457fffb"
+            name="CreateObject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>переключает сигнал светофора, если светофор нужен на этой карте</description>
+          </operation>
+          <operation
+            Id="1a83bf4b-8416-430f-a360-af9050072498"
+            name="PlanNew"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>планирует переключение сигнала светофора через фиксированное время</description>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="87bb26a5-26ed-4d41-bfaf-d14532ebcd30"
+        name="LightStates"
+        isAbstract="false"
+        isLeaf="false">
+        <description>состояние светофора для машин</description>
+        <suppliersInternal>
+          <dependency
+            Id="62230ca0-fe3e-470b-8f56-a50884789ba3">
+            <classMoniker
+              Id="a6fe5450-7b22-4ab6-90f3-2519d66bef13"
+              LastKnownName="Environment"
+              LastKnownLocation="Package_1801.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="0139a060-ec5e-431a-adf2-0671adcd9e4d"
+            name="None">
+            <description>светофор отсутвует</description>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="1c3c7221-2a66-4d6f-bf08-1fe4ffa4f7c5"
+            name="Red" />
+          <enumerationLiteral
+            Id="9b19d02e-d3a7-46ba-afde-302a94c7e930"
+            name="Green" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d11d5946-fb28-48d6-90be-ea4ce87921a2"
+        name="LigthStates" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ce231d98-5147-47cb-bf2d-234db5251429"
+        name="List&lt;ObjectCreator&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="50ad5cb3-2121-476c-a483-d04eae7232fe"
+        name="Скщ" />
     </packageHasNamedElement>
   </packagedElements>
 </package>
