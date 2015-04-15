@@ -15,6 +15,7 @@ namespace RoadRingSim.Data.DAO
     /// </summary>
     public class DAO
     {
+        private static string dbName = @"RoadRingSim.db";
         private static SQLiteConnection _connection;
         
         public static SQLiteConnection Connection
@@ -23,9 +24,9 @@ namespace RoadRingSim.Data.DAO
                 if(_connection == null)
                 {
                     //название файла бд и кодировка
-                    var connectionString = "data source = roadRing.db; New=True; UseUTF16Encoding=TRUE";
+                    var connectionString = string.Format("data source={0}",dbName);
                     _connection = new SQLiteConnection(connectionString);
-                    if (_connection.State == ConnectionState.Closed)
+                    if (_connection.State != ConnectionState.Open)
                     {
                         _connection.Open();
                     }
@@ -42,10 +43,10 @@ namespace RoadRingSim.Data.DAO
         public List<List<object>> ExecuteQuery(string query)
         {
             var res = new List<List<object>>();
-            var command = Connection.CreateCommand();
-            command.CommandText = query;
+            SQLiteCommand command = Connection.CreateCommand();
+            command.CommandText = query;//"SELECT * FROM User";
+            SQLiteDataReader reader = command.ExecuteReader();
 
-            var reader = command.ExecuteReader();
             while(reader.Read())
             {
                 var list = new List<object>();

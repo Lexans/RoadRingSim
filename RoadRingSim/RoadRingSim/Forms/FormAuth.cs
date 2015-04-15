@@ -13,9 +13,11 @@ namespace RoadRingSim.Forms
 {
     public partial class FormAuth : Form
     {
-        public FormAuth()
+        UserDAO uDAO;
+        public FormAuth(UserDAO user)
         {
             InitializeComponent();
+            uDAO = user;
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
@@ -23,9 +25,8 @@ namespace RoadRingSim.Forms
             if (!String.IsNullOrEmpty(textBoxLogin.Text)
                 && !String.IsNullOrEmpty(textBoxPassword.Text))
             {
-                UserDAO uDAO = new UserDAO();
                 uDAO.UserByLoginPassword(textBoxLogin.Text, textBoxPassword.Text);
-                if (uDAO == null) MessageBox.Show("Неверные данные", "Ошибка");
+                if (uDAO.CurentUser == null) MessageBox.Show("Неверные данные", "Ошибка");
                 else DialogResult = DialogResult.OK;
             }
             
