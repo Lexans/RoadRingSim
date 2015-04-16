@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75AAC90A-B436-4B10-AFAF-6E52C28F3BC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ModelingProject1Lib</RootNamespace>
+    <AssemblyName>ModelingProject1Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeneratedCode\RoadRingSim\CarPaint.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Car.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\CarCreator.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\CarStates.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Cell.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\CrossWalkCell.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\DepartCell.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\CrossRoad.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\CrossRoadLaw.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\DistrubutionLaws.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\DomainObject.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\PriorityTypes.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\User.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\UserRole.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Domains\UserRoles.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\EntryCell.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Environment.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Human.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\HumanCreator.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\LightCreator.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\LightStates.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\ObjectCreator.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\RingCell.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\RoadCell.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Core\Routes.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\CrossRoadDAO.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\DAO.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\UserDAO.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\UserRoleDAO.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\HumanPaint.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\IPaintTask.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\LightPaint.cs" />
+    <Compile Include="GeneratedCode\RoadRingSim\Render.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

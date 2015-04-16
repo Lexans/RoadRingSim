@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadRingSim.Core", "RoadRin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadRingSim.Data", "RoadRingSim.Data\RoadRingSim.Data.csproj", "{7F426007-F379-4EC4-816E-1FF36ED3091D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelingProject1Lib", "ModelingProject1Lib\ModelingProject1Lib.csproj", "{75AAC90A-B436-4B10-AFAF-6E52C28F3BC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7F426007-F379-4EC4-816E-1FF36ED3091D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F426007-F379-4EC4-816E-1FF36ED3091D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F426007-F379-4EC4-816E-1FF36ED3091D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75AAC90A-B436-4B10-AFAF-6E52C28F3BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75AAC90A-B436-4B10-AFAF-6E52C28F3BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75AAC90A-B436-4B10-AFAF-6E52C28F3BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75AAC90A-B436-4B10-AFAF-6E52C28F3BC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
