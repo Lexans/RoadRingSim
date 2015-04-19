@@ -15,7 +15,7 @@ namespace RoadRingSim.Data.DAO
         /// <summary>
         /// объект текущего авторизованного пользователя
         /// </summary>
-        public static User CurentUser;
+        public User CurentUser;
 
         /// <summary>
         /// сохраняет пользователя в базе данных
@@ -81,12 +81,30 @@ namespace RoadRingSim.Data.DAO
             foreach (var r in list)
             {
                 var user = new User();
+                user.Role = new UserRole();
                 user.ID = int.Parse(r[0].ToString());
                 user.Login = r[1].ToString();
                 user.Password = r[2].ToString();
-                user.Role.ID = int.Parse(r[3].ToString());
+                user.Role.ID = Convert.ToInt32((long)r[3]);
                 res.Add(user);
             }
+            return res;
+        }
+        /// <summary>
+        /// запрос юзера по имени и паролю
+        /// </summary>
+        /// <param name="login">Login в базе данных</param>
+        /// <param name="password">Пароль в базе данных, хранимый в виде хэша</param>
+        /// <returns>пользователя с такими данными или null если не существует</returns>
+        public User UserByLoginPassword(string login, string password)
+        {
+            long passHash = 0;
+            for (int i = 0; i < password.Length; i++)
+                passHash = passHash + password[i].GetHashCode() * 7;
+            var list = Select(
+                String.Format("SELECT * FROM 'User' WHERE Login = \"{0}\" AND Password = \"{1}\";", login, passHash));
+            User res = list.FirstOrDefault();
+            CurentUser = res;
             return res;
         }
     }

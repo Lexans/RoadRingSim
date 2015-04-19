@@ -1,9 +1,9 @@
-﻿using RoadRingSim.Forms;
+﻿using RoadRingSim.Data.DAO;
+using RoadRingSim.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using System.Windows.Forms;
 
 namespace RoadRingSim
@@ -23,11 +23,11 @@ namespace RoadRingSim
             FormSplashscreen fs = new FormSplashscreen();
             fs.ShowDialog();
 #endif
-
-            var auth = new Forms.FormAuth();
+            UserDAO user = new UserDAO();
+            var auth = new Forms.FormAuth(user);
             if (auth.ShowDialog() == DialogResult.OK)
             {
-                (new Forms.FormMain()).Show();
+                Application.Run(new MainForm(user));
             }
         }
     }
