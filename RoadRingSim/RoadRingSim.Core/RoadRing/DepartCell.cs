@@ -8,7 +8,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// клетка, по которой выезжают из кольца
 	/// </summary>
-	public sealed class DepartCell : RingCell
+	public sealed class DepartCell : RingCell, Cell
 	{
 		/// <summary>
 		/// направление выезда

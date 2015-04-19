@@ -24,7 +24,7 @@ namespace RoadRingSim.Core.Domains
 		/// <summary>
 		/// реализация СВ по текущему закону из Type
 		/// </summary>
-		public int GetSample()
+		public uint GetSample()
 		{
             int result = 0;
 
@@ -41,7 +41,7 @@ namespace RoadRingSim.Core.Domains
                     break;
             }
 
-            return result;
+            return (uint)result;
 		}
 
 		/// <summary>

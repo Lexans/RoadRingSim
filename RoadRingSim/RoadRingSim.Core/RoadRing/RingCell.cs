@@ -8,7 +8,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// кольцо дороги
 	/// </summary>
-	public class RingCell : Cell
+	public class RingCell : Cell, Cell
 	{
 		/// <summary>
 		/// ссылка на клетку, в которую машина попадет двигаясь вперед

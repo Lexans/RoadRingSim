@@ -10,9 +10,7 @@ namespace RoadRingSim.Core
 	public class Environment
 	{
 		/// <summary>
-		/// список всех машин. Сначала сортируется по приоритету по клетки
-		/// потом по признаку нахождения на дороге (дорога приоритетнее кольцо)
-		/// 
+		/// список всех машин
 		/// </summary>
 		public List<Car> Cars;
 
@@ -29,6 +27,7 @@ namespace RoadRingSim.Core
 		/// матрица клеток окружения
 		/// первая размерность - X (слева направо)
 		/// вторая размерность - Y (сверху вниз)
+        /// нумерация с 0
 		/// если клетка клетка неактивна (на ней не может быть машин и пешеходов), то элемент = null
 		/// </summary>
 		public List<List<Cell>> CellMap;
@@ -41,21 +40,28 @@ namespace RoadRingSim.Core
 		/// <summary>
 		/// состояние светофора
 		/// </summary>
-		public LigthStates LightsState;
-
-		/// <summary>
+		public LightStates LightsState;
+        
+        /// <summary>
 		/// объект-одиночка этого типа
 		/// </summary>
-		public static Environment Envir;
+        public static Environment Envir = new Environment();
 
+        /// <summary>
+        /// список создателей новых объектов (машин, пешеходов, сигналов светофора)
+        /// </summary>
 		public List<ObjectCreator> Creators;
 
 		/// <summary>
 		/// один шаг основного алгоритма моделирования движения
 		/// требуется вызывать по таймеру
 		/// </summary>
-		public virtual void SimulationStep()
+		public void SimulationStep()
 		{
+            //создание ноавых объектов
+            foreach (var oc in Creators)
+                oc.TryCreate();
+
 			throw new System.NotImplementedException();
 		}
 
@@ -64,23 +70,31 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public Environment()
 		{
+            Cars = new List<Car>();
+            Humans = new List<Human>();
+            Time = 0;
+
+            CellMap = new List<List<Cell>>(SIZE);
+            for (int i = 0; i < SIZE; i++)
+                CellMap[i] = new List<Cell>(SIZE);
+
+            LightsState = LightStates.Green;
+            Creators = new List<ObjectCreator>();
 		}
 
 		/// <summary>
 		/// полное построение CellMap
 		/// </summary>
-		public virtual void BuildMap()
+		public void BuildMap()
 		{
-			throw new System.NotImplementedException();
-		}
+            for (int x = 16; x < 16 + Cross.LinesVertical; x++)
+                for(int y = 0; y < 5; y++)
+                {
+                    new RoadCell(x,y);
+                }
+ 
 
-		/// <summary>
-		/// вызывает все ObjectCreator'ы из списка Creators
-		/// для создания новых машин и пешеходов
-		/// </summary>
-		private void CreateAllNewObject()
-		{
-			throw new System.NotImplementedException();
+                throw new System.NotImplementedException();
 		}
 
 		/// <summary>
@@ -104,9 +118,39 @@ namespace RoadRingSim.Core
 		/// <summary>
 		/// инициализирует список ObjectCreator'ов
 		/// </summary>
-		public virtual void InitObjectCreators()
+		public void InitObjectCreators()
 		{
-			throw new System.NotImplementedException();
+            //создатели машин на вертикальных дорогах
+            for (int i = 0; i < Cross.LinesVertical; i++)
+            {
+                CarCreator cc = new CarCreator();
+                cc.Location = CellMap[SIZE][16+i];
+                Creators.Add(cc);
+
+                cc.Location = CellMap[0][14 - i];
+                Creators.Add(cc);
+            }
+
+            //создатели машин на горизонтальных дорогах
+            for (int i = 0; i < Cross.LinesHorisontal; i++)
+            {
+                CarCreator cc = new CarCreator();
+                cc.Location = CellMap[16 + i][0];
+                Creators.Add(cc);
+
+                cc.Location = CellMap[14 - i][SIZE];
+                Creators.Add(cc);
+            }
+
+            HumanCreator hc = new HumanCreator();
+            hc.Location = CellMap[28][14 - Cross.LinesVertical];
+            Creators.Add(hc);
+
+            if (Cross.IsLights)
+            {
+                LightCreator lc = new LightCreator();
+                Creators.Add(lc);
+            }
 		}
 
 	}

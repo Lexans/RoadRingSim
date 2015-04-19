@@ -39,31 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\RoadRingSim\CarPaint.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\Car.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\CarCreator.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\CarStates.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\Cell.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\CrossWalkCell.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\DepartCell.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\EntryCell.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\Environment.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\Human.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\HumanCreator.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\LightCreator.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\LightStates.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\ObjectCreator.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\RingCell.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\RoadCell.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Core\Routes.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\CrossRoadDAO.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\DAO.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\UserDAO.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Data\DAO\UserRoleDAO.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\HumanPaint.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\IPaintTask.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\LightPaint.cs" />
-    <Compile Include="GeneratedCode\RoadRingSim\Render.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

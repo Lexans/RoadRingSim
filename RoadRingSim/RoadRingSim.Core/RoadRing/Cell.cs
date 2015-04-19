@@ -9,7 +9,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// клетка среды симуляции
 	/// </summary>
-	public sealed class Cell
+	public class Cell: Cell
 	{
 		/// <summary>
 		/// машина текущей клетки (null если отсутвует)
@@ -18,7 +18,7 @@ namespace RoadRingSim.Core
 
 		/// <summary>
 		/// номер полосы
-		/// нумерация начинается по правую сторону от направления движения
+		/// нумерация начинается с единицы по правую сторону от направления движения
 		/// </summary>
 		public int LineNumber;
 
@@ -31,17 +31,15 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public object Priority = 0;
 
-		public Human CrossWalk;
-
-		public Environment Environment;
-
-		public Human Human;
-
 		/// <summary>
 		/// помещает клетку в позицию X,Y в Environment.CellMap
 		/// </summary>
 		public Cell(int X, int Y)
 		{
+            this.X = X;
+            this.Y = Y;
+
+            Environment.Envir.CellMap[X][Y] = this;
 		}
 
 	}

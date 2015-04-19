@@ -12,26 +12,13 @@ namespace RoadRingSim.Core
 	using System.Text;
 
 	/// <summary>
-	/// возможные состояния машины по типу текущей выполняемой задачи
+	/// маршруты движения машин
 	/// </summary>
-	public enum CarStates : int
+	public enum Routes : int
 	{
-		/// <summary>
-		/// движение к кольцу
-		/// </summary>
-		MoveToRing,
-		/// <summary>
-		/// въезд на кольцо
-		/// </summary>
-		EntryRing,
-		/// <summary>
-		/// выезд из кольца
-		/// </summary>
-		DepartRing,
-		/// <summary>
-		/// движение по кольцу к выезду
-		/// </summary>
-		MoveToDepart,
-		DepartMap,
+		Top = 1,
+        Right = 2,
+		Bottom = 3,
+		Left = 4,
 	}
 }

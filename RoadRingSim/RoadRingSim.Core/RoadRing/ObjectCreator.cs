@@ -17,8 +17,6 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public Cell Location;
 
-		public Environment Environment;
-
 		/// <summary>
 		/// на основе реализации случайной величины вычисляет новое значение TimeOfNextCar
 		/// </summary>
