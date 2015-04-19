@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RoadRingSim.Core.Domains
 {
-	public class UserRole : DomainObject
+	public sealed class UserRole : DomainObject
 	{
 		public string RoleName;
 

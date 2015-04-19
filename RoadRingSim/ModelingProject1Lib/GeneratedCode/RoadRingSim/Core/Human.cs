@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RoadRingSim.Core
 {
-	public class Human
+	public sealed class Human
 	{
 		/// <summary>
 		/// позиция (номер линии) относительно начала пешеходного перехода
@@ -39,7 +39,7 @@ namespace RoadRingSim.Core
 		/// <summary>
 		/// если по CrossWalkCell.Next нет Car и Human, светофор отсутвует или горит красный, то переместиться вперед по NextCrossWalk
 		/// </summary>
-		public virtual void TryMoveForward()
+		public void TryMoveForward()
 		{
 			throw new System.NotImplementedException();
 		}

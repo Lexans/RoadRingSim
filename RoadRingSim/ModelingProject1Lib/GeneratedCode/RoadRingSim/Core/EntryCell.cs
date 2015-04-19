@@ -8,7 +8,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// клетка, по котрой въезжают на кольцо на нужную полосу
 	/// </summary>
-	public class EntryCell : RingCell
+	public sealed class EntryCell : RingCell
 	{
 		/// <summary>
 		/// ссылка на клетку следующей по счету полосы на кольце.

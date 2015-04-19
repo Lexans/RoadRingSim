@@ -231,7 +231,7 @@
         Id="9e26b80f-b4d4-4795-a9db-3907620b478a"
         name="UserRole"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <referencesInternal>
           <reference
@@ -689,7 +689,7 @@
         Id="2a1130cf-f83e-4718-b60a-0bc6db61e3d1"
         name="User"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <referencesInternal>
           <reference
@@ -1289,7 +1289,7 @@
         Id="25027905-0898-43d2-9698-31498bdaabb7"
         name="CrossRoadLaw"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance
@@ -1973,7 +1973,7 @@
         Id="754abcc6-d841-4560-b5e6-1f3d6352b00c"
         name="CrossRoad"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance

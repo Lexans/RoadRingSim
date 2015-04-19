@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RoadRingSim.Core.Domains
 {
-	public class CrossRoadLaw
+	public sealed class CrossRoadLaw
 	{
 		public DistrubutionLaws Type;
 
@@ -21,7 +21,7 @@ namespace RoadRingSim.Core.Domains
 		/// <summary>
 		/// реализация СВ по текущему закону из Type
 		/// </summary>
-		public virtual void GetSample()
+		public void GetSample()
 		{
 			throw new System.NotImplementedException();
 		}

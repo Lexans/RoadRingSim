@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RoadRingSim.Core
 {
-	public class Car
+	public sealed class Car
 	{
 		/// <summary>
 		/// маршрут движения машины
@@ -47,7 +47,7 @@ namespace RoadRingSim.Core
 		/// <summary>
 		/// логика движения машины
 		/// </summary>
-		public virtual void TryMoveForward()
+		public void TryMoveForward()
 		{
 			throw new System.NotImplementedException();
 		}
@@ -56,7 +56,7 @@ namespace RoadRingSim.Core
 		/// переход на следующую клетку, если там нет пешехода и нет машины
 		/// </summary>
 		/// <param name="NextCell">клетка, в которую ехать</param>
-		public virtual void MoveNext(Cell NextCell)
+		public void MoveNext(Cell NextCell)
 		{
 			throw new System.NotImplementedException();
 		}

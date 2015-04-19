@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RoadRingSim.Core.Domains
 {
-	public class User : DomainObject
+	public sealed class User : DomainObject
 	{
 		public string Login;
 

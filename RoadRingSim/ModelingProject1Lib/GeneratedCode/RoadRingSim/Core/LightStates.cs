@@ -14,7 +14,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// состояние светофора для машин
 	/// </summary>
-	public enum LightStates
+	public enum LightStates : int
 	{
 		/// <summary>
 		/// светофор отсутвует

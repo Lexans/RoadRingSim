@@ -8,7 +8,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// клетка пешеходного перехода
 	/// </summary>
-	public class CrossWalkCell : RoadCell
+	public sealed class CrossWalkCell : RoadCell
 	{
 		/// <summary>
 		/// пешеход, находящийся в клетке пешехдного перехода

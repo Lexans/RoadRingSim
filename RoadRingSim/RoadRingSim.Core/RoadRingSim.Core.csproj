@@ -45,7 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domains\CrossRoad.cs" />
+    <Compile Include="Domains\CrossRoadLaw.cs" />
+    <Compile Include="Domains\DistrubutionLaws.cs" />
     <Compile Include="Domains\DomainObject.cs" />
+    <Compile Include="Domains\PriorityTypes.cs" />
     <Compile Include="Domains\UserRole.cs" />
     <Compile Include="Domains\User.cs" />
     <Compile Include="Program.cs" />

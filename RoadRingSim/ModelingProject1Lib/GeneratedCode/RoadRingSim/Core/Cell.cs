@@ -9,7 +9,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// клетка среды симуляции
 	/// </summary>
-	public class Cell
+	public sealed class Cell
 	{
 		/// <summary>
 		/// машина текущей клетки (null если отсутвует)

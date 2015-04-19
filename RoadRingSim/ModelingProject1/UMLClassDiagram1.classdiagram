@@ -263,7 +263,7 @@
                         </class>
                       </packageHasNamedElement>
                       <packageHasNamedElement>
-                        <class Id="f2d34311-03a2-460d-9840-fe674c60fa1e" name="UserRole" isAbstract="false" isLeaf="false" isActiveClass="false">
+                        <class Id="f2d34311-03a2-460d-9840-fe674c60fa1e" name="UserRole" isAbstract="false" isLeaf="true" isActiveClass="false">
                           <referencesInternal>
                             <reference Id="b8ba7a88-9e6d-45d0-99b8-3ab528a855a5" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FAppDocs%2FGitHub%2FRoadRingSim%2FRoadRingSim%2FRoadRingSim.Core%2Fbin%2FDebug%2FRoadRingSim.Core.exe Namespace%3DRoadRingSim.Core.Domains Type%3DUserRole" tag="ViewCode">
                               <elementDefinition Id="43e0bb38-38af-4913-ac4e-e2b3191e700d" />
@@ -567,7 +567,7 @@
                         </enumeration>
                       </packageHasNamedElement>
                       <packageHasNamedElement>
-                        <class Id="938bbb2f-1e23-4ecb-b49b-152d71813a39" name="User" isAbstract="false" isLeaf="false" isActiveClass="false">
+                        <class Id="938bbb2f-1e23-4ecb-b49b-152d71813a39" name="User" isAbstract="false" isLeaf="true" isActiveClass="false">
                           <referencesInternal>
                             <reference Id="3460a0f2-5669-421b-aad2-27aa84db9fe2" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FAppDocs%2FGitHub%2FRoadRingSim%2FRoadRingSim%2FRoadRingSim.Core%2Fbin%2FDebug%2FRoadRingSim.Core.exe Namespace%3DRoadRingSim.Core.Domains Type%3DUser" tag="ViewCode">
                               <elementDefinition Id="406be10c-13e1-48ce-b18d-a1cc62d6381b" />
@@ -1014,7 +1014,7 @@
                         </enumeration>
                       </packageHasNamedElement>
                       <packageHasNamedElement>
-                        <class Id="64075f59-1280-41ef-93f4-85fe6feaf004" name="CrossRoadLaw" isAbstract="false" isLeaf="false" isActiveClass="false">
+                        <class Id="64075f59-1280-41ef-93f4-85fe6feaf004" name="CrossRoadLaw" isAbstract="false" isLeaf="true" isActiveClass="false">
                           <appliedStereotypesInternal>
                             <stereotypeInstance Id="d37837c4-4b76-4592-9ae4-2f563b0bd8c1" name="class" profile="CSharpProfile">
                               <elementDefinition Id="544b9862-9551-4269-8932-93d2887c7f40" />
@@ -1537,7 +1537,7 @@
                         </enumeration>
                       </packageHasNamedElement>
                       <packageHasNamedElement>
-                        <class Id="1ea34fb5-7e2c-4e12-bc02-99ba8ee7f6c1" name="CrossRoad" isAbstract="false" isLeaf="false" isActiveClass="false">
+                        <class Id="1ea34fb5-7e2c-4e12-bc02-99ba8ee7f6c1" name="CrossRoad" isAbstract="false" isLeaf="true" isActiveClass="false">
                           <appliedStereotypesInternal>
                             <stereotypeInstance Id="6864ebf7-764e-4f26-b092-da8d31065b83" name="class" profile="CSharpProfile">
                               <elementDefinition Id="83191f29-8548-4118-b75a-fc99b99bbd52" />
@@ -2976,7 +2976,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="b1631935-6055-4be3-bd4f-74ad74ce5ab5" name="Cell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="b1631935-6055-4be3-bd4f-74ad74ce5ab5" name="Cell" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <description>клетка среды симуляции</description>
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="d148e35e-87a6-48d2-aa90-ddcb512e38f5" name="class" profile="CSharpProfile">
@@ -3468,7 +3468,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="ddfb07c4-3bde-44e9-93ae-98dc28d113e9" name="Car" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="ddfb07c4-3bde-44e9-93ae-98dc28d113e9" name="Car" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="414c3e33-9ba7-4269-8ef2-6119daa1f18f" name="class" profile="CSharpProfile">
                         <elementDefinition Id="d9da250b-77c7-4766-bbe5-e74b5137f48e" />
@@ -4143,7 +4143,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="03d2d8f1-af16-4aa5-a464-c59b9b3a32a6" name="Human" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="03d2d8f1-af16-4aa5-a464-c59b9b3a32a6" name="Human" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="38547845-1131-4566-9afa-33ff5254fe07" name="class" profile="CSharpProfile">
                         <elementDefinition Id="b482d11f-7d20-430d-8d51-e3885c356769" />
@@ -4930,7 +4930,7 @@
                   </enumeration>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="d21946dc-2278-490f-b433-9f22338b52f9" name="DepartCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="d21946dc-2278-490f-b433-9f22338b52f9" name="DepartCell" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <description>клетка, по которой выезжают из кольца</description>
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="b11fbf57-ee58-4839-8af3-910f67c8a25c" name="class" profile="CSharpProfile">
@@ -5098,7 +5098,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="236b9651-2581-4d95-b283-77fe4239c564" name="EntryCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="236b9651-2581-4d95-b283-77fe4239c564" name="EntryCell" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <description>клетка, по котрой въезжают на кольцо на нужную полосу</description>
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="212c2e09-739c-4fba-a7c1-fed2720d505f" name="class" profile="CSharpProfile">
@@ -5262,7 +5262,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="72791329-08cf-43b9-89fb-aedb21e0507d" name="CrossWalkCell" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="72791329-08cf-43b9-89fb-aedb21e0507d" name="CrossWalkCell" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <description>клетка пешеходного перехода</description>
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="11b9d19f-21ad-4fbe-8db3-f83f6517a6d5" name="class" profile="CSharpProfile">
@@ -5800,7 +5800,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="69de13ec-009d-4545-b976-c91f69dc4679" name="CarCreator" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="69de13ec-009d-4545-b976-c91f69dc4679" name="CarCreator" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="e043c47b-8dcb-4446-bae2-b4c1a4ff93be" name="class" profile="CSharpProfile">
                         <elementDefinition Id="74084aa0-ec7f-4f64-94ac-f40732681541" />
@@ -5988,7 +5988,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="4f274e35-ce2f-4e45-bf84-05341382f741" name="HumanCreator" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="4f274e35-ce2f-4e45-bf84-05341382f741" name="HumanCreator" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="60c1a34d-6b97-411d-9fe8-26f8a28a492f" name="class" profile="CSharpProfile">
                         <elementDefinition Id="5965cd64-0965-42d7-92b8-65a9f091dd81" />
@@ -6175,7 +6175,7 @@
                   </class>
                 </packageHasNamedElement>
                 <packageHasNamedElement>
-                  <class Id="f3751ced-8cf3-43e9-b956-60263e4168a7" name="LightCreator" isAbstract="false" isLeaf="false" isActiveClass="false">
+                  <class Id="f3751ced-8cf3-43e9-b956-60263e4168a7" name="LightCreator" isAbstract="false" isLeaf="true" isActiveClass="false">
                     <description>Изменение сигнала светофора</description>
                     <appliedStereotypesInternal>
                       <stereotypeInstance Id="5b7d4f26-259e-4c8f-a431-4a5a866588df" name="class" profile="CSharpProfile">
@@ -6793,7 +6793,7 @@
                         </class>
                       </packageHasNamedElement>
                       <packageHasNamedElement>
-                        <class Id="79e39c5b-cc62-466e-94f5-bc0781ccc488" name="UserDAO" isAbstract="false" isLeaf="false" isActiveClass="false">
+                        <class Id="79e39c5b-cc62-466e-94f5-bc0781ccc488" name="UserDAO" isAbstract="false" isLeaf="true" isActiveClass="false">
                           <referencesInternal>
                             <reference Id="a79e4cca-f30b-4ac6-8ff3-b7d2f3e1ed28" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FAppDocs%2FGitHub%2FRoadRingSim%2FRoadRingSim%2FRoadRingSim.Data%2Fbin%2FDebug%2FRoadRingSim.Data.exe Namespace%3DRoadRingSim.Data.DAO Type%3DUserDAO" tag="ViewCode">
                               <elementDefinition Id="37a8e05e-52a4-426e-9d74-57efe34d9520" />
@@ -7240,7 +7240,7 @@
                         </class>
                       </packageHasNamedElement>
                       <packageHasNamedElement>
-                        <class Id="7a7e6309-37c8-47f3-b7fb-30ece8c361d6" name="UserRoleDAO" visibility="Package" isAbstract="false" isLeaf="false" isActiveClass="false">
+                        <class Id="7a7e6309-37c8-47f3-b7fb-30ece8c361d6" name="UserRoleDAO" visibility="Package" isAbstract="false" isLeaf="true" isActiveClass="false">
                           <referencesInternal>
                             <reference Id="dc43ec39-b1a3-40b9-b381-86dbab3ca233" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FAppDocs%2FGitHub%2FRoadRingSim%2FRoadRingSim%2FRoadRingSim.Data%2Fbin%2FDebug%2FRoadRingSim.Data.exe Namespace%3DRoadRingSim.Data.DAO Type%3DUserRoleDAO" tag="ViewCode">
                               <elementDefinition Id="df8972cb-67a0-48b6-82b0-c3f0be77bbad" />
@@ -7494,7 +7494,7 @@
                         </class>
                       </packageHasNamedElement>
                       <packageHasNamedElement>
-                        <class Id="29fa8473-fe36-4bff-8f6c-53f32e67cb60" name="CrossRoadDAO" isAbstract="false" isLeaf="false" isActiveClass="false">
+                        <class Id="29fa8473-fe36-4bff-8f6c-53f32e67cb60" name="CrossRoadDAO" isAbstract="false" isLeaf="true" isActiveClass="false">
                           <description>Управление моделями перекрстков в базе данных</description>
                           <appliedStereotypesInternal>
                             <stereotypeInstance Id="44d41bed-e3ec-420f-950e-933cfa21bf64" name="class" profile="CSharpProfile">

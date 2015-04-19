@@ -1196,7 +1196,7 @@
         Id="4f6e385d-1bd7-4446-adda-1d4a765a66cb"
         name="Cell"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <description>клетка среды симуляции</description>
         <appliedStereotypesInternal>
@@ -1888,7 +1888,7 @@
         Id="55c58714-0491-4574-a1e8-c064d623c1cd"
         name="Car"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance
@@ -2807,7 +2807,7 @@
         Id="a73b1807-fb42-4814-a404-da0c68335ad6"
         name="Human"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance
@@ -3956,7 +3956,7 @@
         Id="40d28d0c-ee95-42f1-b6f6-7469970cc6b7"
         name="DepartCell"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <description>клетка, по которой выезжают из кольца</description>
         <appliedStereotypesInternal>
@@ -4181,7 +4181,7 @@
         Id="950b2aff-b23f-4072-9fdc-d5d8d0c69ee2"
         name="EntryCell"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <description>клетка, по котрой въезжают на кольцо на нужную полосу</description>
         <appliedStereotypesInternal>
@@ -4404,7 +4404,7 @@
         Id="240ee053-7f31-4859-94d2-30432d5ca28f"
         name="CrossWalkCell"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <description>клетка пешеходного перехода</description>
         <appliedStereotypesInternal>
@@ -5205,7 +5205,7 @@
         Id="37a316fc-c7a6-46c7-b026-322548654d18"
         name="CarCreator"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance
@@ -5451,7 +5451,7 @@
         Id="db1f7505-9a3d-4550-a0a4-abb328f5e1da"
         name="HumanCreator"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance
@@ -5700,7 +5700,7 @@
         Id="c6a2ca01-d203-42f8-8570-4d2b9778cfe0"
         name="LightCreator"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <description>Изменение сигнала светофора</description>
         <appliedStereotypesInternal>

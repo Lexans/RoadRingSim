@@ -6,14 +6,14 @@ using System.Text;
 
 namespace RoadRingSim.Data.DAO
 {
-	internal class UserRoleDAO : DAO
+	internal sealed class UserRoleDAO : DAO
 	{
-		public virtual UserRole SelectById(int id)
+		public UserRole SelectById(int id)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual UserRole UpdateUserRole(UserRole role)
+		public UserRole UpdateUserRole(UserRole role)
 		{
 			throw new System.NotImplementedException();
 		}

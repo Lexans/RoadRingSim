@@ -9,29 +9,29 @@ namespace RoadRingSim.Data.DAO
 	/// <summary>
 	/// Управление моделями перекрстков в базе данных
 	/// </summary>
-	public class CrossRoadDAO : DAO
+	public sealed class CrossRoadDAO : DAO
 	{
-		public virtual CrossRoad Insert(CrossRoad cr)
+		public CrossRoad Insert(CrossRoad cr)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Update(CrossRoad Updated)
+		public void Update(CrossRoad Updated)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Delete(CrossRoad cr)
+		public void Delete(CrossRoad cr)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<CrossRoad> Select()
+		public List<CrossRoad> Select()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<CrossRoad> SelectAll()
+		public List<CrossRoad> SelectAll()
 		{
 			throw new System.NotImplementedException();
 		}

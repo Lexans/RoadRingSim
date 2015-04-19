@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RoadRingSim.Core
 {
-	public class HumanCreator : ObjectCreator
+	public sealed class HumanCreator : ObjectCreator
 	{
 		public event EventHumanCreateHandler OnHumanCreate;
 

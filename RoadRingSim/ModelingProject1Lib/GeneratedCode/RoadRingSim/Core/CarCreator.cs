@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RoadRingSim.Core
 {
-	public class CarCreator : ObjectCreator
+	public sealed class CarCreator : ObjectCreator
 	{
 		/// <summary>
 		/// событие создания машины

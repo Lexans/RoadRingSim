@@ -14,7 +14,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// возможные состояния машины по типу текущей выполняемой задачи
 	/// </summary>
-	public enum CarStates
+	public enum CarStates : int
 	{
 		/// <summary>
 		/// движение к кольцу

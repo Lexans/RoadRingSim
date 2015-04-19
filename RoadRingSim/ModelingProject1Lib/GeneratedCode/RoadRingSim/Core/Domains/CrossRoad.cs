@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RoadRingSim.Core.Domains
 {
-	public class CrossRoad : DomainObject
+	public sealed class CrossRoad : DomainObject
 	{
 		/// <summary>
 		/// есть ли светофор на пешеходном переходе внизу

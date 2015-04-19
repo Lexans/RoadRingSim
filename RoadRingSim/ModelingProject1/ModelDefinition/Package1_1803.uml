@@ -555,7 +555,7 @@
         Id="91315141-1e34-47fc-957c-52da75546420"
         name="UserDAO"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <referencesInternal>
           <reference
@@ -1138,7 +1138,7 @@
         name="UserRoleDAO"
         visibility="Package"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <referencesInternal>
           <reference
@@ -1474,7 +1474,7 @@
         Id="1ebc088d-49c9-4299-92b8-564d4758d147"
         name="CrossRoadDAO"
         isAbstract="false"
-        isLeaf="false"
+        isLeaf="true"
         isActiveClass="false">
         <description>Управление моделями перекрстков в базе данных</description>
         <appliedStereotypesInternal>

@@ -8,7 +8,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// Изменение сигнала светофора
 	/// </summary>
-	public class LightCreator : ObjectCreator
+	public sealed class LightCreator : ObjectCreator
 	{
 		public event EventLightsToggleHandler OnLightsToggle;
 

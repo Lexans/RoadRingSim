@@ -6,29 +6,29 @@ using System.Text;
 
 namespace RoadRingSim.Data.DAO
 {
-	public class UserDAO : DAO
+	public sealed class UserDAO : DAO
 	{
-		public virtual User Insert(User user)
+		public User Insert(User user)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Update(User user)
+		public void Update(User user)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Delete(User user)
+		public void Delete(User user)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<User> SelectAll()
+		public List<User> SelectAll()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<User> Select(string query)
+		public List<User> Select(string query)
 		{
 			throw new System.NotImplementedException();
 		}
