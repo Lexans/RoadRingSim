@@ -11,10 +11,11 @@ namespace RoadRingSim.Core.Domains
 	using System.Linq;
 	using System.Text;
 
-	public enum DistrubutionLaws : int
-    {
-        Normal = 1,
-		Expon = 2,
-		Uniform = 3,
+	public enum PriorityTypes : int
+	{
+		MainRing = 1,
+		SecondaryRing = 2,
+		MainStreetHorisontal = 3,
+		MainStreetVertical = 4
 	}
 }

@@ -52,6 +52,7 @@
     <Compile Include="Domains\PriorityTypes.cs" />
     <Compile Include="Domains\UserRole.cs" />
     <Compile Include="Domains\User.cs" />
+    <Compile Include="Domains\UserRoles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
