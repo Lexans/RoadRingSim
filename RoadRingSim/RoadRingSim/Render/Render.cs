@@ -1,6 +1,8 @@
 ﻿using RoadRingSim.Core;
+using RoadRingSim.Core.Domains;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -106,7 +108,7 @@ namespace RoadRingSim
 		/// обработчик события создания пешехода
 		/// подписывается на перещения пешехода
 		/// </summary>
-		public void EventHandlerHumanCreate(Human Model, CrossWalkCell CellFrom)
+		public void EventHandlerHumanCreate(Human Model, Cell CellFrom)
 		{
 			throw new System.NotImplementedException();
 		}
@@ -129,7 +131,7 @@ namespace RoadRingSim
 			throw new System.NotImplementedException();
 		}
 
-		public void EventHandlerHumanMove(CrossWalkCell CellFrom, CrossWalkCell CellTo)
+		public void EventHandlerHumanMove(Human Model, Cell CellFrom, Cell CellTo)
 		{
 			throw new System.NotImplementedException();
 		}
