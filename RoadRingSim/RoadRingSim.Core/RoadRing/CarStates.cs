@@ -13,22 +13,22 @@
 		/// <summary>
 		/// движение к кольцу
 		/// </summary>
-		MoveToRing,
+		MoveToRing = 1,
 		/// <summary>
 		/// въезд на кольцо
 		/// </summary>
-		EntryRing,
+		EntryRing = 2,
+        /// <summary>
+        /// движение по кольцу к выезду
+        /// </summary>
+        MoveToDepart = 3,
 		/// <summary>
 		/// выезд из кольца
 		/// </summary>
-		DepartRing,
-		/// <summary>
-		/// движение по кольцу к выезду
-		/// </summary>
-		MoveToDepart,
+		DepartRing = 4,
         /// <summary>
         /// покидание карты
         /// </summary>
-		DepartMap,
+		DepartMap = 5,
 	}
 }

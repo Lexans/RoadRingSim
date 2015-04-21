@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 namespace RoadRingSim.Core
 {
+
+    public delegate void EventHumanDestroyHandler(Human Model);
+    public delegate void EventHumanMoveHandler(Human Model, Cell CellFrom, Cell CellTo);
+
 	public sealed class Human
 	{
 		/// <summary>
 		/// позиция (номер линии) относительно начала пешеходного перехода
 		/// </summary>
-		public CrossWalkCell Location;
+		public Cell Location;
 
 		/// <summary>
 		/// произвольный цвет пешехода
 		/// </summary>
-		public Color Color;
+		public Color ColorHuman;
 
 		/// <summary>
 		/// события уничтожения человекчка
@@ -27,13 +32,21 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public EventHumanMoveHandler OnHumanMove;
 
-		public Environment Environment;
+        private static Random _rand = new Random();
 
 		/// <summary>
 		/// создается новый человечек произвольного цвета
 		/// </summary>
-		public Human()
+		public Human(Cell Location)
 		{
+            this.Location = Location;
+
+            List<Color> cols = new List<Color>() {
+                Color.Black, Color.Yellow, Color.Brown
+            };
+            ColorHuman = cols[_rand.Next(0, cols.Count - 1)];
+
+
 		}
 
 		/// <summary>
@@ -41,7 +54,29 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void TryMoveForward()
 		{
-			throw new System.NotImplementedException();
+            if(Location.CrosswalkNext == null)
+            {
+                //уничтожение пешехода
+                Location.CrosswalkPedestrian = null;
+                Environment.Envir.Humans.Remove(this);
+                OnHumanDestroy(this);
+            }
+
+            //стоять если машина или другой человек впереди
+            bool isCarStop = (Location.CrosswalkNext.Car != null || Location.CrosswalkNext.CrosswalkPedestrian != null);
+            //стоять если для машин зеленый
+            bool isGreenLight = Environment.Envir.LightsState == LightStates.Green;
+
+            if (isCarStop || isGreenLight) return;
+
+            //изменяем положение машины
+            Cell CelFrom = Location;
+            Location.CrosswalkPedestrian = null;
+            CelFrom.CrosswalkNext.CrosswalkPedestrian = this;
+            Location = CelFrom.CrosswalkNext;
+
+            //вызываем событие перемещения машины
+            OnHumanMove(this, CelFrom, Location);
 		}
 
 	}

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace RoadRingSim.Core
 {
+    public delegate void EventLightsToggleHandler(LightStates LightState); 
+
+
 	/// <summary>
 	/// Изменение сигнала светофора
 	/// </summary>
@@ -17,7 +20,26 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public override void CreateObject()
 		{
-			throw new System.NotImplementedException();
+
+            if (Environment.Envir.Cross.IsLights)
+            {
+                switch (Environment.Envir.LightsState)
+                {
+                    case LightStates.Green:
+                        Environment.Envir.LightsState = LightStates.Red;
+                        break;
+
+                    case LightStates.Red:
+                        Environment.Envir.LightsState = LightStates.Green;
+                        break;
+
+                    case LightStates.None:
+                        Environment.Envir.LightsState = LightStates.Green;
+                        break;
+                }
+                OnLightsToggle(Environment.Envir.LightsState);
+            }
+     
 		}
 
 		/// <summary>
@@ -25,7 +47,7 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public override void PlanNew()
 		{
-			throw new System.NotImplementedException();
+            TimeOfNextObj = Environment.Envir.Time + 20;
 		}
 
 	}

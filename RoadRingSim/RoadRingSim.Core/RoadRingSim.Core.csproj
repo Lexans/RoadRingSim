@@ -59,17 +59,14 @@
     <Compile Include="RoadRing\CarCreator.cs" />
     <Compile Include="RoadRing\CarStates.cs" />
     <Compile Include="RoadRing\Cell.cs" />
-    <Compile Include="RoadRing\CrossWalkCell.cs" />
-    <Compile Include="RoadRing\DepartCell.cs" />
-    <Compile Include="RoadRing\EntryCell.cs" />
+    <Compile Include="RoadRing\FuncTypes.cs" />
+    <Compile Include="RoadRing\PosTypes.cs" />
     <Compile Include="RoadRing\Environment.cs" />
     <Compile Include="RoadRing\Human.cs" />
     <Compile Include="RoadRing\HumanCreator.cs" />
     <Compile Include="RoadRing\LightCreator.cs" />
     <Compile Include="RoadRing\LightStates.cs" />
     <Compile Include="RoadRing\ObjectCreator.cs" />
-    <Compile Include="RoadRing\RingCell.cs" />
-    <Compile Include="RoadRing\RoadCell.cs" />
     <Compile Include="RoadRing\Routes.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,18 +10,14 @@ namespace RoadRingSim.Core
 	/// </summary>
 	public abstract class ObjectCreator
 	{
-		public uint TimeOfNextCar;
+		public ulong TimeOfNextObj;
 
 		/// <summary>
 		/// клектка, в которой будет создан объект
 		/// </summary>
 		public Cell Location;
 
-		/// <summary>
-		/// на основе реализации случайной величины вычисляет новое значение TimeOfNextCar
-		/// </summary>
-		public abstract void PlanNew();
-
+		
 		/// <summary>
 		/// инициализирует поле TimeOfNextCar вызывая метод PlanNew
 		/// </summary>
@@ -33,15 +29,27 @@ namespace RoadRingSim.Core
 		/// создает новый объект если пришло время и планирует следующий.
 		/// Необходимо вызывать каждую единицу модельного времени
 		/// </summary>
-		public virtual void TryCreate()
+		public void TryCreate()
 		{
-			throw new System.NotImplementedException();
+            if (Environment.Envir.Time == TimeOfNextObj)
+            {
+                CreateObject();
+                PlanNew();
+            }
+
+            if(Environment.Envir.Time > TimeOfNextObj)
+                PlanNew();
 		}
 
 		/// <summary>
 		/// логика создания конкретного объекта
 		/// </summary>
-		public abstract void CreateObject();
+        private abstract void CreateObject();
+
+        /// <summary>
+        /// на основе реализации случайной величины вычисляет новое значение TimeOfNextCar
+        /// </summary>
+        private abstract void PlanNew();
 
 	}
 }

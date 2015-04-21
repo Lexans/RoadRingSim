@@ -54,7 +54,7 @@ namespace RoadRingSim.Core
         public Car(Cell Location)
         {
             RouteTo = (Routes)(_rand.Next(1, 4));
-            RouteFrom = ((RoadCell)Location).Route;
+            RouteFrom = Location.Route;
             this.Location = Location;
 
             GoalState = CarStates.MoveToRing;
@@ -73,45 +73,39 @@ namespace RoadRingSim.Core
 		{
             if (GoalState == CarStates.MoveToRing)
             {
-                RoadCell rc = (RoadCell)Location;
-                MoveNext(rc.NextRoadCell);
+                MoveNext(Location.RoadNextCell);
 
-                if (Location is RingCell)
-                    GoalState = CarStates.DepartRing;
+                if (Location.TypePosition == PosTypes.Ring)
+                    GoalState = CarStates.EntryRing;
             }
-            else if (GoalState == CarStates.DepartRing)
+            else if (GoalState == CarStates.EntryRing)
             {
-                EntryCell ec = (EntryCell)Location;
-                MoveNext(ec.NextRingLine);
+                MoveNext(Location.EntryNext);
 
                 if (Location.LineNumber == NeedRingLineNumber)
                     GoalState = CarStates.MoveToDepart;
             }
             else if(GoalState == CarStates.MoveToDepart)
             {
-                RingCell rc = (RingCell)Location;
-                MoveNext(rc.NextRingCell);
+                MoveNext(Location.RingNextCell);
 
-                if(Location is DepartCell)
+                if(Location.TypeFunc == FuncTypes.EntryOrDepart)
                 {
-                    DepartCell dc = (DepartCell)Location;
-                    if (dc.DepartRoute == RouteTo)
+                    if (Location.Route == RouteTo)
                         GoalState = CarStates.DepartRing;
                 }
             }
             else if(GoalState == CarStates.DepartRing)
             {
-                DepartCell dc = (DepartCell)Location;
-                MoveNext(dc.NextDepart);
+                MoveNext(Location.DepartNext);
 
-                if(Location is RoadCell)
+                if(Location.TypePosition == PosTypes.Road)
                     GoalState = CarStates.DepartMap;
             }
             else if(GoalState == CarStates.DepartMap)
             {
-                RoadCell rc = (RoadCell)Location;
-                if (rc.NextRoadCell != null)
-                    MoveNext(rc.NextRoadCell);
+                if (Location.RoadNextCell != null)
+                    MoveNext(Location.RoadNextCell);
                 else
                 {
                     //уничтожение машины
@@ -131,12 +125,11 @@ namespace RoadRingSim.Core
 		{
             //стоять если пешеход
             bool isCrossWalkStop =
-                (NextCell is CrossWalkCell) &&
+                (NextCell.TypeFunc == FuncTypes.CrossWalk) &&
                 ((Environment.Envir.Humans.Count > 0) || (Environment.Envir.LightsState == LightStates.Red));
-            //стоять есди машина
+            //стоять если машина
             bool isCarStop = (NextCell.Car != null);
             if (isCrossWalkStop || isCarStop) return;
-
 
             //изменяем положение машины
             Cell CelFrom = Location;
