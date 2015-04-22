@@ -26,7 +26,7 @@ namespace RoadRingSim.Forms
 
         public void ShowUserList(List<User> list)
         {
-            userBindingSource.DataSource = list.OrderBy(x => x.ID);
+            userBindingSource.DataSource = list.OrderBy(x => x.Login);
             userBindingSource.ResetBindings(false);
         }
 
