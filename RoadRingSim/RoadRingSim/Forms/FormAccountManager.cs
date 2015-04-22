@@ -1,5 +1,7 @@
 ﻿using RoadRingSim.Core.Domains;
 using RoadRingSim.Data.DAO;
+using RoadRingSim.Models;
+using RoadRingSim.Presenters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,15 +16,42 @@ namespace RoadRingSim.Forms
 {
     public partial class FormAccountManager : Form
     {
-        public FormAccountManager()
+        UserDAO user;
+        UserPresenter up = new UserPresenter();
+        public FormAccountManager(UserDAO user)
         {
             InitializeComponent();
-            UserDAO Users = new UserDAO();
-            List<User> list = Users.SelectAll();
-            
-            list.ForEach(x => listView1.Items.Add(new ListViewItem(new string[] {Convert.ToString(x.ID), x.Login, Convert.ToString(x.Role.ID)})));
-            
-            
+            up.Init(this, new UserModel(user));
+            this.user = user;
+        }
+
+        public event Action AddUser;
+        public event Action<User> EditUser;
+        public event Action<User> DeleteUser;
+
+        public void ShowUserList(List<User> list)
+        {
+            userBindingSource.DataSource = list.OrderBy(x => x.ID);
+            userBindingSource.ResetBindings(false);
+        }
+
+        private void toolStripButtonAdd_Click(object sender, EventArgs e)
+        {
+            if (AddUser != null) AddUser();
+        }
+
+        private void toolStripButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (userBindingSource.Current != null)
+                if (EditUser != null)
+                    EditUser((User)userBindingSource.Current);
+        }
+
+        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (userBindingSource.Current != null)
+                if (DeleteUser != null)
+                    DeleteUser((User)userBindingSource.Current);
         }
     }
 }

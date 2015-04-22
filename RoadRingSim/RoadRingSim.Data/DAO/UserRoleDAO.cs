@@ -11,8 +11,9 @@ namespace RoadRingSim.Data.DAO
     /// <summary>
     /// класс работы с таблицей "роль_пользователей"
     /// </summary>
-    class UserRoleDAO: DAO
+    public class UserRoleDAO: DAO
     {
+        public UserRole userRole;
         /// <summary>
         /// получение объекта роли по ID роли
         /// </summary>
@@ -20,24 +21,37 @@ namespace RoadRingSim.Data.DAO
         /// <returns>роль с нужным ID</returns>
         public UserRole SelectById(int id)
         {
-            UserRole role = new UserRole();
-            role.RoleName = 
-            (String)(ExecuteQuery("SELECT `RoleName` FROM UserRole WHERE ID=" + id).FirstOrDefault())[0];
-
+            UserRole role = new UserRole(id);
+            role.RoleName = (String)(ExecuteQuery(
+                string.Format("SELECT RoleName FROM UserRole WHERE ID={0}", id)).FirstOrDefault())[0];
             return role;
         }
 
         /// <summary>
-        /// обновление списка пользователей с заданной ролью в поле Users
+        /// возвращает список ролей
         /// </summary>
-        /// <param name="role">роль, в которой нужно инициализировать поле Users</param>
-        /// <returns>роль с инициализированным полем Users</returns>
-        public UserRole UpdateUserRole(UserRole role)
+        /// <returns>список ролей из БД</returns>
+        public List<UserRole> SelectAll()
         {
-            UserDAO ud = new UserDAO();
-            role.Users = ud.Select("SELECT * FROM `User` WHERE RoleID=" + role.ID);
+            return Select(string.Format("SELECT * FROM UserRole"));
+        }
+        /// <summary>
+        /// возвращает список ролей соответствующих запросу
+        /// </summary>
+        /// <param name="query">запрос для БД</param>
+        /// <returns>список ролей</returns>
+        public List<UserRole> Select(string query)
+        {
+            var res = new List<UserRole>();
+            var list = ExecuteQuery(query);
 
-            return role;
+            foreach (var r in list)
+            {
+                var userRole = new UserRole(Convert.ToInt32(r[0]));
+                userRole.RoleName = r[1].ToString();
+                res.Add(userRole);
+            }
+            return res;
         }
     }
 }

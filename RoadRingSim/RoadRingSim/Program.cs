@@ -1,4 +1,5 @@
-﻿using RoadRingSim.Data.DAO;
+﻿using RoadRingSim.Core.Domains;
+using RoadRingSim.Data.DAO;
 using RoadRingSim.Forms;
 using System;
 using System.Collections.Generic;
@@ -18,15 +19,17 @@ namespace RoadRingSim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
 #if !DEBUG
             FormSplashscreen fs = new FormSplashscreen();
             fs.ShowDialog();
 #endif
-            UserDAO user = new UserDAO();
-            var auth = new Forms.FormAuth(user);
+            
+            var auth = new Forms.FormAuth();
+#if !DEBUG
             if (auth.ShowDialog() == DialogResult.OK)
+#endif
             {
+                UserDAO user = auth.GetUser();
                 Application.Run(new MainForm(user));
             }
         }

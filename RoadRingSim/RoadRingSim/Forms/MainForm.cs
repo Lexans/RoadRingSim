@@ -1,4 +1,5 @@
-﻿using RoadRingSim.Data.DAO;
+﻿using RoadRingSim.Core.Domains;
+using RoadRingSim.Data.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,16 @@ namespace RoadRingSim.Forms
         {
             InitializeComponent();
             this.user = user;
-            if (user.CurentUser.Role.ID == 3) AccManagerToolStripMenuItem.Enabled = true;
+#if !DEBUG
+            if (user.Role.ID == 1) AccManagerToolStripMenuItem.Enabled = true;
+#else 
+            AccManagerToolStripMenuItem.Enabled = true;
+#endif
         }
 
         private void AccManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new FormAccountManager()).ShowDialog();
+            (new FormAccountManager(user)).ShowDialog();
         }
     }
 }
