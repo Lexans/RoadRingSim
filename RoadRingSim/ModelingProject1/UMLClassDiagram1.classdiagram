@@ -2526,7 +2526,7 @@
                           <referencedTypeMoniker Id="e038213a-89d9-47d5-aa38-1fd1079f80e7" LastKnownName="LigthStates" />
                         </type_NamedElement>
                       </property>
-                      <property Id="bf7f1a3f-cb70-44be-8887-25ee22137ac4" name="Envir" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                      <property Id="bf7f1a3f-cb70-44be-8887-25ee22137ac4" name="Inst" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                         <description>объект-одиночка этого типа</description>
                         <appliedStereotypesInternal>
                           <stereotypeInstance Id="fa56ad82-33ed-4818-9a49-70509e64d8da" name="property" profile="CSharpProfile">

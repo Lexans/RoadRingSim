@@ -21,23 +21,24 @@ namespace RoadRingSim.Core
 		public override void CreateObject()
 		{
 
-            if (Environment.Envir.Cross.IsLights)
+            if (Envirmnt.Inst.Cross.IsLights)
             {
-                switch (Environment.Envir.LightsState)
+                switch (Envirmnt.Inst.LightsState)
                 {
                     case LightStates.Green:
-                        Environment.Envir.LightsState = LightStates.Red;
+                        Envirmnt.Inst.LightsState = LightStates.Red;
                         break;
 
                     case LightStates.Red:
-                        Environment.Envir.LightsState = LightStates.Green;
+                        Envirmnt.Inst.LightsState = LightStates.Green;
                         break;
 
                     case LightStates.None:
-                        Environment.Envir.LightsState = LightStates.Green;
+                        Envirmnt.Inst.LightsState = LightStates.Green;
                         break;
                 }
-                OnLightsToggle(Environment.Envir.LightsState);
+                if (OnLightsToggle != null)
+                    OnLightsToggle(Envirmnt.Inst.LightsState);
             }
      
 		}
@@ -47,7 +48,7 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public override void PlanNew()
 		{
-            TimeOfNextObj = Environment.Envir.Time + 20;
+            TimeOfNextObj = Envirmnt.Inst.Time + 20;
 		}
 
 	}

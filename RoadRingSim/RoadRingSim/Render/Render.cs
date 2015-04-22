@@ -19,12 +19,26 @@ namespace RoadRingSim
 		/// <summary>
 		/// масштаб (размер клеток в пикселах)
 		/// </summary>
-		public int Scale;
+		public int Scale = 21;
 
 		/// <summary>
 		/// поле содержит единственный экземпляр класса Render
 		/// </summary>
-		public static Render RenderObject;
+        /// <summary>
+        /// объект-одиночка этого типа
+        /// </summary>
+        static Render inst = null;
+        public static Render Inst
+        {
+            get
+            {
+                if (inst == null)
+                {
+                    inst = new Render();
+                }
+                return inst;
+            }
+        }  
 
 		/// <summary>
 		/// полная картинка карты по сбросу
@@ -34,7 +48,7 @@ namespace RoadRingSim
 		/// <summary>
 		/// объекты, ассоциированные со очередью задач визуализации их движения
 		/// </summary>
-		public Dictionary<Object,Queue<IPaintTask>> Tasks;
+		public Dictionary<Object,Queue<PaintTask>> Tasks;
 
 		/// <summary>
 		/// задержка между выполнениями шагов задач
@@ -42,9 +56,9 @@ namespace RoadRingSim
 		public int SleepDelay;
 
 		/// <summary>
-		/// отрисовка всех клеток
+		/// отрисовка DefaultMap
 		/// </summary>
-		private void DrawCells(object RingLines)
+		public void DrawMap(CrossRoad cr)
 		{
 			throw new System.NotImplementedException();
 		}
@@ -62,8 +76,22 @@ namespace RoadRingSim
 		/// на основе объекта Environment рисует DefaultMap
 		/// связывает методы добавления элементов в очередь по событиям
 		/// </summary>
-		public Render(Graphics Canvas, int Scale)
+		public Render()
 		{
+            Tasks = new Dictionary<object, Queue<PaintTask>>();
+
+            //регистрируемся на события создания объектов
+            foreach (ObjectCreator oc in Envirmnt.Inst.Creators)
+            {
+                if(oc is CarCreator)
+                {
+                    ((CarCreator)oc).OnCarCreate += EventHandlerCarCreate;
+                }
+                else if(oc is HumanCreator)
+                {
+                    ((HumanCreator)oc).OnHumanCreate += EventHandlerHumanCreate;
+                }
+            }
 		}
 
 		/// <summary>
@@ -92,7 +120,9 @@ namespace RoadRingSim
 		/// </summary>
 		public void EventHandlerCarCreate(Car Model, Cell CellFrom)
 		{
-			throw new System.NotImplementedException();
+            Tasks[Model] = new Queue<PaintTask>();
+
+            Model.OnCarMove += EventHandlerCarMove;
 		}
 
 		/// <summary>
@@ -101,7 +131,7 @@ namespace RoadRingSim
 		/// </summary>
 		public void EventHandlerCarDestroy(Car Model)
 		{
-			throw new System.NotImplementedException();
+            Tasks.Remove(Model);
 		}
 
 		/// <summary>
@@ -110,7 +140,9 @@ namespace RoadRingSim
 		/// </summary>
 		public void EventHandlerHumanCreate(Human Model, Cell CellFrom)
 		{
-			throw new System.NotImplementedException();
+            Tasks[Model] = new Queue<PaintTask>();
+
+            Model.OnHumanMove += EventHandlerHumanMove;
 		}
 
 		/// <summary>
@@ -119,7 +151,7 @@ namespace RoadRingSim
 		/// <param name="Model">уничтожаемый пешеход</param>
 		public void EventHandlerHumanDestroy(Human Model)
 		{
-			throw new System.NotImplementedException();
+            Tasks.Remove(Model);
 		}
 
 		/// <summary>
@@ -128,13 +160,32 @@ namespace RoadRingSim
 		/// </summary>
 		public void EventHandlerCarMove(Car Model, Cell CellFrom, Cell CellTo)
 		{
-			throw new System.NotImplementedException();
+            CarPaint cp = new CarPaint();
+            cp.CellFrom = CellFrom;
+            cp.CellTo = Model.Location;
+
+            Tasks[Model].Enqueue(cp);
+
+            PaintCell(Color.White, CellFrom);
+            PaintCell(Model.ColorCar, CellTo);
 		}
 
 		public void EventHandlerHumanMove(Human Model, Cell CellFrom, Cell CellTo)
 		{
-			throw new System.NotImplementedException();
+            HumanPaint hp = new HumanPaint();
+            hp.CellFrom = CellFrom;
+            hp.CellTo = Model.Location;
+
+            Tasks[Model].Enqueue(hp);
+
+            PaintCell(Color.White, CellFrom);
+            PaintCell(Model.ColorHuman, CellTo);
 		}
+
+        private void PaintCell(Color col, Cell cl)
+        {
+            Canvas.DrawRectangle(new Pen(col, 2), cl.X * Scale, cl.Y * Scale, Scale, Scale);
+        }
 
 		/// <summary>
 		/// обработчик события изменения сигнала светофора
@@ -142,7 +193,7 @@ namespace RoadRingSim
 		/// <param name="LightState">новое состояние светофора</param>
 		public void EventHandlerLightToggle(LightStates LightState)
 		{
-			throw new System.NotImplementedException();
+            //тут рисуем цвет светофора
 		}
 
 	}

@@ -15,15 +15,15 @@ namespace RoadRingSim.Core
 		public override void CreateObject()
 		{
             Human hmn = new Human(Location);
-            Location.Car = hmn;
-            Environment.Envir.Humans.Add(hmn);
+            Location.CrosswalkPedestrian = hmn;
+            Envirmnt.Inst.Humans.Add(hmn);
 
             OnHumanCreate(hmn, Location);
 		}
 
 		public override void PlanNew()
 		{
-            TimeOfNextObj = Environment.Envir.Time + Environment.Envir.Cross.DistributionHumans.GetSample();
+            TimeOfNextObj = Envirmnt.Inst.Time + Envirmnt.Inst.Cross.DistributionHumans.GetSample();
         }
 
 	}

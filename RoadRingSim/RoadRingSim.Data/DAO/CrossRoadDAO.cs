@@ -97,11 +97,12 @@ namespace RoadRingSim.Data.DAO
                     "SELECT `IDLaw`, `Parametr1`, `Parametr2` FROM `CrossRoadLaw` "+
                     "WHERE `IDCrossRoad`="+cr.ID+" AND `LawOfWhat`=1");
 
+                string tst;
                 CrossRoadLaw crlCars = new CrossRoadLaw(
-                    (DistrubutionLaws)int.Parse(lawCarsQuery[0].ToString())
+                    (DistrubutionLaws)int.Parse(tst = lawCarsQuery[0][0].ToString())
                     );
-                crlCars.Parametr1 = int.Parse(lawCarsQuery[1].ToString());
-                crlCars.Parametr2 = int.Parse(lawCarsQuery[2].ToString());
+                crlCars.Parametr1 = int.Parse(lawCarsQuery[0][1].ToString());
+                crlCars.Parametr2 = int.Parse(lawCarsQuery[0][2].ToString());
                 cr.DistribustionCars = crlCars;
 
                 //закон распределения пешеходов
@@ -110,10 +111,10 @@ namespace RoadRingSim.Data.DAO
                    "WHERE `IDCrossRoad`=" + cr.ID + " AND `LawOfWhat`=2");
 
                 CrossRoadLaw crlHumans = new CrossRoadLaw(
-                    (DistrubutionLaws)int.Parse(lawHumansQuery[0].ToString())
+                    (DistrubutionLaws)int.Parse(lawHumansQuery[0][0].ToString())
                     );
-                crlHumans.Parametr1 = int.Parse(lawHumansQuery[1].ToString());
-                crlHumans.Parametr2 = int.Parse(lawHumansQuery[2].ToString());
+                crlHumans.Parametr1 = int.Parse(lawHumansQuery[0][1].ToString());
+                crlHumans.Parametr2 = int.Parse(lawHumansQuery[0][2].ToString());
                 cr.DistributionHumans = crlHumans;
 
 

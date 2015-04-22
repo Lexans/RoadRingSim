@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RoadRingSim
 {
-	public class HumanPaint : IPaintTask
+	public class HumanPaint : PaintTask
 	{
 		/// <summary>
 		/// отрисовка перемещения пешехода из клетки CellFrom в CellTo с учетом шага задачи CurrentStep
@@ -14,7 +14,7 @@ namespace RoadRingSim
 		/// форма пешехода - кружочек
 		/// </summary>
 		/// <param name="Model">модель объекта, который визуализируем</param>
-		public virtual void Paint(Object Model)
+		public override void Paint(Object Model)
 		{
 			throw new System.NotImplementedException();
 		}

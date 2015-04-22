@@ -52,7 +52,6 @@
     <Compile Include="Domains\PriorityTypes.cs" />
     <Compile Include="Domains\UserRole.cs" />
     <Compile Include="Domains\User.cs" />
-    <Compile Include="Domains\UserRoles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoadRing\Car.cs" />
@@ -61,7 +60,7 @@
     <Compile Include="RoadRing\Cell.cs" />
     <Compile Include="RoadRing\FuncTypes.cs" />
     <Compile Include="RoadRing\PosTypes.cs" />
-    <Compile Include="RoadRing\Environment.cs" />
+    <Compile Include="RoadRing\Envirmnt.cs" />
     <Compile Include="RoadRing\Human.cs" />
     <Compile Include="RoadRing\HumanCreator.cs" />
     <Compile Include="RoadRing\LightCreator.cs" />

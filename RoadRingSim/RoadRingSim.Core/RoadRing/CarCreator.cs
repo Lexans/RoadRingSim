@@ -17,18 +17,18 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public event EventCarCreateHandler OnCarCreate;
 
-        private override void CreateObject()
+        public override void CreateObject()
 		{
             Car cr = new Car(Location);
             Location.Car = cr;
-            Environment.Envir.Cars.Add(cr);
+            Envirmnt.Inst.Cars.Add(cr);
 
             OnCarCreate(cr, Location);
         }
 
-		private override void PlanNew()
+		public override void PlanNew()
 		{
-            TimeOfNextObj = Environment.Envir.Time + Environment.Envir.Cross.DistribustionCars.GetSample();
+            TimeOfNextObj = Envirmnt.Inst.Time + Envirmnt.Inst.Cross.DistribustionCars.GetSample();
         }
 
 	}

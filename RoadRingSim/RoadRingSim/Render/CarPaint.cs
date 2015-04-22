@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RoadRingSim
 {
-	public class CarPaint : IPaintTask
+	public class CarPaint : PaintTask
 	{
 		/// <summary>
 		/// отрисовка паремещения авто из клетки CellFrom в CellTo с учетом шага задачи CurrentStep
@@ -14,7 +14,7 @@ namespace RoadRingSim
 		/// форма авто - толстая линия направленная в нужную сторону
 		/// </summary>
 		/// <param name="Model">модель объекта, который визуализируем</param>
-		public virtual void Paint(Object Model)
+		public override void Paint(Object Model)
 		{
 			throw new System.NotImplementedException();
 		}

@@ -11,7 +11,7 @@ namespace RoadRingSim.Core
 	/// <summary>
 	/// клетка среды симуляции
 	/// </summary>
-	public class Cell: Cell, ICloneable
+	public class Cell
 	{
         /// <summary>
         /// тип клетки по типу (дорога, кольцо)
@@ -98,8 +98,17 @@ namespace RoadRingSim.Core
             TypePosition = tp;
             TypeFunc = tf;
 
-            Environment.Envir.CellMap[X][Y] = this;
+            Envirmnt.Inst.CellMap[X][Y] = this;
 		}
+
+        public Cell(int X, int Y)
+        {
+            this.X = X;
+            this.Y = Y;
+
+            TypePosition = PosTypes.None;
+            TypeFunc = FuncTypes.None;
+        }
 
     }
 }

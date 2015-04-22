@@ -31,25 +31,25 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void TryCreate()
 		{
-            if (Environment.Envir.Time == TimeOfNextObj)
+            if (Envirmnt.Inst.Time == TimeOfNextObj)
             {
                 CreateObject();
                 PlanNew();
             }
 
-            if(Environment.Envir.Time > TimeOfNextObj)
+            if(Envirmnt.Inst.Time > TimeOfNextObj)
                 PlanNew();
 		}
 
 		/// <summary>
 		/// логика создания конкретного объекта
 		/// </summary>
-        private abstract void CreateObject();
+        public abstract void CreateObject();
 
         /// <summary>
         /// на основе реализации случайной величины вычисляет новое значение TimeOfNextCar
         /// </summary>
-        private abstract void PlanNew();
+        public abstract void PlanNew();
 
 	}
 }

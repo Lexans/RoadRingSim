@@ -58,14 +58,17 @@ namespace RoadRingSim.Core
             {
                 //уничтожение пешехода
                 Location.CrosswalkPedestrian = null;
-                Environment.Envir.Humans.Remove(this);
-                OnHumanDestroy(this);
+                Envirmnt.Inst.Humans.Remove(this);
+                if (OnHumanDestroy != null)
+                    OnHumanDestroy(this);
+
+                return;
             }
 
             //стоять если машина или другой человек впереди
             bool isCarStop = (Location.CrosswalkNext.Car != null || Location.CrosswalkNext.CrosswalkPedestrian != null);
             //стоять если для машин зеленый
-            bool isGreenLight = Environment.Envir.LightsState == LightStates.Green;
+            bool isGreenLight = Envirmnt.Inst.LightsState == LightStates.Green;
 
             if (isCarStop || isGreenLight) return;
 

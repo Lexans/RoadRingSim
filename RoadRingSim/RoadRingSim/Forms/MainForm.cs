@@ -1,4 +1,5 @@
-﻿using RoadRingSim.Data.DAO;
+﻿using RoadRingSim.Core;
+using RoadRingSim.Data.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,9 +22,41 @@ namespace RoadRingSim.Forms
             if (user.CurentUser.Role.ID == 3) AccManagerToolStripMenuItem.Enabled = true;
         }
 
+        public MainForm()
+        {
+            InitializeComponent();
+
+        }
+
         private void AccManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new FormAccountManager()).ShowDialog();
         }
+
+
+
+
+        private void StartModeling()
+        {
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Envirmnt.Inst.SimulationStep();
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            CrossRoadDAO crd = new CrossRoadDAO();
+            Envirmnt.Inst.Cross = crd.SelectByID(1);
+            Envirmnt.Inst.BuildMap();
+            Envirmnt.Inst.InitObjectCreators();
+
+            Render.Inst.Canvas = panel1.CreateGraphics();
+
+            timer1.Start();
+        }
+
     }
 }

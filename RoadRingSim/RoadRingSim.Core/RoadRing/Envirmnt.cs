@@ -7,7 +7,7 @@ using System.Text;
 
 namespace RoadRingSim.Core
 {
-	public class Environment
+	public class Envirmnt
 	{
 		/// <summary>
 		/// список всех машин
@@ -40,7 +40,18 @@ namespace RoadRingSim.Core
         /// <summary>
 		/// объект-одиночка этого типа
 		/// </summary>
-        public static Environment Envir = new Environment();
+        static Envirmnt  inst = null;
+        public static Envirmnt Inst
+        {
+            get
+            {
+                if (inst == null)
+                {
+                    inst = new Envirmnt();
+                }
+                return inst;
+            }
+        }  
 
         /// <summary>
         /// список создателей новых объектов (машин, пешеходов, сигналов светофора)
@@ -57,40 +68,46 @@ namespace RoadRingSim.Core
             foreach (var oc in Creators)
                 oc.TryCreate();
 
-            foreach (Human hmn in Humans)
-                hmn.TryMoveForward();
+            //foreach (Human hmn in Humans)
+                //hmn.TryMoveForward();
 
             //учет приоритетов
-            Cars = (List<Car>) Cars.GroupBy(car => car.Location.Priority);
+            var ordCars = Cars.OrderBy(car => car.Location.Priority);
 
-            foreach (Car car in Cars)
+            foreach (Car car in ordCars)
                 car.TryMoveForward();
 
-			throw new System.NotImplementedException();
 		}
 
 		/// <summary>
 		/// инициализация всех полей
 		/// </summary>
-		public Environment()
+		public Envirmnt()
 		{
             Cars = new List<Car>();
             Humans = new List<Human>();
             Time = 0;
 
-            //все клетки карты неопределенные
-            CellMap = new List<List<Cell>>(30);
-            for (int i = 0; i < 30; i++)
-            {
-                CellMap[i] = new List<Cell>(30);
-
-                for (int j = 0; j < 30; j++)
-                    CellMap[i][j] = new Cell(i, j, PosTypes.None, FuncTypes.None);
-            }
-
             LightsState = LightStates.Green;
             Creators = new List<ObjectCreator>();
 		}
+
+
+        /// <summary>
+        /// инициализация карты пустыми клетками
+        /// </summary>
+        private void InitMap()
+        {
+            //все клетки карты неопределенные
+            CellMap = new List<List<Cell>>(31);
+            for (int i = 0; i <= 30; i++)
+            {
+                CellMap.Add(new List<Cell>(31));
+
+                for (int j = 0; j <= 30; j++)
+                    CellMap[i].Add(new Cell(i, j));
+            }
+        }
 
 
         /// <summary>
@@ -111,13 +128,12 @@ namespace RoadRingSim.Core
                     //выший приоритет если главная вертикальная улица, или кольцо второстепенное
                     cell.Priority = (Cross.PriorityType == PriorityTypes.MainStreetVertical
                         || Cross.PriorityType == PriorityTypes.SecondaryRing) ? 1 : 0;
-
-                    if (y > 0)
-                        cell.RoadNextCell = CellMap[x][y - 1];
+                    
+                    cell.RoadNextCell = CellMap[x][y+1];
                 }
 
             //правая горизонтальная дорога
-            for (int y = 14; y < 14 - Cross.LinesHorisontal; y--)
+            for (int y = 14; y > 14 - Cross.LinesHorisontal; y--)
                 for (int x = 26; x <= 30; x++)
                 {
                     Cell cell = CellMap[x][y];
@@ -130,8 +146,8 @@ namespace RoadRingSim.Core
                     cell.Priority = (Cross.PriorityType == PriorityTypes.MainStreetHorisontal
                         || Cross.PriorityType == PriorityTypes.SecondaryRing) ? 1 : 0;
 
-                    if (x != 26)
-                        cell.RoadNextCell = CellMap[y][x - 1];
+
+                    cell.RoadNextCell = CellMap[x-1][y];
                 }
 
 
@@ -139,9 +155,10 @@ namespace RoadRingSim.Core
             for (int x = 25; x > 25 - Cross.LinesRing; x--)
                 for (int y = 11; y <= 15; y++)
                 {
+
                     Cell rc = CellMap[x][y];
                     rc.TypePosition = PosTypes.Ring;
-                    rc.LineNumber = x - 24;
+                    rc.LineNumber = x - 22;
 
                     rc.Priority = (Cross.PriorityType == PriorityTypes.MainStreetHorisontal
                        || Cross.PriorityType == PriorityTypes.MainRing) ? 1 : 0;
@@ -152,7 +169,7 @@ namespace RoadRingSim.Core
 
 
             //верхняя прямая часть кольца
-            for (int x = 15; x > 19; x++)
+            for (int x = 15; x <= 19; x++)
                 for (int y = 5; y < 5 + Cross.LinesRing; y++)
                 {
                     Cell rc = CellMap[x][y];
@@ -162,8 +179,7 @@ namespace RoadRingSim.Core
                     rc.Priority = (Cross.PriorityType == PriorityTypes.MainStreetVertical
                        || Cross.PriorityType == PriorityTypes.MainRing) ? 1 : 0;
 
-                    if (x != 19)
-                        rc.RingNextCell = CellMap[x + 1][y];
+                   rc.RingNextCell = CellMap[x - 1][y];
                 }
 
             //дуга кольца 1 квадранта
@@ -198,31 +214,31 @@ namespace RoadRingSim.Core
             CellMap[6][20].DepartNext = CellMap[5][19];
 
             Cell dc;
-            if ((dc = CellMap[7][20]).TypePosition != null)
+            if ((dc = CellMap[7][20]).TypePosition != PosTypes.None)
             {
                 dc.TypeFunc = FuncTypes.EntryOrDepart;
                 dc.DepartNext = CellMap[6][20];
             }
 
-            if ((dc = CellMap[8][21]).TypePosition != null)
+            if ((dc = CellMap[8][21]).TypePosition != PosTypes.None)
             {
                 dc.TypeFunc = FuncTypes.EntryOrDepart;
                 dc.DepartNext = CellMap[7][20];
             }
 
-            if ((dc = CellMap[9][21]).TypePosition != null)
+            if ((dc = CellMap[9][21]).TypePosition != PosTypes.None)
             {
                 dc.TypeFunc = FuncTypes.EntryOrDepart;
                 dc.DepartNext = CellMap[8][21];
             }
 
-            if ((dc = CellMap[10][22]).TypePosition != null)
+            if ((dc = CellMap[10][22]).TypePosition != PosTypes.None)
             {
                 dc.TypeFunc = FuncTypes.EntryOrDepart;
                 dc.DepartNext = CellMap[9][21];
             }
 
-            if ((dc = CellMap[11][22]).TypePosition != null)
+            if ((dc = CellMap[11][22]).TypePosition != PosTypes.None)
             {
                 dc.TypeFunc = FuncTypes.EntryOrDepart;
                 dc.DepartNext = CellMap[10][22];
@@ -235,34 +251,34 @@ namespace RoadRingSim.Core
             {
                 ec = CellMap[25][y];
                 ec.TypeFunc = FuncTypes.EntryOrDepart;
-                ec.DepartNext = CellMap[24][y];
+                ec.EntryNext = CellMap[24][y];
 
-                if ((ec = CellMap[24][y]).TypePosition != null)
+                if ((ec = CellMap[24][y]).TypePosition != PosTypes.None)
                 {
                     ec.TypeFunc = FuncTypes.EntryOrDepart;
-                    ec.DepartNext = CellMap[23][y - 1];
+                    ec.EntryNext = CellMap[23][y - 1];
                 }
 
-                if ((ec = CellMap[23][y - 1]).TypePosition != null)
+                if ((ec = CellMap[23][y - 1]).TypePosition != PosTypes.None)
                 {
                     ec.TypeFunc = FuncTypes.EntryOrDepart;
-                    ec.DepartNext = CellMap[22][y - 2];
+                    ec.EntryNext = CellMap[22][y - 2];
                 }
             }
 
             for (int y = 9; y <= 10; y++)
             {
-                if ((ec = CellMap[22][y]).TypePosition != null)
+                if ((ec = CellMap[22][y]).TypePosition != PosTypes.None)
                 {
                     ec.TypeFunc = FuncTypes.EntryOrDepart;
-                    ec.DepartNext = CellMap[21][y];
+                    ec.EntryNext = CellMap[21][y];
                 }
             }
 
-            if ((ec = CellMap[21][9]).TypePosition != null)
+            if ((ec = CellMap[21][9]).TypePosition != PosTypes.None)
             {
                 ec.TypeFunc = FuncTypes.EntryOrDepart;
-                ec.DepartNext = CellMap[20][9];
+                ec.EntryNext = CellMap[20][9];
             }
         }
 
@@ -271,12 +287,14 @@ namespace RoadRingSim.Core
         /// </summary>
         public void BuildMap()
         {
+            InitMap();
             BuidFirstQuadrant();
 
             //отражение на 2ой квадрант
             QuadrantsReflect(
                 (x) => { return x; },
                 (y) => { return 30-y; },
+                true,
                 (route) => { return (route == Routes.Top) ? Routes.Bottom : Routes.Right; }
                 );
 
@@ -284,6 +302,7 @@ namespace RoadRingSim.Core
             QuadrantsReflect(
                 (x) => { return 30 - x; },
                 (y) => { return 30 - y; },
+                false,
                 (route) => { return (route == Routes.Top) ? Routes.Bottom : Routes.Left; }
                 );
 
@@ -291,6 +310,7 @@ namespace RoadRingSim.Core
             QuadrantsReflect(
                 (x) => { return 30 - x; },
                 (y) => { return y; },
+                true,
                 (route) => { return (route == Routes.Top) ? Routes.Top : Routes.Left; }
                 );
 
@@ -309,24 +329,18 @@ namespace RoadRingSim.Core
         public delegate int reflCord(int coord);
         public delegate Routes reflRoute(Routes route);
 		/// <summary>
-		/// отражает первый квадарант клеток карты на квадрант заданный функциями отражения
+		/// отражает данные квадарант клеток карты на квадрант заданный функциями отражения
 		/// </summary>
-        private void QuadrantsReflect(reflCord rX, reflCord rY, reflRoute rRoute)
+        private void QuadrantsReflect(reflCord rX, reflCord rY, bool islinkInverse, reflRoute rRoute)
 		{
 			for(int x = 15; x<=30; x++)
                 for(int y = 0; y<=15; y++)
                 {
                     //клетка 1 квадранта
                     Cell FromCell = CellMap[x][y];
-                    //клетка 2 квадранта
+                    //клетка целевого квадранта
                     Cell ToCell = CellMap[rX(x)][rY(y)];
 
-                    //отражение ссылок
-                    ToCell.DepartNext = CellMap[rX(FromCell.DepartNext.X)][rY(FromCell.DepartNext.Y)];
-                    ToCell.EntryNext = CellMap[rX(FromCell.EntryNext.X)][rY(FromCell.EntryNext.Y)];
-                    ToCell.RingNextCell = CellMap[rX(FromCell.RingNextCell.X)][rY(FromCell.RingNextCell.Y)];
-                    ToCell.RoadNextCell = CellMap[rX(FromCell.RoadNextCell.X)][rY(FromCell.RoadNextCell.Y)];
-                    
                     //отражение направления выезда
                     ToCell.Route = rRoute(FromCell.Route);
 
@@ -335,6 +349,27 @@ namespace RoadRingSim.Core
                     ToCell.LineNumber = FromCell.LineNumber;
                     ToCell.TypeFunc = FromCell.TypeFunc;
                     ToCell.TypePosition = FromCell.TypePosition;
+
+                    //отражение ссылок
+                    if (FromCell.RoadNextCell != null)
+                    {
+                        if (islinkInverse)
+                        {
+                            CellMap[rX(FromCell.RoadNextCell.X)][rY(FromCell.RoadNextCell.Y)].RoadNextCell = ToCell;
+                        }
+                        else
+                            ToCell.RoadNextCell = CellMap[rX(FromCell.RoadNextCell.X)][rY(FromCell.RoadNextCell.Y)];
+                    }
+
+                    if (FromCell.RingNextCell != null)
+                    {
+                        if (islinkInverse)
+                        {
+                            CellMap[rX(FromCell.RingNextCell.X)][rY(FromCell.RingNextCell.Y)].RingNextCell = ToCell;
+                        }
+                        else
+                            ToCell.RingNextCell = CellMap[rX(FromCell.RingNextCell.X)][rY(FromCell.RingNextCell.Y)];
+                    }
                 }
 		}
 
@@ -344,14 +379,19 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void InitObjectCreators()
 		{
+            CarCreator cc0 = new CarCreator();
+            cc0.Location = CellMap[30][14];
+            Creators.Add(cc0);
+            return;
+
             //создатели машин на вертикальных дорогах
             for (int i = 0; i < Cross.LinesVertical; i++)
             {
                 CarCreator cc = new CarCreator();
-                cc.Location = CellMap[30][16+i];
+                cc.Location = CellMap[16 + i][30];
                 Creators.Add(cc);
 
-                cc.Location = CellMap[0][14 - i];
+                cc.Location = CellMap[14 - i][0];
                 Creators.Add(cc);
             }
 
@@ -359,10 +399,10 @@ namespace RoadRingSim.Core
             for (int i = 0; i < Cross.LinesHorisontal; i++)
             {
                 CarCreator cc = new CarCreator();
-                cc.Location = CellMap[16 + i][0];
+                cc.Location = CellMap[0][16 + i];
                 Creators.Add(cc);
 
-                cc.Location = CellMap[14 - i][30];
+                cc.Location = CellMap[30][14 - i];
                 Creators.Add(cc);
             }
 

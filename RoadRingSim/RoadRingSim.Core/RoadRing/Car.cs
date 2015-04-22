@@ -35,6 +35,9 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public int NeedRingLineNumber {
             get {
+                if ((int)RouteFrom - (int)RouteTo == 0)
+                    return 4;
+
                 return (int)Math.Abs((int)RouteFrom - (int)RouteTo);
             }
         }
@@ -43,7 +46,7 @@ namespace RoadRingSim.Core
 
         public event EventCarMoveHandler OnCarMove;
 
-		public Environment Environment;
+		public Envirmnt Environment;
 
         private static Random _rand = new Random();
 		/// <summary>
@@ -82,7 +85,8 @@ namespace RoadRingSim.Core
             {
                 MoveNext(Location.EntryNext);
 
-                if (Location.LineNumber == NeedRingLineNumber)
+                if (Location.LineNumber == Envirmnt.Inst.Cross.LinesRing ||
+                    Location.LineNumber == NeedRingLineNumber)
                     GoalState = CarStates.MoveToDepart;
             }
             else if(GoalState == CarStates.MoveToDepart)
@@ -126,7 +130,7 @@ namespace RoadRingSim.Core
             //стоять если пешеход
             bool isCrossWalkStop =
                 (NextCell.TypeFunc == FuncTypes.CrossWalk) &&
-                ((Environment.Envir.Humans.Count > 0) || (Environment.Envir.LightsState == LightStates.Red));
+                ((Envirmnt.Inst.Humans.Count > 0) || (Envirmnt.Inst.LightsState == LightStates.Red));
             //стоять если машина
             bool isCarStop = (NextCell.Car != null);
             if (isCrossWalkStop || isCarStop) return;

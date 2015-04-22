@@ -22,13 +22,16 @@ namespace RoadRingSim
 #if !DEBUG
             FormSplashscreen fs = new FormSplashscreen();
             fs.ShowDialog();
-#endif
+
             UserDAO user = new UserDAO();
             var auth = new Forms.FormAuth(user);
             if (auth.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new MainForm(user));
             }
+#endif
+
+            Application.Run(new MainForm());
         }
     }
 }
