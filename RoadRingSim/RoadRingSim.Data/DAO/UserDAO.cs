@@ -1,9 +1,7 @@
-﻿using System;
+﻿using RoadRingSim.Core.Domains;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RoadRingSim.Core.Domains;
 
 namespace RoadRingSim.Data.DAO
 {

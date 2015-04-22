@@ -1,5 +1,4 @@
-﻿using RoadRingSim.Core.Domains;
-using RoadRingSim.Data.DAO;
+﻿using RoadRingSim.Data.DAO;
 using System;
 using System.Windows.Forms;
 
