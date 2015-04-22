@@ -11,7 +11,7 @@ namespace RoadRingSim.Core
     /// </summary>
     public enum FuncTypes
     {
-        None, CrossWalk, EntryOrDepart
+        None, CrossWalk, Entry, Depart
     }
 
 }

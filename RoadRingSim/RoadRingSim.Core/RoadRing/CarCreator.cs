@@ -17,13 +17,17 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public event EventCarCreateHandler OnCarCreate;
 
+        Random _rand = new Random();
         public override void CreateObject()
 		{
+            Cell Location = Locations[_rand.Next(0, Locations.Count - 1)];
+
             Car cr = new Car(Location);
             Location.Car = cr;
             Envirmnt.Inst.Cars.Add(cr);
 
-            OnCarCreate(cr, Location);
+            if (OnCarCreate!= null)
+             OnCarCreate(cr, Location);
         }
 
 		public override void PlanNew()

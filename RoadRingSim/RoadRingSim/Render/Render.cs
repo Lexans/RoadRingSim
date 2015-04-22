@@ -38,6 +38,7 @@ namespace RoadRingSim
                 }
                 return inst;
             }
+
         }  
 
 		/// <summary>
@@ -58,9 +59,14 @@ namespace RoadRingSim
 		/// <summary>
 		/// отрисовка DefaultMap
 		/// </summary>
-		public void DrawMap(CrossRoad cr)
+		public void DrawMap()
 		{
-			throw new System.NotImplementedException();
+			foreach(List<Cell> lc in Envirmnt.Inst.CellMap)
+                foreach(Cell c in lc)
+                {
+                    if (c.TypePosition != PosTypes.None)
+                        PaintCell(Color.Gray, c);
+                }
 		}
 
 		/// <summary>
@@ -76,10 +82,9 @@ namespace RoadRingSim
 		/// на основе объекта Environment рисует DefaultMap
 		/// связывает методы добавления элементов в очередь по событиям
 		/// </summary>
-		public Render()
+		private Render()
 		{
             Tasks = new Dictionary<object, Queue<PaintTask>>();
-
             //регистрируемся на события создания объектов
             foreach (ObjectCreator oc in Envirmnt.Inst.Creators)
             {
@@ -90,6 +95,10 @@ namespace RoadRingSim
                 else if(oc is HumanCreator)
                 {
                     ((HumanCreator)oc).OnHumanCreate += EventHandlerHumanCreate;
+                }
+                else if(oc is LightCreator)
+                {
+                    ((LightCreator)oc).OnLightsToggle += EventHandlerLightToggle;
                 }
             }
 		}
@@ -123,6 +132,7 @@ namespace RoadRingSim
             Tasks[Model] = new Queue<PaintTask>();
 
             Model.OnCarMove += EventHandlerCarMove;
+            Model.OnCarDestroy += EventHandlerCarDestroy;
 		}
 
 		/// <summary>
@@ -132,6 +142,8 @@ namespace RoadRingSim
 		public void EventHandlerCarDestroy(Car Model)
 		{
             Tasks.Remove(Model);
+
+            PaintCell(Color.Gray, Model.Location);
 		}
 
 		/// <summary>
@@ -143,6 +155,7 @@ namespace RoadRingSim
             Tasks[Model] = new Queue<PaintTask>();
 
             Model.OnHumanMove += EventHandlerHumanMove;
+            Model.OnHumanDestroy += EventHandlerHumanDestroy;
 		}
 
 		/// <summary>
@@ -152,6 +165,8 @@ namespace RoadRingSim
 		public void EventHandlerHumanDestroy(Human Model)
 		{
             Tasks.Remove(Model);
+
+            PaintCell(Color.Gray, Model.Location);
 		}
 
 		/// <summary>
@@ -166,7 +181,7 @@ namespace RoadRingSim
 
             Tasks[Model].Enqueue(cp);
 
-            PaintCell(Color.White, CellFrom);
+            PaintCell(Color.Gray, CellFrom);
             PaintCell(Model.ColorCar, CellTo);
 		}
 
@@ -178,13 +193,13 @@ namespace RoadRingSim
 
             Tasks[Model].Enqueue(hp);
 
-            PaintCell(Color.White, CellFrom);
+            PaintCell(Color.Gray, CellFrom);
             PaintCell(Model.ColorHuman, CellTo);
 		}
 
         private void PaintCell(Color col, Cell cl)
         {
-            Canvas.DrawRectangle(new Pen(col, 2), cl.X * Scale, cl.Y * Scale, Scale, Scale);
+            Canvas.FillRectangle(new SolidBrush(col), cl.X * Scale, cl.Y * Scale, Scale, Scale);
         }
 
 		/// <summary>
@@ -194,6 +209,10 @@ namespace RoadRingSim
 		public void EventHandlerLightToggle(LightStates LightState)
 		{
             //тут рисуем цвет светофора
+            if (LightState == LightStates.Green)
+                PaintCell(Color.Green, Envirmnt.Inst.CellMap[15][27]);
+            else if(LightState == LightStates.Red)
+                PaintCell(Color.Red, Envirmnt.Inst.CellMap[15][27]);
 		}
 
 	}

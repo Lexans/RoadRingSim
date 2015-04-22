@@ -113,8 +113,10 @@ namespace RoadRingSim.Data.DAO
                 CrossRoadLaw crlHumans = new CrossRoadLaw(
                     (DistrubutionLaws)int.Parse(lawHumansQuery[0][0].ToString())
                     );
-                crlHumans.Parametr1 = int.Parse(lawHumansQuery[0][1].ToString());
-                crlHumans.Parametr2 = int.Parse(lawHumansQuery[0][2].ToString());
+                crlHumans.Parametr1 = double.Parse(
+                    lawHumansQuery[0][1].ToString()
+                    );
+                crlHumans.Parametr2 = double.Parse(lawHumansQuery[0][2].ToString());
                 cr.DistributionHumans = crlHumans;
 
 

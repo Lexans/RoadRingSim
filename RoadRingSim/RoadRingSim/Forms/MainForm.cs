@@ -54,6 +54,7 @@ namespace RoadRingSim.Forms
             Envirmnt.Inst.InitObjectCreators();
 
             Render.Inst.Canvas = panel1.CreateGraphics();
+            Render.Inst.DrawMap();
 
             timer1.Start();
         }

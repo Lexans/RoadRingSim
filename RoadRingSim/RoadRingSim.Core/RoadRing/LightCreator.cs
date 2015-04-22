@@ -37,6 +37,7 @@ namespace RoadRingSim.Core
                         Envirmnt.Inst.LightsState = LightStates.Green;
                         break;
                 }
+
                 if (OnLightsToggle != null)
                     OnLightsToggle(Envirmnt.Inst.LightsState);
             }

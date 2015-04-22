@@ -64,9 +64,9 @@ namespace RoadRingSim.Core
 
             //цвета машин
             List<Color> cols = new List<Color>() {
-                Color.Red, Color.Green, Color.Blue
+                Color.Red, Color.Green, Color.Blue, Color.YellowGreen, Color.Aqua
             };
-            ColorCar = cols[_rand.Next(0, cols.Count-1)];
+            ColorCar = cols[_rand.Next(0, cols.Count)];
         }
 
 		/// <summary>
@@ -76,14 +76,17 @@ namespace RoadRingSim.Core
 		{
             if (GoalState == CarStates.MoveToRing)
             {
-                MoveNext(Location.RoadNextCell);
+                if (Location.RoadNextCell != null)
+                    MoveNext(Location.RoadNextCell);
+                else if (Location.EntryOrDepartNext != null)
+                    MoveNext(Location.EntryOrDepartNext);
 
                 if (Location.TypePosition == PosTypes.Ring)
                     GoalState = CarStates.EntryRing;
             }
             else if (GoalState == CarStates.EntryRing)
             {
-                MoveNext(Location.EntryNext);
+                MoveNext(Location.EntryOrDepartNext);
 
                 if (Location.LineNumber == Envirmnt.Inst.Cross.LinesRing ||
                     Location.LineNumber == NeedRingLineNumber)
@@ -93,15 +96,17 @@ namespace RoadRingSim.Core
             {
                 MoveNext(Location.RingNextCell);
 
-                if(Location.TypeFunc == FuncTypes.EntryOrDepart)
+                if(Location.TypeFunc == FuncTypes.Depart)
                 {
+                    if (Location.X == 6 && Location.Y == 19)
+                    { }
                     if (Location.Route == RouteTo)
                         GoalState = CarStates.DepartRing;
                 }
             }
             else if(GoalState == CarStates.DepartRing)
             {
-                MoveNext(Location.DepartNext);
+                MoveNext(Location.EntryOrDepartNext);
 
                 if(Location.TypePosition == PosTypes.Road)
                     GoalState = CarStates.DepartMap;
@@ -114,8 +119,9 @@ namespace RoadRingSim.Core
                 {
                     //уничтожение машины
                     Location.Car = null;
-                    Environment.Cars.Remove(this);
-                    OnCarDestroy(this);
+                    Envirmnt.Inst.Cars.Remove(this);
+                    if (OnCarDestroy != null)
+                        OnCarDestroy(this);
                 }
             }
 
@@ -142,7 +148,8 @@ namespace RoadRingSim.Core
             Location = NextCell;
 
             //вызываем событие перемещения машины
-            OnCarMove(this, CelFrom, Location);
+            if (OnCarMove != null)
+                OnCarMove(this, CelFrom, Location);
 		}
 
 	}

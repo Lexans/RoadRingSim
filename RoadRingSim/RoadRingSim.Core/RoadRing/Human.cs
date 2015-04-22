@@ -54,7 +54,7 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void TryMoveForward()
 		{
-            if(Location.CrosswalkNext == null)
+            if (Location.CrosswalkNext == null)
             {
                 //уничтожение пешехода
                 Location.CrosswalkPedestrian = null;
@@ -67,10 +67,8 @@ namespace RoadRingSim.Core
 
             //стоять если машина или другой человек впереди
             bool isCarStop = (Location.CrosswalkNext.Car != null || Location.CrosswalkNext.CrosswalkPedestrian != null);
-            //стоять если для машин зеленый
-            bool isGreenLight = Envirmnt.Inst.LightsState == LightStates.Green;
 
-            if (isCarStop || isGreenLight) return;
+            if (isCarStop) return;
 
             //изменяем положение машины
             Cell CelFrom = Location;

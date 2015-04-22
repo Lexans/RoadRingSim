@@ -50,7 +50,7 @@ namespace RoadRingSim.Core.Domains
 		private int GetExpon()
 		{
             double x = _rand.NextDouble();
-            return (int)Math.Ceiling(1.0 / Parametr1 * Math.Log(1 - x));
+            return (int)Math.Ceiling(-1.0 / Parametr1 * Math.Log(x));
 		}
 
 		/// <summary>

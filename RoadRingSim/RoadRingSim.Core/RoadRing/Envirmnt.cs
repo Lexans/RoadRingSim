@@ -68,8 +68,8 @@ namespace RoadRingSim.Core
             foreach (var oc in Creators)
                 oc.TryCreate();
 
-            //foreach (Human hmn in Humans)
-                //hmn.TryMoveForward();
+            for (int i = 0; i < Humans.Count; i++)
+                Humans[i].TryMoveForward();
 
             //учет приоритетов
             var ordCars = Cars.OrderBy(car => car.Location.Priority);
@@ -77,12 +77,14 @@ namespace RoadRingSim.Core
             foreach (Car car in ordCars)
                 car.TryMoveForward();
 
+
+            Time++;
 		}
 
 		/// <summary>
 		/// инициализация всех полей
 		/// </summary>
-		public Envirmnt()
+		private Envirmnt()
 		{
             Cars = new List<Car>();
             Humans = new List<Human>();
@@ -129,7 +131,8 @@ namespace RoadRingSim.Core
                     cell.Priority = (Cross.PriorityType == PriorityTypes.MainStreetVertical
                         || Cross.PriorityType == PriorityTypes.SecondaryRing) ? 1 : 0;
                     
-                    cell.RoadNextCell = CellMap[x][y+1];
+                    if(y > 0)
+                     cell.RoadNextCell = CellMap[x][y-1];
                 }
 
             //правая горизонтальная дорога
@@ -160,6 +163,8 @@ namespace RoadRingSim.Core
                     rc.TypePosition = PosTypes.Ring;
                     rc.LineNumber = x - 22;
 
+                    rc.Route = Routes.Right;
+
                     rc.Priority = (Cross.PriorityType == PriorityTypes.MainStreetHorisontal
                        || Cross.PriorityType == PriorityTypes.MainRing) ? 1 : 0;
 
@@ -175,6 +180,8 @@ namespace RoadRingSim.Core
                     Cell rc = CellMap[x][y];
                     rc.TypePosition = PosTypes.Ring;
                     rc.LineNumber = y - 4;
+
+                    rc.Route = Routes.Top;
 
                     rc.Priority = (Cross.PriorityType == PriorityTypes.MainStreetVertical
                        || Cross.PriorityType == PriorityTypes.MainRing) ? 1 : 0;
@@ -208,78 +215,27 @@ namespace RoadRingSim.Core
 
 
             //создание клекток выезда
-            CellMap[5][19].TypeFunc = FuncTypes.EntryOrDepart;
-            CellMap[5][19].DepartNext = CellMap[4][19];
-            CellMap[6][20].TypeFunc = FuncTypes.EntryOrDepart;
-            CellMap[6][20].DepartNext = CellMap[5][19];
+            for (int x = 16; x < 16 + Cross.LinesVertical; x++)
+                for (int y = 5; y < 5+Cross.LinesRing; y++)
+                {
+                    Cell cell = CellMap[x][y];
 
-            Cell dc;
-            if ((dc = CellMap[7][20]).TypePosition != PosTypes.None)
-            {
-                dc.TypeFunc = FuncTypes.EntryOrDepart;
-                dc.DepartNext = CellMap[6][20];
-            }
+                    cell.TypeFunc = FuncTypes.Depart;
 
-            if ((dc = CellMap[8][21]).TypePosition != PosTypes.None)
-            {
-                dc.TypeFunc = FuncTypes.EntryOrDepart;
-                dc.DepartNext = CellMap[7][20];
-            }
+                    cell.EntryOrDepartNext = CellMap[x][y - 1];
+                }
 
-            if ((dc = CellMap[9][21]).TypePosition != PosTypes.None)
-            {
-                dc.TypeFunc = FuncTypes.EntryOrDepart;
-                dc.DepartNext = CellMap[8][21];
-            }
-
-            if ((dc = CellMap[10][22]).TypePosition != PosTypes.None)
-            {
-                dc.TypeFunc = FuncTypes.EntryOrDepart;
-                dc.DepartNext = CellMap[9][21];
-            }
-
-            if ((dc = CellMap[11][22]).TypePosition != PosTypes.None)
-            {
-                dc.TypeFunc = FuncTypes.EntryOrDepart;
-                dc.DepartNext = CellMap[10][22];
-            }
-
-
-            Cell ec;
             //создание клеток для въезда
-            for (int y = 11; y <= 14; y++)
-            {
-                ec = CellMap[25][y];
-                ec.TypeFunc = FuncTypes.EntryOrDepart;
-                ec.EntryNext = CellMap[24][y];
-
-                if ((ec = CellMap[24][y]).TypePosition != PosTypes.None)
+            for (int x = 26; x >= 25 - Cross.LinesRing; x--)
+                for (int y = 15 - Cross.LinesHorisontal; y < 15; y++)
                 {
-                    ec.TypeFunc = FuncTypes.EntryOrDepart;
-                    ec.EntryNext = CellMap[23][y - 1];
-                }
+                    Cell cell = CellMap[x][y];
 
-                if ((ec = CellMap[23][y - 1]).TypePosition != PosTypes.None)
-                {
-                    ec.TypeFunc = FuncTypes.EntryOrDepart;
-                    ec.EntryNext = CellMap[22][y - 2];
-                }
-            }
+                    if (x != 26)
+                        cell.TypeFunc = FuncTypes.Entry;
 
-            for (int y = 9; y <= 10; y++)
-            {
-                if ((ec = CellMap[22][y]).TypePosition != PosTypes.None)
-                {
-                    ec.TypeFunc = FuncTypes.EntryOrDepart;
-                    ec.EntryNext = CellMap[21][y];
+                    cell.EntryOrDepartNext = CellMap[x-1][y];
                 }
-            }
-
-            if ((ec = CellMap[21][9]).TypePosition != PosTypes.None)
-            {
-                ec.TypeFunc = FuncTypes.EntryOrDepart;
-                ec.EntryNext = CellMap[20][9];
-            }
         }
 
         /// <summary>
@@ -315,22 +271,27 @@ namespace RoadRingSim.Core
                 );
 
             //создание пешеходного перехода
-            for(int x = 10; x <= 19; x++)
+            for (int x = 14 - Cross.LinesVertical; x < 16 + Cross.LinesVertical; x++)
             {
-                Cell c = CellMap[x][28];
-                c.TypeFunc = FuncTypes.CrossWalk;
-                
-                if(x != 19)
-                    c.CrosswalkNext = CellMap[x+1][28];
+
+                Cell cell = CellMap[x][28];
+                cell.TypeFunc = FuncTypes.CrossWalk;
+
+                cell.CrosswalkNext = CellMap[x + 1][28];
             }
         }
 
 
         public delegate int reflCord(int coord);
         public delegate Routes reflRoute(Routes route);
-		/// <summary>
-		/// отражает данные квадарант клеток карты на квадрант заданный функциями отражения
-		/// </summary>
+
+        /// <summary>
+        /// отражает данные квадарант клеток карты на квадрант заданный функциями отражения
+        /// </summary>
+        /// <param name="rX"></param>
+        /// <param name="rY"></param>
+        /// <param name="islinkInverse"></param>
+        /// <param name="rRoute"></param>
         private void QuadrantsReflect(reflCord rX, reflCord rY, bool islinkInverse, reflRoute rRoute)
 		{
 			for(int x = 15; x<=30; x++)
@@ -350,26 +311,39 @@ namespace RoadRingSim.Core
                     ToCell.TypeFunc = FromCell.TypeFunc;
                     ToCell.TypePosition = FromCell.TypePosition;
 
+
                     //отражение ссылок
-                    if (FromCell.RoadNextCell != null)
-                    {
-                        if (islinkInverse)
-                        {
+                    if(islinkInverse) {
+                        if (FromCell.RoadNextCell != null)
                             CellMap[rX(FromCell.RoadNextCell.X)][rY(FromCell.RoadNextCell.Y)].RoadNextCell = ToCell;
-                        }
-                        else
+
+                         if (FromCell.RingNextCell != null)
+                             CellMap[rX(FromCell.RingNextCell.X)][rY(FromCell.RingNextCell.Y)].RingNextCell = ToCell;
+
+                        if (FromCell.EntryOrDepartNext != null)
+                            CellMap[rX(FromCell.EntryOrDepartNext.X)][rY(FromCell.EntryOrDepartNext.Y)].
+                                EntryOrDepartNext = ToCell;
+
+                        //менеяем въезд на выезд, если нужно
+                        if (ToCell.TypeFunc == FuncTypes.Entry)
+                            ToCell.TypeFunc = FuncTypes.Depart;
+                        else if (ToCell.TypeFunc == FuncTypes.Depart)
+                            ToCell.TypeFunc = FuncTypes.Entry;
+
+                    }
+                    else
+                    {
+                        if (FromCell.RoadNextCell != null)
                             ToCell.RoadNextCell = CellMap[rX(FromCell.RoadNextCell.X)][rY(FromCell.RoadNextCell.Y)];
+
+                        if (FromCell.RingNextCell != null)
+                            ToCell.RingNextCell = CellMap[rX(FromCell.RingNextCell.X)][rY(FromCell.RingNextCell.Y)];
+
+                        if (FromCell.EntryOrDepartNext != null)
+                            ToCell.EntryOrDepartNext = CellMap[rX(FromCell.EntryOrDepartNext.X)][rY(FromCell.EntryOrDepartNext.Y)];
                     }
 
-                    if (FromCell.RingNextCell != null)
-                    {
-                        if (islinkInverse)
-                        {
-                            CellMap[rX(FromCell.RingNextCell.X)][rY(FromCell.RingNextCell.Y)].RingNextCell = ToCell;
-                        }
-                        else
-                            ToCell.RingNextCell = CellMap[rX(FromCell.RingNextCell.X)][rY(FromCell.RingNextCell.Y)];
-                    }
+                    
                 }
 		}
 
@@ -379,35 +353,30 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void InitObjectCreators()
 		{
-            CarCreator cc0 = new CarCreator();
-            cc0.Location = CellMap[30][14];
-            Creators.Add(cc0);
-            return;
-
+            CarCreator cc = new CarCreator();
             //создатели машин на вертикальных дорогах
             for (int i = 0; i < Cross.LinesVertical; i++)
             {
-                CarCreator cc = new CarCreator();
-                cc.Location = CellMap[16 + i][30];
+                cc.Locations.Add(CellMap[16 + i][30]);
                 Creators.Add(cc);
 
-                cc.Location = CellMap[14 - i][0];
+                cc.Locations.Add(CellMap[14 - i][0]);
                 Creators.Add(cc);
             }
 
             //создатели машин на горизонтальных дорогах
             for (int i = 0; i < Cross.LinesHorisontal; i++)
             {
-                CarCreator cc = new CarCreator();
-                cc.Location = CellMap[0][16 + i];
+                cc.Locations.Add(CellMap[0][16 + i]);
                 Creators.Add(cc);
 
-                cc.Location = CellMap[30][14 - i];
+                cc.Locations.Add(CellMap[30][14 - i]);
                 Creators.Add(cc);
             }
 
             HumanCreator hc = new HumanCreator();
-            hc.Location = CellMap[28][14 - Cross.LinesVertical];
+            hc.Locations.Add(CellMap[14 - Cross.LinesVertical][28]);
+            //hc.Locations.Add(CellMap[16 + Cross.LinesVertical][12]);
             Creators.Add(hc);
 
             if (Cross.IsLights)

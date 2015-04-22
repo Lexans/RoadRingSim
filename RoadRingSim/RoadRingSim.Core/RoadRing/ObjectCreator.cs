@@ -13,9 +13,9 @@ namespace RoadRingSim.Core
 		public ulong TimeOfNextObj;
 
 		/// <summary>
-		/// клектка, в которой будет создан объект
+		/// клектки, в которох будут созданы объекты
 		/// </summary>
-		public Cell Location;
+		public List<Cell> Locations;
 
 		
 		/// <summary>
@@ -23,6 +23,7 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public ObjectCreator()
 		{
+            Locations = new List<Cell>();
 		}
 
 		/// <summary>
@@ -31,14 +32,17 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void TryCreate()
 		{
+            if (Envirmnt.Inst.Time > TimeOfNextObj || Envirmnt.Inst.Time == 0)
+            {
+                PlanNew();
+                return;
+            }
+
             if (Envirmnt.Inst.Time == TimeOfNextObj)
             {
                 CreateObject();
                 PlanNew();
             }
-
-            if(Envirmnt.Inst.Time > TimeOfNextObj)
-                PlanNew();
 		}
 
 		/// <summary>

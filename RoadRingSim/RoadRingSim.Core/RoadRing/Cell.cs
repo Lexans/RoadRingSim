@@ -18,7 +18,7 @@ namespace RoadRingSim.Core
         /// </summary>
         public PosTypes TypePosition;
         /// <summary>
-        /// тип клетки по функции (дорога, кольцо)
+        /// тип клетки по функции
         /// </summary>
         public FuncTypes TypeFunc;
 
@@ -71,15 +71,9 @@ namespace RoadRingSim.Core
 
         /*Только для клеток EntryOrDepart*/
         /// <summary>
-        /// ссылка на клетку следующей по счету полосы на кольце.
-        /// требуется для занятия нужной полосы при въезде
+        /// ссылки на дорожки въезда и выезда
         /// </summary>
-        public Cell EntryNext;
-
-        /// <summary>
-        // ссылка на клетку выезда с кольца
-        /// </summary>
-        public Cell DepartNext;
+        public Cell EntryOrDepartNext;
 
         /// <summary>
         /// поизиция выезда или дороги
