@@ -10,7 +10,7 @@ namespace RoadRingSim.Data.DAO
     /// </summary>
     public class UserDAO : DAO
     {
-        public User user;
+        public User currentUser;
         /// <summary>
         /// сохраняет пользователя в базе данных
         /// </summary>
@@ -119,7 +119,7 @@ namespace RoadRingSim.Data.DAO
             var list = Select(
                 string.Format("SELECT * FROM User WHERE Login = \"{0}\" AND Password = \"{1}\"", login, password));
             User res = list.FirstOrDefault();
-            user = res;
+            currentUser = res;
             return res;
         }
         /// <summary>

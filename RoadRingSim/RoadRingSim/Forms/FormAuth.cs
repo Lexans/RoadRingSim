@@ -18,7 +18,7 @@ namespace RoadRingSim.Forms
                 && !String.IsNullOrEmpty(textBoxPassword.Text))
             {
                 user.UserByLoginPassword(textBoxLogin.Text, textBoxPassword.Text);
-                if (user == null) MessageBox.Show("Неверные данные", "Ошибка");
+                if (user.currentUser == null) MessageBox.Show("Неверные данные", "Ошибка");
                 else DialogResult = DialogResult.OK;
             }
             
