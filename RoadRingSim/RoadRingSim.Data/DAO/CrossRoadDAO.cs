@@ -91,6 +91,7 @@ namespace RoadRingSim.Data.DAO
                 cr.LinesHorisontal = int.Parse(row[4].ToString());
                 cr.LinesRing = int.Parse(row[5].ToString());
                 cr.PriorityType = (PriorityTypes)int.Parse(row[6].ToString());
+                cr.LightsTime = uint.Parse(row[7].ToString());
 
                 //закон распределния машин
                 var lawCarsQuery = ExecuteQuery(

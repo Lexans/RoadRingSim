@@ -17,6 +17,8 @@ namespace RoadRingSim.Core.Domains
 
 		public CrossRoadLaw DistribustionCars;
 
+        public uint LightsTime;
+
 		/// <summary>
 		/// количество полос кольца
 		/// </summary>
@@ -29,6 +31,7 @@ namespace RoadRingSim.Core.Domains
 		public int LinesVertical;
 
 		public int LinesHorisontal;
+
 
 		public CrossRoad()
 		{

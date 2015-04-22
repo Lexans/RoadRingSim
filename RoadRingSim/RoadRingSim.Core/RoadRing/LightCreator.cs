@@ -49,7 +49,7 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public override void PlanNew()
 		{
-            TimeOfNextObj = Envirmnt.Inst.Time + 20;
+            TimeOfNextObj = Envirmnt.Inst.Time + Envirmnt.Inst.Cross.LightsTime;
 		}
 
 	}
