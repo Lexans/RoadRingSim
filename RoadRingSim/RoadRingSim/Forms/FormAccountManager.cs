@@ -48,5 +48,9 @@ namespace RoadRingSim.Forms
                 if (DeleteUser != null)
                     DeleteUser((User)userBindingSource.Current);
         }
+        private void mouse_Click(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            userBindingSource.Position = e.RowIndex;
+        }
     }
 }
