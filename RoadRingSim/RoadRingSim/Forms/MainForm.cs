@@ -56,5 +56,15 @@ namespace RoadRingSim.Forms
             timer1.Start();
         }
 
+        private void оПрограммеToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            (new FormAbout()).ShowDialog();
+        }
+
+        private void обАвтореToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new FormAuthor()).ShowDialog();
+        }
+
     }
 }

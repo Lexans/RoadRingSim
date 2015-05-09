@@ -62,6 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAuthor.designer.cs">
+      <DependentUpon>FormAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAbout.designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAccountManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     <Compile Include="Render\HumanPaint.cs" />
     <Compile Include="Render\PaintTask.cs" />
     <Compile Include="Render\Render.cs" />
+    <EmbeddedResource Include="Forms\FormAuthor.resx">
+      <DependentUpon>FormAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAccountManager.resx">
       <DependentUpon>FormAccountManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,12 +169,17 @@
       <Name>RoadRingSim.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logoPictureBox.Image.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Pictures\splashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutProgram.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets')" />
