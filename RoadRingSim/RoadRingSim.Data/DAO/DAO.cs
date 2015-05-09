@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RoadRingSim.Core.Domains;
 
 namespace RoadRingSim.Data.DAO
 {
@@ -40,7 +36,7 @@ namespace RoadRingSim.Data.DAO
         /// </summary>
         /// <param name="query">строка запроса</param>
         /// <returns>таблица результата. Первая размерность - строка. Вторая размерность - столбец</returns>
-        public List<List<object>> ExecuteQuery(string query)
+        public static List<List<object>> ExecuteQuery(string query)
         {
             var res = new List<List<object>>();
             SQLiteCommand command = Connection.CreateCommand();
@@ -63,12 +59,12 @@ namespace RoadRingSim.Data.DAO
         /// </summary>
         /// <param name="tableName">имя таблицы</param>
         /// <returns>максимальный идентификатор записи в таблице</returns>
-        protected int GetMaxID(string tableName)
+        protected static int GetMaxID(string tableName)
         {
             int id = 0;
-            var maxId = ExecuteQuery("SELECT max(ID) from " + tableName);
+            var maxId = ExecuteQuery(string.Format("SELECT max(ID) FROM {0}", tableName));
             if (maxId.Count > 0 && maxId[0][0].ToString().Length > 0)
-                id = Int32.Parse((String)maxId[0][0]);
+                id = Convert.ToInt32(maxId[0][0]);
             
             return id;
         }
