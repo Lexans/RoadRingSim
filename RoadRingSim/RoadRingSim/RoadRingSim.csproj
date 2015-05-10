@@ -86,6 +86,18 @@
     <Compile Include="Forms\FormAuth.Designer.cs">
       <DependentUpon>FormAuth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormCrossRoadAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCrossRoadAdd.Designer.cs">
+      <DependentUpon>FormCrossRoadAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormModeling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormModeling.Designer.cs">
+      <DependentUpon>FormModeling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSplashscreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,7 +116,9 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CrossRoadModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Presenters\CrossRoadPresenter.cs" />
     <Compile Include="Presenters\UserPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +126,11 @@
     <Compile Include="Render\HumanPaint.cs" />
     <Compile Include="Render\PaintTask.cs" />
     <Compile Include="Render\Render.cs" />
+    <Compile Include="Resources\Pictures.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pictures.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\FormAuthor.resx">
       <DependentUpon>FormAuthor.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +142,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAuth.resx">
       <DependentUpon>FormAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCrossRoadAdd.resx">
+      <DependentUpon>FormCrossRoadAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormModeling.resx">
+      <DependentUpon>FormModeling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSplashscreen.resx">
       <DependentUpon>FormSplashscreen.cs</DependentUpon>
@@ -142,6 +167,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\Pictures.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Pictures.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\RoadRingSim.Core.Domains.CrossRoad.datasource" />
     <None Include="Properties\DataSources\RoadRingSim.Core.Domains.User.datasource" />
     <None Include="Properties\DataSources\RoadRingSim.Core.Domains.UserRole.datasource" />
     <None Include="packages.config" />
@@ -170,16 +200,34 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logoPictureBox.Image.jpg" />
+    <None Include="Pictures\lightGreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\background.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Pictures\splashscreen.png" />
+    <None Include="Pictures\lightRed.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AboutProgram.bmp" />
+    <None Include="Pictures\signCrosswalk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\signMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\signMainHorisontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\signMainRing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\signMainVertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\signRing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\signYieldVertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\grassTexture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets')" />

@@ -1,13 +1,20 @@
 ﻿using RoadRingSim.Core;
+using RoadRingSim.Core.Domains;
 using RoadRingSim.Data.DAO;
+using RoadRingSim.Models;
+using RoadRingSim.Presenters;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace RoadRingSim.Forms
 {
     public partial class MainForm : Form
     {
+        CrossRoadDAO crDAO;
+        CrossRoadPresenter up = new CrossRoadPresenter();
         UserDAO user;
+
         public MainForm(UserDAO user)
         {
             InitializeComponent();
@@ -17,12 +24,17 @@ namespace RoadRingSim.Forms
 #else 
             AccManagerToolStripMenuItem.Enabled = true;
 #endif
+
+            crDAO = new CrossRoadDAO();
+            up.Init(this, new CrossRoadModel(crDAO));
         }
 
         public MainForm()
         {
             InitializeComponent();
 
+            crDAO = new CrossRoadDAO();
+            up.Init(this, new CrossRoadModel(crDAO));
         }
 
         private void AccManagerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,29 +44,6 @@ namespace RoadRingSim.Forms
 
 
 
-
-        private void StartModeling()
-        {
-            timer1.Start();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Envirmnt.Inst.SimulationStep();
-        }
-
-        private void buttonStart_Click(object sender, EventArgs e)
-        {
-            CrossRoadDAO crd = new CrossRoadDAO();
-            Envirmnt.Inst.Cross = crd.SelectByID(1);
-            Envirmnt.Inst.BuildMap();
-            Envirmnt.Inst.InitObjectCreators();
-
-            Render.Inst.Canvas = panel1.CreateGraphics();
-            Render.Inst.DrawMap();
-
-            timer1.Start();
-        }
 
         private void оПрограммеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -66,5 +55,51 @@ namespace RoadRingSim.Forms
             (new FormAuthor()).ShowDialog();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public event Action AddItem;
+        public event Action<CrossRoad> EditItem;
+        public event Action<CrossRoad> DeleteItem;
+
+        public void ShowCrossRoadList(List<CrossRoad> list)
+        {
+            crossRoadBindingSourceCr.DataSource = list;
+            crossRoadBindingSourceCr.ResetBindings(false);
+        }
+
+        private void toolStripButtonAdd_Click(object sender, EventArgs e)
+        {
+            if (AddItem != null) AddItem();
+        }
+
+        private void toolStripButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (crossRoadBindingSourceCr.Current != null)
+                if (EditItem != null)
+                    EditItem((CrossRoad)crossRoadBindingSourceCr.Current);
+        }
+
+        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (crossRoadBindingSourceCr.Current != null)
+                if (DeleteItem != null)
+                    DeleteItem((CrossRoad)crossRoadBindingSourceCr.Current);
+        }
+        private void mouse_Click(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            crossRoadBindingSourceCr.Position = e.RowIndex;
+        }
+
+        private void toolStripButtonRun_Click(object sender, EventArgs e)
+        {
+            if (crossRoadBindingSourceCr.Current != null)
+                if (DeleteItem != null)
+                    new FormModeling((CrossRoad)crossRoadBindingSourceCr.Current,
+                        (this.user == null || this.user.currentUser.Role.ID > 1)
+                        ).ShowDialog();
+        }
     }
 }
