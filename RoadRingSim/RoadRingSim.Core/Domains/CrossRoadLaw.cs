@@ -81,6 +81,20 @@ namespace RoadRingSim.Core.Domains
             return _rand.Next((int)Parametr1, (int)Parametr2);
 		}
 
+        public override String ToString() {
+            switch (Type)
+            {
+                case DistrubutionLaws.Expon:
+                    return "ЭКСП(" + Parametr1+")";
+                case DistrubutionLaws.Normal:
+                    return "НОРМ(" + Parametr1 + "; "+Parametr2+")";
+                case DistrubutionLaws.Uniform:
+                    return "РАВН(" + Parametr1 + "; " + Parametr1 + ")";
+                default:
+                    return "неопределно";
+            }
+        }
+
 	}
 }
 

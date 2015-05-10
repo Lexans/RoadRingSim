@@ -1,9 +1,12 @@
 ﻿using RoadRingSim.Core;
 using RoadRingSim.Core.Domains;
+using RoadRingSim.Resources;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace RoadRingSim
@@ -39,7 +42,12 @@ namespace RoadRingSim
                 return inst;
             }
 
-        }  
+        }
+
+        public static void Reset()
+        {
+            inst = null;
+        }
 
 		/// <summary>
 		/// полная картинка карты по сбросу
@@ -61,12 +69,33 @@ namespace RoadRingSim
 		/// </summary>
 		public void DrawMap()
 		{
+            //отрисовка фона
+            foreach(List<Cell> lc in Envirmnt.Inst.CellMap)
+                foreach(Cell c in lc)
+                {
+                    if (c.TypePosition == PosTypes.None)
+                        PaintCell(Color.FromArgb(255, 39, 126, 13), c);
+                }
+
 			foreach(List<Cell> lc in Envirmnt.Inst.CellMap)
                 foreach(Cell c in lc)
                 {
                     if (c.TypePosition != PosTypes.None)
                         PaintCell(Color.Gray, c);
+
+                    //отрисовка скруглений дороги
+                    if (c.TypePosition == PosTypes.Ring)
+                        Canvas.DrawLine(
+                            new Pen(Color.Gray, Scale+8),
+                            (int) ((c.X+0.5) * Scale),
+                            (int)((c.Y + 0.5) * Scale),
+                            (int)((c.RingNextCell.X + 0.5) * Scale),
+                            (int)((c.RingNextCell.Y + 0.5) * Scale));
+
+                    
                 }
+
+            DrawSigns(Envirmnt.Inst.Cross.PriorityType);
 		}
 
 		/// <summary>
@@ -75,8 +104,80 @@ namespace RoadRingSim
 		/// <param name="PriorityType">тип приоритетов движения</param>
 		private void DrawSigns(PriorityTypes PriorityType)
 		{
-			throw new System.NotImplementedException();
+            var clMap = Envirmnt.Inst.CellMap;
+
+            //пешеходный переход
+            PaintCell(Pictures.signCrosswalk, clMap[10][27]);
+            PaintCell(Pictures.signCrosswalk, clMap[20][29]);
+
+            //знаки кругового движения
+            PaintCell(Pictures.signRing, clMap[20][28]);
+            PaintCell(Pictures.signRing, clMap[2][20]);
+            PaintCell(Pictures.signRing, clMap[10][2]);
+            PaintCell(Pictures.signRing, clMap[28][10]);
+
+            Image prTypeSign = null;
+            //списко картинок других знаков по часовой стрелке
+            Image[] otherSigns = new Image[8];
+
+            switch(Envirmnt.Inst.Cross.PriorityType)
+            {
+                case PriorityTypes.MainRing:
+                    prTypeSign = Pictures.signMainRing;
+                    otherSigns[0] = otherSigns[2] = otherSigns[4] = otherSigns[6] =  Pictures.signYieldVertical;
+                    otherSigns[1] = otherSigns[3] = otherSigns[5] = otherSigns[7] = Pictures.signMain;
+                    break;
+
+                case PriorityTypes.SecondaryRing:
+                    prTypeSign = null;
+                    otherSigns[0] = otherSigns[2] = otherSigns[4] = otherSigns[6] =  Pictures.signMain;
+                    otherSigns[1] = otherSigns[3] = otherSigns[5] = otherSigns[7] = Pictures.signYieldVertical;
+                    break;
+
+                case PriorityTypes.MainStreetHorisontal:
+                    prTypeSign = Pictures.signMainHorisontal;
+                    otherSigns[0] = otherSigns[4] = otherSigns[6] = Pictures.signYieldVertical;
+                    otherSigns[1] = otherSigns[3] = otherSigns[5] = otherSigns[7] = Pictures.signMain;
+                    otherSigns[2] = Pictures.signMain;
+                    otherSigns[3] = Pictures.signYieldVertical;
+                    break;
+
+                case PriorityTypes.MainStreetVertical:
+                    prTypeSign = Pictures.signMainHorisontal;
+                    otherSigns[0] = otherSigns[2] = otherSigns[6] =  Pictures.signYieldVertical;
+                    otherSigns[1] = otherSigns[3] = otherSigns[7] = Pictures.signMain;
+
+                    otherSigns[4] = Pictures.signMain;
+                    otherSigns[5] = Pictures.signYieldVertical;
+                    break;
+           
+            }
+
+
+            //отрисовка схемы приоритетов
+            PaintCell(prTypeSign, clMap[10][3]);
+            PaintCell(prTypeSign, clMap[27][10]);
+            PaintCell(prTypeSign, clMap[20][27]);
+            PaintCell(prTypeSign, clMap[3][20]);
+
+            //отрисовка других знаков
+            PaintCell(otherSigns[0], clMap[10][4]);
+            PaintCell(otherSigns[1], clMap[15][4]);
+            PaintCell(otherSigns[2], clMap[26][10]);
+            PaintCell(otherSigns[3], clMap[26][15]);
+            PaintCell(otherSigns[4], clMap[20][26]);
+            PaintCell(otherSigns[5], clMap[15][26]);
+            PaintCell(otherSigns[6], clMap[4][20]);
+            PaintCell(otherSigns[7], clMap[4][15]);
+
+
 		}
+
+        private void PaintCell(Image img, Cell cl)
+        {
+            if (img != null)
+                Canvas.DrawImage(img, cl.X * Scale, cl.Y * Scale, img.Width, img.Height);
+        }
 
 		/// <summary>
 		/// на основе объекта Environment рисует DefaultMap
@@ -199,7 +300,7 @@ namespace RoadRingSim
 
         private void PaintCell(Color col, Cell cl)
         {
-            Canvas.FillRectangle(new SolidBrush(col), cl.X * Scale, cl.Y * Scale, Scale, Scale);
+                Canvas.FillRectangle(new SolidBrush(col), cl.X * Scale, cl.Y * Scale, Scale, Scale);
         }
 
 		/// <summary>
@@ -210,9 +311,13 @@ namespace RoadRingSim
 		{
             //тут рисуем цвет светофора
             if (LightState == LightStates.Green)
-                PaintCell(Color.Green, Envirmnt.Inst.CellMap[15][27]);
-            else if(LightState == LightStates.Red)
-                PaintCell(Color.Red, Envirmnt.Inst.CellMap[15][27]);
+            {
+                PaintCell(Pictures.lightGreen, Envirmnt.Inst.CellMap[15][29]);
+            }
+            else if (LightState == LightStates.Red)
+            {
+                PaintCell(Pictures.lightRed, Envirmnt.Inst.CellMap[15][29]);
+            }
 		}
 
 	}

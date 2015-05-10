@@ -56,7 +56,8 @@ namespace RoadRingSim.Core
 		/// </summary>
         public Car(Cell Location)
         {
-            RouteTo = (Routes)(_rand.Next(1, 4));
+            RouteTo = (Routes)(_rand.Next(1, 5));
+
             RouteFrom = Location.Route;
             this.Location = Location;
 
@@ -64,7 +65,7 @@ namespace RoadRingSim.Core
 
             //цвета машин
             List<Color> cols = new List<Color>() {
-                Color.Red, Color.Green, Color.Blue, Color.YellowGreen, Color.Aqua
+                Color.Red, Color.Magenta, Color.Blue, Color.YellowGreen, Color.Aqua
             };
             ColorCar = cols[_rand.Next(0, cols.Count)];
         }
@@ -86,11 +87,11 @@ namespace RoadRingSim.Core
             }
             else if (GoalState == CarStates.EntryRing)
             {
-                MoveNext(Location.EntryOrDepartNext);
-
                 if (Location.LineNumber == Envirmnt.Inst.Cross.LinesRing ||
-                    Location.LineNumber == NeedRingLineNumber)
+                    Location.LineNumber >= NeedRingLineNumber)
                     GoalState = CarStates.MoveToDepart;
+                else
+                    MoveNext(Location.EntryOrDepartNext);
             }
             else if(GoalState == CarStates.MoveToDepart)
             {

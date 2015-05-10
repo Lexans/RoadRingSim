@@ -111,6 +111,14 @@ namespace RoadRingSim.Core
             }
         }
 
+        /// <summary>
+        /// сбрасывает окружение до первоначального состояния
+        /// </summary>
+        public static void Reset()
+        {
+            inst = null;
+        }
+
 
         /// <summary>
         /// строит только первый квадрант
@@ -161,7 +169,7 @@ namespace RoadRingSim.Core
 
                     Cell rc = CellMap[x][y];
                     rc.TypePosition = PosTypes.Ring;
-                    rc.LineNumber = x - 22;
+                    rc.LineNumber = 26-x;
 
                     rc.Route = Routes.Right;
 
@@ -179,7 +187,7 @@ namespace RoadRingSim.Core
                 {
                     Cell rc = CellMap[x][y];
                     rc.TypePosition = PosTypes.Ring;
-                    rc.LineNumber = y - 4;
+                    rc.LineNumber = y-4;
 
                     rc.Route = Routes.Top;
 
@@ -271,7 +279,7 @@ namespace RoadRingSim.Core
                 );
 
             //создание пешеходного перехода
-            for (int x = 14 - Cross.LinesVertical; x < 16 + Cross.LinesVertical; x++)
+            for (int x = 14 - Cross.LinesVertical; x < 15 + Cross.LinesVertical; x++)
             {
 
                 Cell cell = CellMap[x][28];

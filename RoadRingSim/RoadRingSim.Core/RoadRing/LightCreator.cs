@@ -49,6 +49,9 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public override void PlanNew()
 		{
+            if (TimeOfNextObj == 0 && (OnLightsToggle != null))
+                OnLightsToggle(Envirmnt.Inst.LightsState);
+
             TimeOfNextObj = Envirmnt.Inst.Time + Envirmnt.Inst.Cross.LightsTime;
 		}
 

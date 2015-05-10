@@ -20,7 +20,7 @@ namespace RoadRingSim.Core
         Random _rand = new Random();
         public override void CreateObject()
 		{
-            Cell Location = Locations[_rand.Next(0, Locations.Count - 1)];
+            Cell Location = Locations[_rand.Next(0, Locations.Count)];
 
             Car cr = new Car(Location);
             Location.Car = cr;
