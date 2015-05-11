@@ -105,17 +105,18 @@ namespace RoadRingSim
 		/// <param name="PriorityType">тип приоритетов движения</param>
 		private void DrawSigns(PriorityTypes PriorityType)
 		{
+            var cross = Envirmnt.Inst.Cross;
             var clMap = Envirmnt.Inst.CellMap;
 
             //пешеходный переход
-            PaintCell(Pictures.signCrosswalk, clMap[10][27]);
-            PaintCell(Pictures.signCrosswalk, clMap[20][29]);
+            PaintCell(Pictures.signCrosswalk, clMap[14 - cross.LinesVertical][27]);
+            PaintCell(Pictures.signCrosswalk, clMap[16 + cross.LinesVertical][29]);
 
             //знаки кругового движения
-            PaintCell(Pictures.signRing, clMap[20][28]);
-            PaintCell(Pictures.signRing, clMap[2][20]);
-            PaintCell(Pictures.signRing, clMap[10][2]);
-            PaintCell(Pictures.signRing, clMap[28][10]);
+            PaintCell(Pictures.signRing, clMap[16 + cross.LinesVertical][28]);
+            PaintCell(Pictures.signRing, clMap[2][16 + cross.LinesHorisontal]);
+            PaintCell(Pictures.signRing, clMap[14 - cross.LinesVertical][2]);
+            PaintCell(Pictures.signRing, clMap[28][14 - cross.LinesHorisontal]);
 
             Image prTypeSign = null;
             //списко картинок других знаков по часовой стрелке
@@ -154,24 +155,24 @@ namespace RoadRingSim
            
             }
 
-
+            
             //отрисовка схемы приоритетов
-            PaintCell(prTypeSign, clMap[10][3]);
-            PaintCell(prTypeSign, clMap[27][10]);
-            PaintCell(prTypeSign, clMap[20][27]);
-            PaintCell(prTypeSign, clMap[3][20]);
+            PaintCell(prTypeSign, clMap[14 - cross.LinesVertical][3]);
+            PaintCell(prTypeSign, clMap[27][14 - cross.LinesHorisontal]);
+            PaintCell(prTypeSign, clMap[16 + cross.LinesVertical][27]);
+            PaintCell(prTypeSign, clMap[3][16 + cross.LinesHorisontal]);
 
             //отрисовка других знаков
-            PaintCell(otherSigns[0], clMap[10][4]);
+            PaintCell(otherSigns[0], clMap[14 - cross.LinesVertical][4]);
             PaintCell(otherSigns[1], clMap[15][4]);
-            PaintCell(otherSigns[2], clMap[26][10]);
+            PaintCell(otherSigns[2], clMap[26][14 - cross.LinesHorisontal]);
             PaintCell(otherSigns[3], clMap[26][15]);
-            PaintCell(otherSigns[4], clMap[20][26]);
+            PaintCell(otherSigns[4], clMap[16 + cross.LinesVertical][26]);
             PaintCell(otherSigns[5], clMap[15][26]);
-            PaintCell(otherSigns[6], clMap[4][20]);
+            PaintCell(otherSigns[6], clMap[4][16 + cross.LinesHorisontal]);
             PaintCell(otherSigns[7], clMap[4][15]);
 
-
+            
 		}
 
         private void PaintCell(Image img, Cell cl)
