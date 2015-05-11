@@ -8,11 +8,11 @@ namespace RoadRingSim.Core.Domains
 {
 	public sealed class CrossRoadLaw
 	{
-		public DistrubutionLaws Type;
+		public DistrubutionLaws Type {get; set;}
 
-		public double Parametr1;
+        public double Parametr1 { get; set; }
 
-		public double Parametr2;
+        public double Parametr2 { get; set; }
 
         private static Random _rand = new Random();
 

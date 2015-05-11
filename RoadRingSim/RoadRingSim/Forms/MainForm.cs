@@ -100,6 +100,8 @@ namespace RoadRingSim.Forms
                     new FormModeling((CrossRoad)crossRoadBindingSourceCr.Current,
                         (this.user == null || this.user.currentUser.Role.ID > 1)
                         ).ShowDialog();
+
+            up.Init(this, new CrossRoadModel(crDAO));
         }
     }
 }

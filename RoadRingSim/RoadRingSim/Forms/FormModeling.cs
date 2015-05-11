@@ -31,6 +31,16 @@ namespace RoadRingSim.Forms
             Envirmnt.Inst.InitObjectCreators();
             Render.Inst.Canvas = panel1.CreateGraphics();
 
+            //задание законов распределения
+            comboBoxCarLaw.SelectedIndex = (int)cr.DistribustionCars.Type-1;
+            numericUpDownCarParam1.Value = (decimal)cr.DistribustionCars.Parametr1;
+            numericUpDownCarParam2.Value = (decimal)cr.DistribustionCars.Parametr2;
+
+            comboBoxHuman.SelectedIndex = (int)cr.DistributionHumans.Type - 1;
+            numericUpDownHumParam1.Value = (decimal)cr.DistributionHumans.Parametr1;
+            numericUpDownHumParam2.Value = (decimal)cr.DistributionHumans.Parametr2;
+
+
             if(!isExtUser)
             {
                 groupBoxCar.Visible = false;
@@ -70,6 +80,20 @@ namespace RoadRingSim.Forms
         private void buttonPause_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+        }
+
+        private void buttonSetCars_Click(object sender, EventArgs e)
+        {
+            cr.DistribustionCars.Type = (DistrubutionLaws)(comboBoxCarLaw.SelectedIndex + 1);
+            cr.DistribustionCars.Parametr1 = (double)numericUpDownCarParam1.Value;
+            cr.DistribustionCars.Parametr2 = (double)numericUpDownCarParam2.Value;
+        }
+
+        private void buttonSetHums_Click(object sender, EventArgs e)
+        {
+            cr.DistributionHumans.Type = (DistrubutionLaws)(comboBoxHuman.SelectedIndex + 1);
+            cr.DistributionHumans.Parametr1 = (double)numericUpDownHumParam1.Value;
+            cr.DistributionHumans.Parametr2 = (double)numericUpDownHumParam2.Value;
         }
     }
 }

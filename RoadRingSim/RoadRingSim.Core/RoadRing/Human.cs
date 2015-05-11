@@ -54,7 +54,7 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void TryMoveForward()
 		{
-            if (Location.CrosswalkNext == null)
+            if (Location.CrosswalkNext.X == 20)
             {
                 //уничтожение пешехода
                 Location.CrosswalkPedestrian = null;

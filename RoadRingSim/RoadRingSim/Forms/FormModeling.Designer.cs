@@ -37,27 +37,29 @@
             this.buttonPlay = new System.Windows.Forms.Button();
             this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.groupBoxCar = new System.Windows.Forms.GroupBox();
-            this.comboBoxCarLaw = new System.Windows.Forms.ComboBox();
-            this.numericUpDownCarParam1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownCarParam2 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDownCarParam2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCarParam1 = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxCarLaw = new System.Windows.Forms.ComboBox();
             this.groupBoxHuman = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.numericUpDownHumParam2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownHumParam1 = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxHuman = new System.Windows.Forms.ComboBox();
+            this.buttonSetCars = new System.Windows.Forms.Button();
+            this.buttonSetHums = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             this.groupBoxCar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCarParam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCarParam2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCarParam1)).BeginInit();
             this.groupBoxHuman.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHumParam2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHumParam1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,60 +128,19 @@
             // 
             // groupBoxCar
             // 
+            this.groupBoxCar.Controls.Add(this.buttonSetCars);
             this.groupBoxCar.Controls.Add(this.label4);
             this.groupBoxCar.Controls.Add(this.label3);
             this.groupBoxCar.Controls.Add(this.label2);
             this.groupBoxCar.Controls.Add(this.numericUpDownCarParam2);
             this.groupBoxCar.Controls.Add(this.numericUpDownCarParam1);
             this.groupBoxCar.Controls.Add(this.comboBoxCarLaw);
-            this.groupBoxCar.Location = new System.Drawing.Point(689, 228);
+            this.groupBoxCar.Location = new System.Drawing.Point(689, 213);
             this.groupBoxCar.Name = "groupBoxCar";
-            this.groupBoxCar.Size = new System.Drawing.Size(236, 203);
+            this.groupBoxCar.Size = new System.Drawing.Size(242, 239);
             this.groupBoxCar.TabIndex = 3;
             this.groupBoxCar.TabStop = false;
             this.groupBoxCar.Text = "Закон распределения машин";
-            // 
-            // comboBoxCarLaw
-            // 
-            this.comboBoxCarLaw.FormattingEnabled = true;
-            this.comboBoxCarLaw.Location = new System.Drawing.Point(19, 58);
-            this.comboBoxCarLaw.Name = "comboBoxCarLaw";
-            this.comboBoxCarLaw.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxCarLaw.TabIndex = 0;
-            // 
-            // numericUpDownCarParam1
-            // 
-            this.numericUpDownCarParam1.DecimalPlaces = 2;
-            this.numericUpDownCarParam1.Location = new System.Drawing.Point(18, 117);
-            this.numericUpDownCarParam1.Name = "numericUpDownCarParam1";
-            this.numericUpDownCarParam1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDownCarParam1.TabIndex = 1;
-            // 
-            // numericUpDownCarParam2
-            // 
-            this.numericUpDownCarParam2.DecimalPlaces = 2;
-            this.numericUpDownCarParam2.Location = new System.Drawing.Point(18, 175);
-            this.numericUpDownCarParam2.Name = "numericUpDownCarParam2";
-            this.numericUpDownCarParam2.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDownCarParam2.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Параметр 1";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 155);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Параметр 2";
             // 
             // label4
             // 
@@ -190,17 +151,65 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Вид закона";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Параметр 2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Параметр 1";
+            // 
+            // numericUpDownCarParam2
+            // 
+            this.numericUpDownCarParam2.DecimalPlaces = 2;
+            this.numericUpDownCarParam2.Location = new System.Drawing.Point(18, 175);
+            this.numericUpDownCarParam2.Name = "numericUpDownCarParam2";
+            this.numericUpDownCarParam2.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownCarParam2.TabIndex = 2;
+            // 
+            // numericUpDownCarParam1
+            // 
+            this.numericUpDownCarParam1.DecimalPlaces = 2;
+            this.numericUpDownCarParam1.Location = new System.Drawing.Point(18, 117);
+            this.numericUpDownCarParam1.Name = "numericUpDownCarParam1";
+            this.numericUpDownCarParam1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownCarParam1.TabIndex = 1;
+            // 
+            // comboBoxCarLaw
+            // 
+            this.comboBoxCarLaw.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCarLaw.FormattingEnabled = true;
+            this.comboBoxCarLaw.Items.AddRange(new object[] {
+            "Нормальный",
+            "Экпоненциальный",
+            "Равномерный"});
+            this.comboBoxCarLaw.Location = new System.Drawing.Point(19, 58);
+            this.comboBoxCarLaw.Name = "comboBoxCarLaw";
+            this.comboBoxCarLaw.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxCarLaw.TabIndex = 0;
+            // 
             // groupBoxHuman
             // 
+            this.groupBoxHuman.Controls.Add(this.buttonSetHums);
             this.groupBoxHuman.Controls.Add(this.label5);
             this.groupBoxHuman.Controls.Add(this.label6);
             this.groupBoxHuman.Controls.Add(this.label7);
-            this.groupBoxHuman.Controls.Add(this.numericUpDown1);
-            this.groupBoxHuman.Controls.Add(this.numericUpDown2);
-            this.groupBoxHuman.Controls.Add(this.comboBox1);
-            this.groupBoxHuman.Location = new System.Drawing.Point(689, 451);
+            this.groupBoxHuman.Controls.Add(this.numericUpDownHumParam2);
+            this.groupBoxHuman.Controls.Add(this.numericUpDownHumParam1);
+            this.groupBoxHuman.Controls.Add(this.comboBoxHuman);
+            this.groupBoxHuman.Location = new System.Drawing.Point(689, 460);
             this.groupBoxHuman.Name = "groupBoxHuman";
-            this.groupBoxHuman.Size = new System.Drawing.Size(236, 203);
+            this.groupBoxHuman.Size = new System.Drawing.Size(242, 231);
             this.groupBoxHuman.TabIndex = 4;
             this.groupBoxHuman.TabStop = false;
             this.groupBoxHuman.Text = "Закон распределения пешеходов";
@@ -232,39 +241,65 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Параметр 1";
             // 
-            // numericUpDown1
+            // numericUpDownHumParam2
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(18, 175);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDownHumParam2.DecimalPlaces = 2;
+            this.numericUpDownHumParam2.Location = new System.Drawing.Point(18, 175);
+            this.numericUpDownHumParam2.Name = "numericUpDownHumParam2";
+            this.numericUpDownHumParam2.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownHumParam2.TabIndex = 2;
             // 
-            // numericUpDown2
+            // numericUpDownHumParam1
             // 
-            this.numericUpDown2.DecimalPlaces = 2;
-            this.numericUpDown2.Location = new System.Drawing.Point(18, 117);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown2.TabIndex = 1;
+            this.numericUpDownHumParam1.DecimalPlaces = 2;
+            this.numericUpDownHumParam1.Location = new System.Drawing.Point(18, 117);
+            this.numericUpDownHumParam1.Name = "numericUpDownHumParam1";
+            this.numericUpDownHumParam1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownHumParam1.TabIndex = 1;
             // 
-            // comboBox1
+            // comboBoxHuman
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 70);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxHuman.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHuman.FormattingEnabled = true;
+            this.comboBoxHuman.Items.AddRange(new object[] {
+            "Нормальный",
+            "Экпоненциальный",
+            "Равномерный"});
+            this.comboBoxHuman.Location = new System.Drawing.Point(17, 70);
+            this.comboBoxHuman.Name = "comboBoxHuman";
+            this.comboBoxHuman.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxHuman.TabIndex = 0;
+            // 
+            // buttonSetCars
+            // 
+            this.buttonSetCars.Location = new System.Drawing.Point(13, 203);
+            this.buttonSetCars.Name = "buttonSetCars";
+            this.buttonSetCars.Size = new System.Drawing.Size(79, 25);
+            this.buttonSetCars.TabIndex = 6;
+            this.buttonSetCars.Text = "Задать";
+            this.buttonSetCars.UseVisualStyleBackColor = true;
+            this.buttonSetCars.Click += new System.EventHandler(this.buttonSetCars_Click);
+            // 
+            // buttonSetHums
+            // 
+            this.buttonSetHums.Location = new System.Drawing.Point(13, 200);
+            this.buttonSetHums.Name = "buttonSetHums";
+            this.buttonSetHums.Size = new System.Drawing.Size(79, 25);
+            this.buttonSetHums.TabIndex = 7;
+            this.buttonSetHums.Text = "Задать";
+            this.buttonSetHums.UseVisualStyleBackColor = true;
+            this.buttonSetHums.Click += new System.EventHandler(this.buttonSetHums_Click);
             // 
             // FormModeling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 679);
+            this.ClientSize = new System.Drawing.Size(1014, 716);
             this.Controls.Add(this.groupBoxHuman);
             this.Controls.Add(this.groupBoxCar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -276,12 +311,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
             this.groupBoxCar.ResumeLayout(false);
             this.groupBoxCar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCarParam1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCarParam2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCarParam1)).EndInit();
             this.groupBoxHuman.ResumeLayout(false);
             this.groupBoxHuman.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHumParam2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHumParam1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,8 +341,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDownHumParam2;
+        private System.Windows.Forms.NumericUpDown numericUpDownHumParam1;
+        private System.Windows.Forms.ComboBox comboBoxHuman;
+        private System.Windows.Forms.Button buttonSetCars;
+        private System.Windows.Forms.Button buttonSetHums;
     }
 }

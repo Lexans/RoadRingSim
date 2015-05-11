@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -282,8 +283,39 @@ namespace RoadRingSim
 
             Tasks[Model].Enqueue(cp);
 
+            //старую позицию закрашиваем
             PaintCell(Color.Gray, CellFrom);
-            PaintCell(Model.ColorCar, CellTo);
+
+            /*
+            //растроваые машинки
+            List<Bitmap> sprites = new List<Bitmap>()
+            { Pictures.spriteCar1, Pictures.spriteCar2, Pictures.spriteCar3, Pictures.spriteCar4};
+            float angle = (float)(Math.Atan((double)(CellTo.Y - CellFrom.Y)
+                / (double)(CellTo.X - CellFrom.X)) * 180.0 / Math.PI);
+            Bitmap bm = new Bitmap(21, 21);
+            Graphics car = Graphics.FromImage(bm);
+            Matrix m = new Matrix();
+            m.RotateAt(angle, new Point(10, 10));
+            car.Transform = m;
+            TextureBrush tBrush = new TextureBrush(sprites[Model.ColorCar]);
+            car.FillRectangle(tBrush, 0, 0, 21, 21); 
+            car.Flush();
+            Canvas.DrawImage(bm, CellTo.X * Scale, CellTo.Y * Scale);
+            */
+
+            //векторная машинка
+            
+            List<Color> colors = new List<Color>() { Color.Yellow, Color.Red, Color.Blue, Color.Black};
+            float angle = (float)(Math.Atan((double)(CellTo.Y - CellFrom.Y)
+                / (double)(CellTo.X - CellFrom.X)) * 180.0 / Math.PI);
+            Bitmap bm = new Bitmap(21, 21);
+            Graphics car = Graphics.FromImage(bm);
+            Matrix m = new Matrix();
+            m.RotateAt(angle, new Point(10, 10));
+            car.Transform = m;
+            car.FillRectangle(new SolidBrush(colors[Model.ColorCar]), 2, 5, 17, 9); 
+            car.Flush();
+            Canvas.DrawImage(bm, CellTo.X * Scale, CellTo.Y * Scale);
 		}
 
 		public void EventHandlerHumanMove(Human Model, Cell CellFrom, Cell CellTo)
@@ -295,7 +327,14 @@ namespace RoadRingSim
             Tasks[Model].Enqueue(hp);
 
             PaintCell(Color.Gray, CellFrom);
-            PaintCell(Model.ColorHuman, CellTo);
+
+            
+            Canvas.FillRectangle(
+                new SolidBrush(Model.ColorHuman),
+                CellTo.X * Scale + 5,
+                CellTo.Y * Scale + 5,
+                11,
+                11);
 		}
 
         private void PaintCell(Color col, Cell cl)

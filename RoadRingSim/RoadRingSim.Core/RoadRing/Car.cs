@@ -26,19 +26,22 @@ namespace RoadRingSim.Core
 		public CarStates GoalState;
 
 		/// <summary>
-		/// цвет машины
+		/// номер цвета машины
 		/// </summary>
-		public Color ColorCar;
+		public int ColorCar;
 
 		/// <summary>
 		/// желаемая линия кольца кольца исходя из RouteFrom и RouteTo
 		/// </summary>
 		public int NeedRingLineNumber {
             get {
-                if ((int)RouteFrom - (int)RouteTo == 0)
+                int k = ((int)RouteTo - (int)RouteFrom);
+                if (k == 0)
                     return 4;
-
-                return (int)Math.Abs((int)RouteFrom - (int)RouteTo);
+                else if (k < 0)
+                    return 4+k;
+                else
+                    return k;
             }
         }
 
@@ -64,10 +67,8 @@ namespace RoadRingSim.Core
             GoalState = CarStates.MoveToRing;
 
             //цвета машин
-            List<Color> cols = new List<Color>() {
-                Color.Red, Color.Magenta, Color.Blue, Color.YellowGreen, Color.Aqua
-            };
-            ColorCar = cols[_rand.Next(0, cols.Count)];
+
+            ColorCar = _rand.Next(0, 4);
         }
 
 		/// <summary>

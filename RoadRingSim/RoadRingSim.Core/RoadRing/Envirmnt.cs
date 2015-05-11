@@ -72,7 +72,7 @@ namespace RoadRingSim.Core
                 Humans[i].TryMoveForward();
 
             //учет приоритетов
-            var ordCars = Cars.OrderBy(car => car.Location.Priority);
+            var ordCars = Cars.OrderBy(car => car.Location.Priority).ToList();
 
             foreach (Car car in ordCars)
                 car.TryMoveForward();
@@ -279,7 +279,7 @@ namespace RoadRingSim.Core
                 );
 
             //создание пешеходного перехода
-            for (int x = 14 - Cross.LinesVertical; x < 15 + Cross.LinesVertical; x++)
+            for (int x = 14 - Cross.LinesVertical; x < 16 + Cross.LinesVertical; x++)
             {
 
                 Cell cell = CellMap[x][28];
