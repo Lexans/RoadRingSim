@@ -17,7 +17,7 @@ namespace RoadRingSim.Core
         {
             Cell Location = Locations[_rand.Next(0, Locations.Count - 1)];
 
-            if (Envirmnt.Inst.LightsState == LightStates.Red)
+            if (Envirmnt.Inst.LightsState == LightStates.Red || !Envirmnt.Inst.Cross.IsLights)
             {
                 Human hmn = new Human(Location);
                 Location.CrosswalkPedestrian = hmn;

@@ -78,6 +78,9 @@ namespace RoadRingSim.Core.Domains
 		/// </summary>
         private int GetUniform()
 		{
+            if (Parametr2 < Parametr1)
+                Parametr2 = Parametr1 + 1;
+
             return _rand.Next((int)Parametr1, (int)Parametr2);
 		}
 
