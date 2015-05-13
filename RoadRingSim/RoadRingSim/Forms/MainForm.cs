@@ -103,5 +103,10 @@ namespace RoadRingSim.Forms
 
             up.Init(this, new CrossRoadModel(crDAO));
         }
+
+        private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "RoadRingSimHelp.chm");
+        }
     }
 }
