@@ -20,7 +20,7 @@ namespace RoadRingSim.Forms
             InitializeComponent();
             this.user = user;
 #if !DEBUG
-            if (this.user.currentUser.Role.ID == 1) AccManagerToolStripMenuItem.Enabled = true;
+            if (this.user.currentUser.Role.ID == 3) AccManagerToolStripMenuItem.Enabled = true;
 #else 
             AccManagerToolStripMenuItem.Enabled = true;
 #endif
