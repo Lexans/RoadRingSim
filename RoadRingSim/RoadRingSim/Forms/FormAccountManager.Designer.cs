@@ -57,7 +57,7 @@
             this.toolStripButtonDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(450, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(600, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -67,7 +67,7 @@
             this.toolStripButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAdd.Image")));
             this.toolStripButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAdd.Name = "toolStripButtonAdd";
-            this.toolStripButtonAdd.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButtonAdd.Size = new System.Drawing.Size(80, 24);
             this.toolStripButtonAdd.Text = "Добавить";
             this.toolStripButtonAdd.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
             // 
@@ -77,7 +77,7 @@
             this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
             this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEdit.Name = "toolStripButtonEdit";
-            this.toolStripButtonEdit.Size = new System.Drawing.Size(65, 22);
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(82, 24);
             this.toolStripButtonEdit.Text = "Изменить";
             this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
             // 
@@ -87,7 +87,7 @@
             this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
             this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(55, 22);
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(69, 24);
             this.toolStripButtonDelete.Text = "Удалить";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
@@ -107,13 +107,14 @@
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.userBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(450, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(600, 412);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mouse_Click);
             // 
@@ -147,26 +148,26 @@
             this.изменитьToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(148, 76);
             // 
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
@@ -176,11 +177,13 @@
             // 
             // FormAccountManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 357);
+            this.ClientSize = new System.Drawing.Size(600, 439);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormAccountManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Менеджер пользователей";

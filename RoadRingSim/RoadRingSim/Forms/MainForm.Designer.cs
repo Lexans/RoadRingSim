@@ -38,11 +38,6 @@
             this.оПрограммеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.обАвтореToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonRun = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linesRingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linesVerticalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,11 +48,16 @@
             this.isLightsDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lightsTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crossRoadBindingSourceCr = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonRun = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.crossRoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.crossRoadBindingSourceCr)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.crossRoadBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +105,7 @@
             this.руководствоПользователяToolStripMenuItem.Name = "руководствоПользователяToolStripMenuItem";
             this.руководствоПользователяToolStripMenuItem.Size = new System.Drawing.Size(264, 24);
             this.руководствоПользователяToolStripMenuItem.Text = "Руководство пользователя";
+            this.руководствоПользователяToolStripMenuItem.Click += new System.EventHandler(this.руководствоПользователяToolStripMenuItem_Click);
             // 
             // оПрограммеToolStripMenuItem1
             // 
@@ -152,56 +153,6 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonRun,
-            this.toolStripButtonAdd,
-            this.toolStripButtonEdit,
-            this.toolStripButtonDelete});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1274, 27);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButtonRun
-            // 
-            this.toolStripButtonRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonRun.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRun.Image")));
-            this.toolStripButtonRun.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRun.Name = "toolStripButtonRun";
-            this.toolStripButtonRun.Size = new System.Drawing.Size(176, 24);
-            this.toolStripButtonRun.Text = "Запуск моделирования";
-            this.toolStripButtonRun.Click += new System.EventHandler(this.toolStripButtonRun_Click);
-            // 
-            // toolStripButtonAdd
-            // 
-            this.toolStripButtonAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAdd.Image")));
-            this.toolStripButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAdd.Name = "toolStripButtonAdd";
-            this.toolStripButtonAdd.Size = new System.Drawing.Size(80, 24);
-            this.toolStripButtonAdd.Text = "Добавить";
-            // 
-            // toolStripButtonEdit
-            // 
-            this.toolStripButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
-            this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonEdit.Name = "toolStripButtonEdit";
-            this.toolStripButtonEdit.Size = new System.Drawing.Size(82, 24);
-            this.toolStripButtonEdit.Text = "Изменить";
-            // 
-            // toolStripButtonDelete
-            // 
-            this.toolStripButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
-            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(69, 24);
-            this.toolStripButtonDelete.Text = "Удалить";
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -218,7 +169,7 @@
             this.linesRingDataGridViewTextBoxColumn.HeaderText = "Полос кольца";
             this.linesRingDataGridViewTextBoxColumn.Name = "linesRingDataGridViewTextBoxColumn";
             this.linesRingDataGridViewTextBoxColumn.ReadOnly = true;
-            this.linesRingDataGridViewTextBoxColumn.Width = 124;
+            this.linesRingDataGridViewTextBoxColumn.Width = 114;
             // 
             // linesVerticalDataGridViewTextBoxColumn
             // 
@@ -287,6 +238,56 @@
             // 
             this.crossRoadBindingSourceCr.DataSource = typeof(RoadRingSim.Core.Domains.CrossRoad);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonRun,
+            this.toolStripButtonAdd,
+            this.toolStripButtonEdit,
+            this.toolStripButtonDelete});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1274, 27);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonRun
+            // 
+            this.toolStripButtonRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonRun.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRun.Image")));
+            this.toolStripButtonRun.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRun.Name = "toolStripButtonRun";
+            this.toolStripButtonRun.Size = new System.Drawing.Size(176, 24);
+            this.toolStripButtonRun.Text = "Запуск моделирования";
+            this.toolStripButtonRun.Click += new System.EventHandler(this.toolStripButtonRun_Click);
+            // 
+            // toolStripButtonAdd
+            // 
+            this.toolStripButtonAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAdd.Image")));
+            this.toolStripButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAdd.Name = "toolStripButtonAdd";
+            this.toolStripButtonAdd.Size = new System.Drawing.Size(80, 24);
+            this.toolStripButtonAdd.Text = "Добавить";
+            // 
+            // toolStripButtonEdit
+            // 
+            this.toolStripButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
+            this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEdit.Name = "toolStripButtonEdit";
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(82, 24);
+            this.toolStripButtonEdit.Text = "Изменить";
+            // 
+            // toolStripButtonDelete
+            // 
+            this.toolStripButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
+            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(69, 24);
+            this.toolStripButtonDelete.Text = "Удалить";
+            // 
             // crossRoadBindingSource
             // 
             this.crossRoadBindingSource.DataSource = typeof(RoadRingSim.Core.Domains.CrossRoad);
@@ -299,6 +300,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
@@ -307,9 +309,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crossRoadBindingSourceCr)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.crossRoadBindingSourceCr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crossRoadBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

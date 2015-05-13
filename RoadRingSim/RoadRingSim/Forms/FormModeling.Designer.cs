@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModeling));
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -37,6 +38,7 @@
             this.buttonPlay = new System.Windows.Forms.Button();
             this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.groupBoxCar = new System.Windows.Forms.GroupBox();
+            this.buttonSetCars = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,14 +46,13 @@
             this.numericUpDownCarParam1 = new System.Windows.Forms.NumericUpDown();
             this.comboBoxCarLaw = new System.Windows.Forms.ComboBox();
             this.groupBoxHuman = new System.Windows.Forms.GroupBox();
+            this.buttonSetHums = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDownHumParam2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownHumParam1 = new System.Windows.Forms.NumericUpDown();
             this.comboBoxHuman = new System.Windows.Forms.ComboBox();
-            this.buttonSetCars = new System.Windows.Forms.Button();
-            this.buttonSetHums = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             this.groupBoxCar.SuspendLayout();
@@ -142,6 +143,16 @@
             this.groupBoxCar.TabStop = false;
             this.groupBoxCar.Text = "Закон распределения машин";
             // 
+            // buttonSetCars
+            // 
+            this.buttonSetCars.Location = new System.Drawing.Point(13, 203);
+            this.buttonSetCars.Name = "buttonSetCars";
+            this.buttonSetCars.Size = new System.Drawing.Size(79, 25);
+            this.buttonSetCars.TabIndex = 6;
+            this.buttonSetCars.Text = "Задать";
+            this.buttonSetCars.UseVisualStyleBackColor = true;
+            this.buttonSetCars.Click += new System.EventHandler(this.buttonSetCars_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -214,6 +225,16 @@
             this.groupBoxHuman.TabStop = false;
             this.groupBoxHuman.Text = "Закон распределения пешеходов";
             // 
+            // buttonSetHums
+            // 
+            this.buttonSetHums.Location = new System.Drawing.Point(13, 200);
+            this.buttonSetHums.Name = "buttonSetHums";
+            this.buttonSetHums.Size = new System.Drawing.Size(79, 25);
+            this.buttonSetHums.TabIndex = 7;
+            this.buttonSetHums.Text = "Задать";
+            this.buttonSetHums.UseVisualStyleBackColor = true;
+            this.buttonSetHums.Click += new System.EventHandler(this.buttonSetHums_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -270,37 +291,18 @@
             this.comboBoxHuman.Size = new System.Drawing.Size(121, 24);
             this.comboBoxHuman.TabIndex = 0;
             // 
-            // buttonSetCars
-            // 
-            this.buttonSetCars.Location = new System.Drawing.Point(13, 203);
-            this.buttonSetCars.Name = "buttonSetCars";
-            this.buttonSetCars.Size = new System.Drawing.Size(79, 25);
-            this.buttonSetCars.TabIndex = 6;
-            this.buttonSetCars.Text = "Задать";
-            this.buttonSetCars.UseVisualStyleBackColor = true;
-            this.buttonSetCars.Click += new System.EventHandler(this.buttonSetCars_Click);
-            // 
-            // buttonSetHums
-            // 
-            this.buttonSetHums.Location = new System.Drawing.Point(13, 200);
-            this.buttonSetHums.Name = "buttonSetHums";
-            this.buttonSetHums.Size = new System.Drawing.Size(79, 25);
-            this.buttonSetHums.TabIndex = 7;
-            this.buttonSetHums.Text = "Задать";
-            this.buttonSetHums.UseVisualStyleBackColor = true;
-            this.buttonSetHums.Click += new System.EventHandler(this.buttonSetHums_Click);
-            // 
             // FormModeling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 716);
+            this.ClientSize = new System.Drawing.Size(943, 716);
             this.Controls.Add(this.groupBoxHuman);
             this.Controls.Add(this.groupBoxCar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormModeling";
