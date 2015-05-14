@@ -286,7 +286,7 @@ namespace RoadRingSim
             //старую позицию закрашиваем
             PaintCell(Color.Gray, CellFrom);
 
-            /*
+            ///*
             //растроваые машинки
             List<Bitmap> sprites = new List<Bitmap>()
             { Pictures.spriteCar1, Pictures.spriteCar2, Pictures.spriteCar3, Pictures.spriteCar4};
@@ -301,10 +301,10 @@ namespace RoadRingSim
             car.FillRectangle(tBrush, 0, 0, 21, 21); 
             car.Flush();
             Canvas.DrawImage(bm, CellTo.X * Scale, CellTo.Y * Scale);
-            */
+            //*/
 
             //векторная машинка
-            
+            /*
             List<Color> colors = new List<Color>() { Color.Yellow, Color.Red, Color.Blue, Color.Black};
             float angle = (float)(Math.Atan((double)(CellTo.Y - CellFrom.Y)
                 / (double)(CellTo.X - CellFrom.X)) * 180.0 / Math.PI);
@@ -315,7 +315,7 @@ namespace RoadRingSim
             car.Transform = m;
             car.FillRectangle(new SolidBrush(colors[Model.ColorCar]), 2, 5, 17, 9); 
             car.Flush();
-            Canvas.DrawImage(bm, CellTo.X * Scale, CellTo.Y * Scale);
+            Canvas.DrawImage(bm, CellTo.X * Scale, CellTo.Y * Scale);*/
 		}
 
 		public void EventHandlerHumanMove(Human Model, Cell CellFrom, Cell CellTo)

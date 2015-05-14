@@ -106,8 +106,8 @@ namespace RoadRingSim.Data.DAO
                 CrossRoadLaw crlCars = new CrossRoadLaw(
                     (DistrubutionLaws)int.Parse(tst = lawCarsQuery[0][0].ToString())
                     );
-                crlCars.Parametr1 = int.Parse(lawCarsQuery[0][1].ToString());
-                crlCars.Parametr2 = int.Parse(lawCarsQuery[0][2].ToString());
+                crlCars.Parametr1 = double.Parse(lawCarsQuery[0][1].ToString());
+                crlCars.Parametr2 = double.Parse(lawCarsQuery[0][2].ToString());
                 cr.DistribustionCars = crlCars;
 
                 //закон распределения пешеходов
@@ -118,13 +118,9 @@ namespace RoadRingSim.Data.DAO
                 CrossRoadLaw crlHumans = new CrossRoadLaw(
                     (DistrubutionLaws)int.Parse(lawHumansQuery[0][0].ToString())
                     );
-                crlHumans.Parametr1 = double.Parse(
-                    lawHumansQuery[0][1].ToString()
-                    );
+                crlHumans.Parametr1 = double.Parse(lawHumansQuery[0][1].ToString());
                 crlHumans.Parametr2 = double.Parse(lawHumansQuery[0][2].ToString());
                 cr.DistributionHumans = crlHumans;
-
-
                 result.Add(cr);
             }
             return result;
