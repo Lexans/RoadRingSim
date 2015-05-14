@@ -15,12 +15,42 @@ namespace RoadRingSim.Core.Domains
         public double Parametr2 { get; set; }
 
         private static Random _rand = new Random();
-
+        public CrossRoadLaw(int LowId)
+        {
+            switch (LowId)
+            {
+                case 0:
+                    Type = DistrubutionLaws.Normal;
+                    break;
+                case 1:
+                    Type = DistrubutionLaws.Expon;
+                    break;
+                case 2:
+                    Type = DistrubutionLaws.Uniform;
+                    break;
+            }
+        }
         public CrossRoadLaw(DistrubutionLaws LawType)
 		{
             Type = LawType;
 		}
-
+        public int GetIndexLaw()
+        {
+            int i = 0;
+            switch (Type)
+            {
+                case DistrubutionLaws.Normal:
+                    i = 0;
+                    break;
+                case DistrubutionLaws.Expon:
+                    i = 1;
+                    break;
+                case DistrubutionLaws.Uniform:
+                    i = 2;
+                    break;
+            }
+            return i;
+        }
 		/// <summary>
 		/// реализация СВ по текущему закону из Type
 		/// </summary>
@@ -92,7 +122,7 @@ namespace RoadRingSim.Core.Domains
                 case DistrubutionLaws.Normal:
                     return "НОРМ(" + Parametr1 + "; "+Parametr2+")";
                 case DistrubutionLaws.Uniform:
-                    return "РАВН(" + Parametr1 + "; " + Parametr1 + ")";
+                    return "РАВН(" + Parametr1 + "; " + Parametr2 + ")";
                 default:
                     return "неопределно";
             }

@@ -68,8 +68,7 @@
             this.помощьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1274, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(968, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,14 +77,14 @@
             this.правкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AccManagerToolStripMenuItem});
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
-            this.правкаToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.правкаToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.правкаToolStripMenuItem.Text = "Сервис";
             // 
             // AccManagerToolStripMenuItem
             // 
             this.AccManagerToolStripMenuItem.Enabled = false;
             this.AccManagerToolStripMenuItem.Name = "AccManagerToolStripMenuItem";
-            this.AccManagerToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
+            this.AccManagerToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.AccManagerToolStripMenuItem.Tag = "";
             this.AccManagerToolStripMenuItem.Text = "Менеджер аккаунтов";
             this.AccManagerToolStripMenuItem.Click += new System.EventHandler(this.AccManagerToolStripMenuItem_Click);
@@ -97,27 +96,27 @@
             this.оПрограммеToolStripMenuItem1,
             this.обАвтореToolStripMenuItem});
             this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
-            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.помощьToolStripMenuItem.Text = "Помощь";
             // 
             // руководствоПользователяToolStripMenuItem
             // 
             this.руководствоПользователяToolStripMenuItem.Name = "руководствоПользователяToolStripMenuItem";
-            this.руководствоПользователяToolStripMenuItem.Size = new System.Drawing.Size(264, 24);
+            this.руководствоПользователяToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.руководствоПользователяToolStripMenuItem.Text = "Руководство пользователя";
             this.руководствоПользователяToolStripMenuItem.Click += new System.EventHandler(this.руководствоПользователяToolStripMenuItem_Click);
             // 
             // оПрограммеToolStripMenuItem1
             // 
             this.оПрограммеToolStripMenuItem1.Name = "оПрограммеToolStripMenuItem1";
-            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(264, 24);
+            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.оПрограммеToolStripMenuItem1.Text = "О программе";
             this.оПрограммеToolStripMenuItem1.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem1_Click);
             // 
             // обАвтореToolStripMenuItem
             // 
             this.обАвтореToolStripMenuItem.Name = "обАвтореToolStripMenuItem";
-            this.обАвтореToolStripMenuItem.Size = new System.Drawing.Size(264, 24);
+            this.обАвтореToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.обАвтореToolStripMenuItem.Text = "Об авторах";
             this.обАвтореToolStripMenuItem.Click += new System.EventHandler(this.обАвтореToolStripMenuItem_Click);
             // 
@@ -142,14 +141,13 @@
             this.lightsTimeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.crossRoadBindingSourceCr;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 55);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 49);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1274, 662);
+            this.dataGridView1.Size = new System.Drawing.Size(968, 530);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -160,7 +158,7 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 97;
+            this.nameDataGridViewTextBoxColumn.Width = 82;
             // 
             // linesRingDataGridViewTextBoxColumn
             // 
@@ -169,7 +167,7 @@
             this.linesRingDataGridViewTextBoxColumn.HeaderText = "Полос кольца";
             this.linesRingDataGridViewTextBoxColumn.Name = "linesRingDataGridViewTextBoxColumn";
             this.linesRingDataGridViewTextBoxColumn.ReadOnly = true;
-            this.linesRingDataGridViewTextBoxColumn.Width = 114;
+            this.linesRingDataGridViewTextBoxColumn.Width = 95;
             // 
             // linesVerticalDataGridViewTextBoxColumn
             // 
@@ -178,7 +176,7 @@
             this.linesVerticalDataGridViewTextBoxColumn.HeaderText = "Полос вертикальной улицы";
             this.linesVerticalDataGridViewTextBoxColumn.Name = "linesVerticalDataGridViewTextBoxColumn";
             this.linesVerticalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.linesVerticalDataGridViewTextBoxColumn.Width = 195;
+            this.linesVerticalDataGridViewTextBoxColumn.Width = 157;
             // 
             // linesHorisontalDataGridViewTextBoxColumn
             // 
@@ -187,7 +185,7 @@
             this.linesHorisontalDataGridViewTextBoxColumn.HeaderText = "Полос горизонтальной улицы";
             this.linesHorisontalDataGridViewTextBoxColumn.Name = "linesHorisontalDataGridViewTextBoxColumn";
             this.linesHorisontalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.linesHorisontalDataGridViewTextBoxColumn.Width = 208;
+            this.linesHorisontalDataGridViewTextBoxColumn.Width = 167;
             // 
             // distribustionCarsDataGridViewTextBoxColumn
             // 
@@ -196,7 +194,7 @@
             this.distribustionCarsDataGridViewTextBoxColumn.HeaderText = "Распределение машин";
             this.distribustionCarsDataGridViewTextBoxColumn.Name = "distribustionCarsDataGridViewTextBoxColumn";
             this.distribustionCarsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.distribustionCarsDataGridViewTextBoxColumn.Width = 168;
+            this.distribustionCarsDataGridViewTextBoxColumn.Width = 135;
             // 
             // distributionHumansDataGridViewTextBoxColumn
             // 
@@ -205,7 +203,7 @@
             this.distributionHumansDataGridViewTextBoxColumn.HeaderText = "Распределение пешеходов";
             this.distributionHumansDataGridViewTextBoxColumn.Name = "distributionHumansDataGridViewTextBoxColumn";
             this.distributionHumansDataGridViewTextBoxColumn.ReadOnly = true;
-            this.distributionHumansDataGridViewTextBoxColumn.Width = 194;
+            this.distributionHumansDataGridViewTextBoxColumn.Width = 154;
             // 
             // priorityTypeDataGridViewTextBoxColumn
             // 
@@ -214,7 +212,7 @@
             this.priorityTypeDataGridViewTextBoxColumn.HeaderText = "Тип приоритетов";
             this.priorityTypeDataGridViewTextBoxColumn.Name = "priorityTypeDataGridViewTextBoxColumn";
             this.priorityTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priorityTypeDataGridViewTextBoxColumn.Width = 134;
+            this.priorityTypeDataGridViewTextBoxColumn.Width = 108;
             // 
             // isLightsDataGridViewCheckBoxColumn
             // 
@@ -223,7 +221,7 @@
             this.isLightsDataGridViewCheckBoxColumn.HeaderText = "Наличие светофора";
             this.isLightsDataGridViewCheckBoxColumn.Name = "isLightsDataGridViewCheckBoxColumn";
             this.isLightsDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isLightsDataGridViewCheckBoxColumn.Width = 133;
+            this.isLightsDataGridViewCheckBoxColumn.Width = 103;
             // 
             // lightsTimeDataGridViewTextBoxColumn
             // 
@@ -232,7 +230,7 @@
             this.lightsTimeDataGridViewTextBoxColumn.HeaderText = "Время переключения светофора";
             this.lightsTimeDataGridViewTextBoxColumn.Name = "lightsTimeDataGridViewTextBoxColumn";
             this.lightsTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lightsTimeDataGridViewTextBoxColumn.Width = 229;
+            this.lightsTimeDataGridViewTextBoxColumn.Width = 181;
             // 
             // crossRoadBindingSourceCr
             // 
@@ -245,9 +243,9 @@
             this.toolStripButtonAdd,
             this.toolStripButtonEdit,
             this.toolStripButtonDelete});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1274, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(968, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -257,7 +255,7 @@
             this.toolStripButtonRun.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRun.Image")));
             this.toolStripButtonRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRun.Name = "toolStripButtonRun";
-            this.toolStripButtonRun.Size = new System.Drawing.Size(176, 24);
+            this.toolStripButtonRun.Size = new System.Drawing.Size(140, 22);
             this.toolStripButtonRun.Text = "Запуск моделирования";
             this.toolStripButtonRun.Click += new System.EventHandler(this.toolStripButtonRun_Click);
             // 
@@ -267,8 +265,9 @@
             this.toolStripButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAdd.Image")));
             this.toolStripButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAdd.Name = "toolStripButtonAdd";
-            this.toolStripButtonAdd.Size = new System.Drawing.Size(80, 24);
+            this.toolStripButtonAdd.Size = new System.Drawing.Size(63, 22);
             this.toolStripButtonAdd.Text = "Добавить";
+            this.toolStripButtonAdd.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
             // 
             // toolStripButtonEdit
             // 
@@ -276,8 +275,10 @@
             this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
             this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEdit.Name = "toolStripButtonEdit";
-            this.toolStripButtonEdit.Size = new System.Drawing.Size(82, 24);
+
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(65, 22);
             this.toolStripButtonEdit.Text = "Изменить";
+            this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
             // 
             // toolStripButtonDelete
             // 
@@ -285,8 +286,9 @@
             this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
             this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(69, 24);
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(55, 22);
             this.toolStripButtonDelete.Text = "Удалить";
+            this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
             // crossRoadBindingSource
             // 
@@ -294,15 +296,14 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 717);
+            this.ClientSize = new System.Drawing.Size(968, 579);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Моделирование кругового движения";

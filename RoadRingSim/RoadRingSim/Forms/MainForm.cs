@@ -18,21 +18,13 @@ namespace RoadRingSim.Forms
         public MainForm(UserDAO user)
         {
             InitializeComponent();
-            this.user = user;
 #if !DEBUG
-            if (this.user.currentUser.Role.ID == 3) AccManagerToolStripMenuItem.Enabled = true;
-#else 
+            this.user = user;
+            if (this.user.currentUser.Role.ID == 1) AccManagerToolStripMenuItem.Enabled = true;
+#else
+            this.user = new UserDAO() { currentUser = new User() { Role = new UserRole(1) } };
             AccManagerToolStripMenuItem.Enabled = true;
 #endif
-
-            crDAO = new CrossRoadDAO();
-            up.Init(this, new CrossRoadModel(crDAO));
-        }
-
-        public MainForm()
-        {
-            InitializeComponent();
-
             crDAO = new CrossRoadDAO();
             up.Init(this, new CrossRoadModel(crDAO));
         }
@@ -41,9 +33,6 @@ namespace RoadRingSim.Forms
         {
             (new FormAccountManager(user)).ShowDialog();
         }
-
-
-
 
         private void оПрограммеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -98,7 +87,7 @@ namespace RoadRingSim.Forms
             if (crossRoadBindingSourceCr.Current != null)
                 if (DeleteItem != null)
                     new FormModeling((CrossRoad)crossRoadBindingSourceCr.Current,
-                        (this.user == null || this.user.currentUser.Role.ID > 1)
+                        (this.user == null || this.user.currentUser.Role.ID <= 1)
                         ).ShowDialog();
 
             up.Init(this, new CrossRoadModel(crDAO));

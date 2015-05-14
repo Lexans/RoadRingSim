@@ -7,6 +7,12 @@ namespace RoadRingSim.Core.Domains
     /// </summary>
     public class UserRole:DomainObject
     {
+        public UserRole(UserRole role)
+        {
+            this.ID = role.ID;
+            this.RoleName = role.RoleName;
+            this.Users = role.Users;
+        }
         public UserRole(int id)
         {
             this.ID = id;

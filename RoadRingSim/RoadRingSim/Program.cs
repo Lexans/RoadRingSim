@@ -27,8 +27,9 @@ namespace RoadRingSim
                 Application.Run(new MainForm(user));
             }
             else return;
+#else
+            Application.Run(new MainForm(new UserDAO()));
 #endif
-            Application.Run(new MainForm());
         }
     }
 }

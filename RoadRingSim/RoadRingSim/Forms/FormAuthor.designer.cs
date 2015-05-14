@@ -63,7 +63,7 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(522, 368);
+            this.okButton.Location = new System.Drawing.Point(530, 368);
             this.okButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(112, 34);
@@ -72,9 +72,9 @@
             // 
             // FormAuthor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 435);
+            this.ClientSize = new System.Drawing.Size(660, 435);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.textBoxDescription);

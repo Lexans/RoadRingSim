@@ -46,10 +46,9 @@
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(170, 143);
-            this.buttonOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonOk.Location = new System.Drawing.Point(140, 121);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 28);
+            this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 0;
             this.buttonOk.Text = "Добавить";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -58,10 +57,9 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(278, 143);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancel.Location = new System.Drawing.Point(220, 121);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 28);
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -72,10 +70,9 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Логин";
             // 
@@ -83,20 +80,18 @@
             // 
             this.textBoxLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLogin.Location = new System.Drawing.Point(84, 15);
-            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLogin.Location = new System.Drawing.Point(63, 12);
             this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(281, 22);
+            this.textBoxLogin.Size = new System.Drawing.Size(224, 20);
             this.textBoxLogin.TabIndex = 3;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPassword.Location = new System.Drawing.Point(84, 47);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPassword.Location = new System.Drawing.Point(63, 38);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(281, 22);
+            this.textBoxPassword.Size = new System.Drawing.Size(224, 20);
             this.textBoxPassword.TabIndex = 5;
             // 
             // label2
@@ -104,10 +99,9 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 50);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Пароль";
             // 
@@ -116,10 +110,9 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 86);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Роль";
             // 
@@ -131,10 +124,9 @@
             this.comboBoxUserRole.DisplayMember = "RoleName";
             this.comboBoxUserRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUserRole.FormattingEnabled = true;
-            this.comboBoxUserRole.Location = new System.Drawing.Point(84, 82);
-            this.comboBoxUserRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxUserRole.Location = new System.Drawing.Point(63, 67);
             this.comboBoxUserRole.Name = "comboBoxUserRole";
-            this.comboBoxUserRole.Size = new System.Drawing.Size(281, 24);
+            this.comboBoxUserRole.Size = new System.Drawing.Size(224, 21);
             this.comboBoxUserRole.TabIndex = 7;
             // 
             // userRoleBindingSource
@@ -148,9 +140,9 @@
             // 
             // FormUserAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 186);
+            this.ClientSize = new System.Drawing.Size(308, 156);
             this.ControlBox = false;
             this.Controls.Add(this.comboBoxUserRole);
             this.Controls.Add(this.label3);
@@ -161,7 +153,6 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormUserAdd";

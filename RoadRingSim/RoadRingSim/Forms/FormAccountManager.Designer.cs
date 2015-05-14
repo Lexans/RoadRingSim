@@ -35,14 +35,14 @@
             this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -118,29 +118,6 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mouse_Click);
             // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            this.loginDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Хэш пароля";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roleDataGridViewTextBoxColumn
-            // 
-            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
-            this.roleDataGridViewTextBoxColumn.HeaderText = "Роль";
-            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleDataGridViewTextBoxColumn.Width = 160;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -175,6 +152,29 @@
             // 
             this.userBindingSource.DataSource = typeof(RoadRingSim.Core.Domains.User);
             // 
+            // loginDataGridViewTextBoxColumn
+            // 
+            this.loginDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
+            this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
+            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Пароль";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roleDataGridViewTextBoxColumn
+            // 
+            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
+            this.roleDataGridViewTextBoxColumn.HeaderText = "Роль";
+            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roleDataGridViewTextBoxColumn.Width = 160;
+            // 
             // FormAccountManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,13 +205,13 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource userBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
 
     }
 }

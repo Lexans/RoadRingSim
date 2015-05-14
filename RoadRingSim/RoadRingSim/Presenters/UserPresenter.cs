@@ -24,11 +24,15 @@ namespace RoadRingSim.Presenters
 
         public void form_DeleteUser(User obj)
         {
-            if (MessageBox.Show("Вы действительно хотите удалить выбранного пользователя?", "Удаление пользователя", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (!_model.Users.Exists(x => (x.Role.ID == 1) && (x != obj)))
             {
-                _model.DeleteUser(obj);
-                _form.ShowUserList(_model.Users);
+                if (MessageBox.Show("Вы действительно хотите удалить выбранного пользователя?", "Удаление пользователя", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    _model.DeleteUser(obj);
+                    _form.ShowUserList(_model.Users);
+                }
             }
+            else MessageBox.Show("Удаление последнего администратора невозможно!", "Удаление невозможно", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void form_AddUser()
@@ -36,8 +40,12 @@ namespace RoadRingSim.Presenters
             var f = new FormUserAdd();
             if (f.ShowDialog() == DialogResult.OK)
             {
-                _model.AddUser(f.GetUser());
-                _form.ShowUserList(_model.Users);
+                if (!_model.Users.Exists(x => x.Login == f.User.Login))
+                {
+                    _model.AddUser(f.User);
+                    _form.ShowUserList(_model.Users);
+                }
+                else MessageBox.Show("Пользователь с таким логином уже существует. Добавление было прервано.", "Ошибка при добавлении", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void form_EditUser(User obj)
@@ -45,8 +53,12 @@ namespace RoadRingSim.Presenters
             var f = new FormUserAdd(obj);
             if (f.ShowDialog() == DialogResult.OK)
             {
-                _model.EditUser(f.GetUser());
-                _form.ShowUserList(_model.Users);
+                if (!_model.Users.Exists(x => (x.Login == f.User.Login) && (x != obj)))
+                {
+                    _model.EditUser(f.User);
+                    _form.ShowUserList(_model.Users);
+                }
+                else MessageBox.Show("Пользователь с таким логином уже существует. Изменение было прервано.", "Ошибка при изменении", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
