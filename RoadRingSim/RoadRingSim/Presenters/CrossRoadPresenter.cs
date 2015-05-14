@@ -33,25 +33,21 @@ namespace RoadRingSim.Presenters
 
         public void form_AddItem()
         {
-            /*
             var f = new FormCrossRoadAdd();
             if (f.ShowDialog() == DialogResult.OK)
             {
-                _model.AddCrossroad(f.GetItem());
+                _model.AddCrossroad(f.CrossRoad);
                 _form.ShowCrossRoadList(_model.CrossRoads);
             }
-             */
         }
         public void form_EditItem(CrossRoad obj)
         {
-            /*
             var f = new FormCrossRoadAdd(obj);
             if (f.ShowDialog() == DialogResult.OK)
             {
-                _model.EditCrossRoad(f.GetItem());
+                _model.EditCrossRoad(f.CrossRoad);
                 _form.ShowCrossRoadList(_model.CrossRoads);
             }
-            */
         }
     }
 }

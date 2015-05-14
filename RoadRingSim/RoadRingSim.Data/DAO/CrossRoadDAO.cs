@@ -18,23 +18,23 @@ namespace RoadRingSim.Data.DAO
             //модель перекрестка
             ExecuteQuery(
                 String.Format(
-                "INSERT INTO `CrossRoad`(`ID`,`Name`,`IsLight`,`LinesVertical`, `LinesHorisontal`, "+
-                "`LinesRing`, `PriorityType`) VALUES ({0},{1},{2},{3},{4},{5},{6});",
-                cr.ID, cr.Name, (cr.IsLights) ? "1" : "0", cr.LinesVertical, cr.LinesHorisontal, cr.LinesRing, (int)cr.PriorityType));
+                "INSERT INTO `CrossRoad`(`ID`,`Name`,`IsLights`,`LinesVertical`, `LinesHorisontal`, "+
+                "`LinesRing`, `PriorityType`, `LightsTime`) VALUES ({0},\"{1}\",{2},{3},{4},{5},{6},{7});",
+                cr.ID, cr.Name, (cr.IsLights) ? "1" : "0", cr.LinesVertical, cr.LinesHorisontal, cr.LinesRing, (int)cr.PriorityType, cr.LightsTime));
 
             //распределение машин
             ExecuteQuery(
                 String.Format(
                 "INSERT INTO `CrossRoadLaw`(`IDCrossRoad`,`IDLaw`,`LawOfWhat`,`Parametr1`, `Parametr2`) "+
                 "VALUES ({0},{1},{2},{3},{4});",
-                cr.ID, (int) cr.DistribustionCars.Type, 1, cr.DistribustionCars.Parametr1, cr.DistribustionCars.Parametr2));
+                cr.ID, (int) cr.DistribustionCars.Type, 1, Convert.ToString(cr.DistribustionCars.Parametr1).Replace(',', '.'), Convert.ToString(cr.DistribustionCars.Parametr2).Replace(',', '.')));
 
             //распределение пешеходов
             ExecuteQuery(
                 String.Format(
                 "INSERT INTO `CrossRoadLaw`(`IDCrossRoad`,`IDLaw`,`LawOfWhat`,`Parametr1`, `Parametr2`) "+
                 "VALUES ({0},{1},{2},{3},{4});",
-                cr.ID, (int)cr.DistributionHumans.Type, 2, cr.DistributionHumans.Parametr1, cr.DistributionHumans.Parametr2));
+                cr.ID, (int)cr.DistributionHumans.Type, 2, Convert.ToString(cr.DistributionHumans.Parametr1).Replace(',', '.'), Convert.ToString(cr.DistributionHumans.Parametr2).Replace(',', '.')));
 
             return cr;
 		}
@@ -43,32 +43,36 @@ namespace RoadRingSim.Data.DAO
 		{
             ExecuteQuery(
                String.Format(
-               "UPADATE `CrossRoad` SET `ID` = {0}, `Name` = {1}, `IsLight` = {2}, `LinesVertical`= {3}, `LinesHorisontal` = {4}, " +
-               "`LinesRing` = {5}, `PriorityType` = {6};",
-               cr.ID, cr.Name, (cr.IsLights) ? "1" : "0", cr.LinesVertical, cr.LinesHorisontal, cr.LinesRing, (int)cr.PriorityType));
+               "UPDATE `CrossRoad` SET `Name` = \"{1}\", `IsLights` = {2}, `LinesVertical`= {3}, `LinesHorisontal` = {4}, " +
+               "`LinesRing` = {5}, `PriorityType` = {6}, `LightsTime` = {7} WHERE `ID` = {0};",
+               cr.ID, cr.Name, (cr.IsLights) ? "1" : "0", cr.LinesVertical, cr.LinesHorisontal, cr.LinesRing, (int)cr.PriorityType, cr.LightsTime));
 
             //распределение машин
             ExecuteQuery(
                 String.Format(
-                "UPADATE `CrossRoadLaw` SET `IDLaw` = {0}, `Parametr1` = {1}, `Parametr2` = {2} " +
+                "UPDATE `CrossRoadLaw` SET `IDLaw` = {0}, `Parametr1` = {1}, `Parametr2` = {2} " +
                 "WHERE `IDCrossRoad` = {3} AND `LawOfWhat` = 1;",
-                (int)cr.DistribustionCars.Type, cr.DistribustionCars.Parametr1, cr.DistribustionCars.Parametr2, cr.ID));
+                (int)cr.DistribustionCars.Type, Convert.ToString(cr.DistribustionCars.Parametr1).Replace(',', '.'), Convert.ToString(cr.DistribustionCars.Parametr2).Replace(',', '.'), cr.ID));
 
             //распределение пешеходов
             ExecuteQuery(
                 String.Format(
-                "UPADATE `CrossRoadLaw` SET `IDLaw` = {0}, `Parametr1` = {1}, `Parametr2` = {2} " +
+                "UPDATE `CrossRoadLaw` SET `IDLaw` = {0}, `Parametr1` = {1}, `Parametr2` = {2} " +
                 "WHERE `IDCrossRoad` = {3} AND `LawOfWhat` = 2;",
-                (int)cr.DistributionHumans.Type, cr.DistributionHumans.Parametr1, cr.DistributionHumans.Parametr2, cr.ID));
+                (int)cr.DistributionHumans.Type, Convert.ToString(cr.DistributionHumans.Parametr1).Replace(',', '.'), Convert.ToString(cr.DistributionHumans.Parametr2).Replace(',', '.'), cr.ID));
 		}
 
 		public void Delete(CrossRoad cr)
 		{
+            int maxId = GetMaxID("CrossRoad");
             ExecuteQuery(
                 String.Format(
                 "DELETE FROM `CrossRoad` WHERE `ID` = {0}",
                 cr.ID)
                 );
+            if (cr.ID != maxId)
+                ExecuteQuery(
+                    string.Format("UPDATE CrossRoad SET ID={0} WHERE ID={1}", cr.ID, maxId));
         }
 
 		private List<CrossRoad> Select(String query)

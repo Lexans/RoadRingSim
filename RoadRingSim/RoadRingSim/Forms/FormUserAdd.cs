@@ -18,7 +18,7 @@ namespace RoadRingSim.Forms
 
         public FormUserAdd(User user) : this()
         {
-            SetUser(user);
+            User = user;
             Text = "Редактирование пользователя";
             buttonOk.Text = "Изменить";
         }
@@ -47,20 +47,23 @@ namespace RoadRingSim.Forms
             else
                 MessageBox.Show("Найдена ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        public User GetUser()
+        public User User
         {
-            if (_user == null) _user = new User();
-            _user.Login = textBoxLogin.Text;
-            _user.Password = textBoxPassword.Text;
-            _user.Role = (UserRole)userRoleBindingSource.Current;
-            return _user;
-        }
-        public void SetUser(User user)
-        {
-            _user = user;
-            textBoxLogin.Text = _user.Login;
-            textBoxPassword.Text = _user.Password;
-            userRoleBindingSource.Position = user.Role.ID - 1;
+            get
+            {
+                if (_user == null) _user = new User();
+                _user.Login = textBoxLogin.Text;
+                _user.Password = textBoxPassword.Text;
+                _user.Role = (UserRole)userRoleBindingSource.Current;
+                return _user;
+            }
+            set
+            {
+                _user = new User() { ID = value.ID, Login = value.Login, Role = new UserRole(value.Role), Password = value.Password };
+                textBoxLogin.Text = _user.Login;
+                textBoxPassword.Text = _user.Password;
+                userRoleBindingSource.Position = value.Role.ID - 1;
+            }
         }
         private void buttonCancel_Click(object sender, EventArgs e)
         {

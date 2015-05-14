@@ -23,8 +23,8 @@ namespace RoadRingSim.Models
         public void EditCrossRoad(CrossRoad cr)
         {
             crossRoadDao.Update(cr);
-            CrossRoads.RemoveAll(x => x.ID == cr.ID);
-            CrossRoads.Add(cr);
+            //CrossRoads.RemoveAll(x => x.ID == cr.ID);
+            //CrossRoads.Add(cr);
         }
         public void DeleteCrossRoad(CrossRoad cr)
         {
