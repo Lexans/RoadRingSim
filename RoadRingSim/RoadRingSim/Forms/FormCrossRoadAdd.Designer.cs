@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrossRoadAdd));
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrossRoadAdd));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.numericUpDownNumVertical = new System.Windows.Forms.NumericUpDown();
@@ -84,9 +84,9 @@
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(100, 15);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(629, 22);
+            this.textBoxName.Size = new System.Drawing.Size(625, 22);
             this.textBoxName.TabIndex = 1;
             // 
             // numericUpDownNumVertical
@@ -94,7 +94,7 @@
             this.numericUpDownNumVertical.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownNumVertical.Location = new System.Drawing.Point(271, 47);
-            this.numericUpDownNumVertical.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownNumVertical.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownNumVertical.Maximum = new decimal(new int[] {
             4,
             0,
@@ -106,7 +106,7 @@
             0,
             0});
             this.numericUpDownNumVertical.Name = "numericUpDownNumVertical";
-            this.numericUpDownNumVertical.Size = new System.Drawing.Size(460, 22);
+            this.numericUpDownNumVertical.Size = new System.Drawing.Size(456, 22);
             this.numericUpDownNumVertical.TabIndex = 2;
             this.numericUpDownNumVertical.Value = new decimal(new int[] {
             1,
@@ -119,7 +119,7 @@
             this.numericUpDownNumHorisontal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownNumHorisontal.Location = new System.Drawing.Point(271, 79);
-            this.numericUpDownNumHorisontal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownNumHorisontal.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownNumHorisontal.Maximum = new decimal(new int[] {
             4,
             0,
@@ -131,7 +131,7 @@
             0,
             0});
             this.numericUpDownNumHorisontal.Name = "numericUpDownNumHorisontal";
-            this.numericUpDownNumHorisontal.Size = new System.Drawing.Size(460, 22);
+            this.numericUpDownNumHorisontal.Size = new System.Drawing.Size(456, 22);
             this.numericUpDownNumHorisontal.TabIndex = 3;
             this.numericUpDownNumHorisontal.Value = new decimal(new int[] {
             1,
@@ -144,7 +144,7 @@
             this.numericUpDownNumRing.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownNumRing.Location = new System.Drawing.Point(271, 111);
-            this.numericUpDownNumRing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownNumRing.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownNumRing.Maximum = new decimal(new int[] {
             4,
             0,
@@ -156,7 +156,7 @@
             0,
             0});
             this.numericUpDownNumRing.Name = "numericUpDownNumRing";
-            this.numericUpDownNumRing.Size = new System.Drawing.Size(460, 22);
+            this.numericUpDownNumRing.Size = new System.Drawing.Size(456, 22);
             this.numericUpDownNumRing.TabIndex = 4;
             this.numericUpDownNumRing.Value = new decimal(new int[] {
             1,
@@ -200,8 +200,8 @@
             this.checkBoxIsLight.AutoSize = true;
             this.checkBoxIsLight.Checked = true;
             this.checkBoxIsLight.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxIsLight.Location = new System.Drawing.Point(629, 143);
-            this.checkBoxIsLight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxIsLight.Location = new System.Drawing.Point(625, 143);
+            this.checkBoxIsLight.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxIsLight.Name = "checkBoxIsLight";
             this.checkBoxIsLight.Size = new System.Drawing.Size(96, 21);
             this.checkBoxIsLight.TabIndex = 8;
@@ -224,7 +224,7 @@
             this.numericUpDownTimeLightSwitch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownTimeLightSwitch.Location = new System.Drawing.Point(271, 143);
-            this.numericUpDownTimeLightSwitch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownTimeLightSwitch.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownTimeLightSwitch.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -236,7 +236,7 @@
             0,
             0});
             this.numericUpDownTimeLightSwitch.Name = "numericUpDownTimeLightSwitch";
-            this.numericUpDownTimeLightSwitch.Size = new System.Drawing.Size(345, 22);
+            this.numericUpDownTimeLightSwitch.Size = new System.Drawing.Size(341, 22);
             this.numericUpDownTimeLightSwitch.TabIndex = 10;
             this.numericUpDownTimeLightSwitch.Value = new decimal(new int[] {
             20,
@@ -255,9 +255,9 @@
             "Экспоненциальный",
             "Равномерный"});
             this.comboBoxCarLaw.Location = new System.Drawing.Point(271, 175);
-            this.comboBoxCarLaw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCarLaw.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCarLaw.Name = "comboBoxCarLaw";
-            this.comboBoxCarLaw.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxCarLaw.Size = new System.Drawing.Size(187, 24);
             this.comboBoxCarLaw.TabIndex = 11;
             this.comboBoxCarLaw.SelectedIndexChanged += new System.EventHandler(this.comboBoxCarLaw_SelectedIndexChanged);
             // 
@@ -292,9 +292,9 @@
             "Экспоненциальный",
             "Равномерный"});
             this.comboBoxHumanLaw.Location = new System.Drawing.Point(271, 208);
-            this.comboBoxHumanLaw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxHumanLaw.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxHumanLaw.Name = "comboBoxHumanLaw";
-            this.comboBoxHumanLaw.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxHumanLaw.Size = new System.Drawing.Size(187, 24);
             this.comboBoxHumanLaw.TabIndex = 14;
             this.comboBoxHumanLaw.SelectedIndexChanged += new System.EventHandler(this.comboBoxHumanLaw_SelectedIndexChanged);
             // 
@@ -302,7 +302,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(471, 178);
+            this.label8.Location = new System.Drawing.Point(467, 178);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(117, 17);
@@ -318,8 +318,8 @@
             0,
             0,
             65536});
-            this.numericUpDownCarLawParam1.Location = new System.Drawing.Point(600, 176);
-            this.numericUpDownCarLawParam1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownCarLawParam1.Location = new System.Drawing.Point(596, 176);
+            this.numericUpDownCarLawParam1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownCarLawParam1.Name = "numericUpDownCarLawParam1";
             this.numericUpDownCarLawParam1.Size = new System.Drawing.Size(51, 22);
             this.numericUpDownCarLawParam1.TabIndex = 16;
@@ -333,8 +333,8 @@
             0,
             0,
             65536});
-            this.numericUpDownCarLawParam2.Location = new System.Drawing.Point(659, 176);
-            this.numericUpDownCarLawParam2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownCarLawParam2.Location = new System.Drawing.Point(655, 176);
+            this.numericUpDownCarLawParam2.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownCarLawParam2.Name = "numericUpDownCarLawParam2";
             this.numericUpDownCarLawParam2.Size = new System.Drawing.Size(51, 22);
             this.numericUpDownCarLawParam2.TabIndex = 17;
@@ -343,7 +343,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(717, 178);
+            this.label9.Location = new System.Drawing.Point(713, 178);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 17);
@@ -354,7 +354,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(717, 212);
+            this.label10.Location = new System.Drawing.Point(713, 212);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(13, 17);
@@ -370,8 +370,8 @@
             0,
             0,
             65536});
-            this.numericUpDownHumanLawParam2.Location = new System.Drawing.Point(659, 209);
-            this.numericUpDownHumanLawParam2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownHumanLawParam2.Location = new System.Drawing.Point(655, 209);
+            this.numericUpDownHumanLawParam2.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownHumanLawParam2.Name = "numericUpDownHumanLawParam2";
             this.numericUpDownHumanLawParam2.Size = new System.Drawing.Size(51, 22);
             this.numericUpDownHumanLawParam2.TabIndex = 21;
@@ -385,8 +385,8 @@
             0,
             0,
             65536});
-            this.numericUpDownHumanLawParam1.Location = new System.Drawing.Point(600, 209);
-            this.numericUpDownHumanLawParam1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownHumanLawParam1.Location = new System.Drawing.Point(596, 209);
+            this.numericUpDownHumanLawParam1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownHumanLawParam1.Name = "numericUpDownHumanLawParam1";
             this.numericUpDownHumanLawParam1.Size = new System.Drawing.Size(51, 22);
             this.numericUpDownHumanLawParam1.TabIndex = 20;
@@ -395,7 +395,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(471, 212);
+            this.label11.Location = new System.Drawing.Point(467, 212);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(117, 17);
@@ -424,16 +424,17 @@
             "Главная улица горизонтальная",
             "Главная улица вертикальная"});
             this.comboBoxPriority.Location = new System.Drawing.Point(271, 241);
-            this.comboBoxPriority.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxPriority.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxPriority.Name = "comboBoxPriority";
-            this.comboBoxPriority.Size = new System.Drawing.Size(459, 24);
+            this.comboBoxPriority.Size = new System.Drawing.Size(455, 24);
             this.comboBoxPriority.TabIndex = 24;
             // 
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(523, 287);
-            this.buttonOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOk.Location = new System.Drawing.Point(519, 286);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(4);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 28);
             this.buttonOk.TabIndex = 25;
@@ -444,8 +445,9 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(631, 287);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(627, 286);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 28);
             this.buttonCancel.TabIndex = 26;
@@ -461,8 +463,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ClientSize = new System.Drawing.Size(747, 330);
+            this.ClientSize = new System.Drawing.Size(743, 329);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.comboBoxPriority);
@@ -491,6 +492,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

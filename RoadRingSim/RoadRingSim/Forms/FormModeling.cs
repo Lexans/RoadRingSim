@@ -62,11 +62,6 @@ namespace RoadRingSim.Forms
             Render.Inst.DrawMap();
         }
 
-        private void FormModeling_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            timer1.Stop();
-        }
-
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
             timer1.Interval = 1000 - trackBarSpeed.Value;
@@ -94,6 +89,12 @@ namespace RoadRingSim.Forms
             cr.DistributionHumans.Type = (DistrubutionLaws)(comboBoxHuman.SelectedIndex + 1);
             cr.DistributionHumans.Parametr1 = (double)numericUpDownHumParam1.Value;
             cr.DistributionHumans.Parametr2 = (double)numericUpDownHumParam2.Value;
+        }
+
+        private void FormModeling_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timer1.Stop();
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace RoadRingSim.Presenters
     public class CrossRoadPresenter
     {
         private MainForm _form;
-        private CrossRoadModel _model;
+        public CrossRoadModel _model;
 
         //отсылает модель в форму
         public void Init(MainForm form, CrossRoadModel model)
@@ -34,11 +34,13 @@ namespace RoadRingSim.Presenters
         public void form_AddItem()
         {
             var f = new FormCrossRoadAdd();
-            if (f.ShowDialog() == DialogResult.OK)
+            DialogResult dr = f.ShowDialog();
+            if (dr == DialogResult.OK)
             {
                 _model.AddCrossroad(f.CrossRoad);
                 _form.ShowCrossRoadList(_model.CrossRoads);
             }
+            return;
         }
         public void form_EditItem(CrossRoad obj)
         {

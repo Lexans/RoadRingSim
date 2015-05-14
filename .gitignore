@@ -229,8 +229,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-<<<<<<< HEAD
 Docs/Справка/~RoadRingSim.dat
-=======
->>>>>>> origin/CrossRoadManager
 Docs/Справка/RoadRingSim.gui

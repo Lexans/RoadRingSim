@@ -21,7 +21,7 @@ namespace RoadRingSim.Forms
         private void timer1_Tick(object sender, EventArgs e)
         {
             _tickCounter++;
-            if (_tickCounter > 30)
+            if (_tickCounter > 10)
             {
                 timerSplashScreen.Stop();
                 this.Close();

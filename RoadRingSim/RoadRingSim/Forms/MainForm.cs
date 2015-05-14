@@ -20,18 +20,26 @@ namespace RoadRingSim.Forms
             InitializeComponent();
 #if !DEBUG
             this.user = user;
-            if (this.user.currentUser.Role.ID == 1) AccManagerToolStripMenuItem.Enabled = true;
 #else
-            this.user = new UserDAO() { currentUser = new User() { Role = new UserRole(1) } };
-            AccManagerToolStripMenuItem.Enabled = true;
+            this.user = new UserDAO() { currentUser = new User() { Role = new UserRole(3) } };
 #endif
             crDAO = new CrossRoadDAO();
             up.Init(this, new CrossRoadModel(crDAO));
+
+
+            if (this.user != null && this.user.currentUser.Role.ID < 3)
+            {
+                toolStripButtonAdd.Visible = false;
+                toolStripButtonDelete.Visible = false;
+                toolStripButtonDelete.Visible = false;
+                toolStripButtonEdit.Visible = false;
+                менеджерАккаунтовToolStripMenuItem.Visible = false;
+            }
         }
 
         private void AccManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new FormAccountManager(user)).ShowDialog();
+            
         }
 
         private void оПрограммеToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -86,16 +94,32 @@ namespace RoadRingSim.Forms
         {
             if (crossRoadBindingSourceCr.Current != null)
                 if (DeleteItem != null)
-                    new FormModeling((CrossRoad)crossRoadBindingSourceCr.Current,
-                        (this.user == null || this.user.currentUser.Role.ID <= 1)
-                        ).ShowDialog();
+                {
+                     FormModeling fm = new FormModeling((CrossRoad)crossRoadBindingSourceCr.Current,
+                        (this.user != null && this.user.currentUser.Role.ID > 1));
+                    
+                    fm.ShowDialog();
+                    fm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                    fm.Dispose();
+                }
 
-            up.Init(this, new CrossRoadModel(crDAO));
+            ShowCrossRoadList(up._model.CrossRoads);
+
+
         }
 
         private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "RoadRingSimHelp.chm");
+        }
+
+        private void менеджерАккаунтовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new FormAccountManager(user)).ShowDialog();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
         }
     }
 }
