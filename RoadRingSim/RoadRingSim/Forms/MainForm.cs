@@ -110,7 +110,8 @@ namespace RoadRingSim.Forms
 
         private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, "RoadRingSimHelp.chm");
+            //Help.ShowHelp(this, "RoadRingSimHelp.chm");
+            System.Diagnostics.Process.Start("RoadRingSimHelp.pdf");
         }
 
         private void менеджерАккаунтовToolStripMenuItem_Click(object sender, EventArgs e)

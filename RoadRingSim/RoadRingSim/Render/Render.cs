@@ -145,7 +145,7 @@ namespace RoadRingSim
                     break;
 
                 case PriorityTypes.MainStreetVertical:
-                    prTypeSign = Pictures.signMainHorisontal;
+                    prTypeSign = Pictures.signMainVertical;
                     otherSigns[0] = otherSigns[2] = otherSigns[6] =  Pictures.signYieldVertical;
                     otherSigns[1] = otherSigns[3] = otherSigns[7] = Pictures.signMain;
 

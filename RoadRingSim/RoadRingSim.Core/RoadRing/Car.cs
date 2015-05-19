@@ -100,8 +100,6 @@ namespace RoadRingSim.Core
 
                 if(Location.TypeFunc == FuncTypes.Depart)
                 {
-                    if (Location.X == 6 && Location.Y == 19)
-                    { }
                     if (Location.Route == RouteTo)
                         GoalState = CarStates.DepartRing;
                 }

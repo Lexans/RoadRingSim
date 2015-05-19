@@ -64,7 +64,7 @@ namespace RoadRingSim.Core
 		/// </summary>
 		public void SimulationStep()
 		{
-            //создание ноавых объектов
+            //создание новых объектов
             foreach (var oc in Creators)
                 oc.TryCreate();
 

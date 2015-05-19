@@ -6,12 +6,8 @@
 //------------------------------------------------------------------------------
 namespace RoadRingSim.Core.Domains
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
 
-	public enum DistrubutionLaws : int
+    public enum DistrubutionLaws : int
     {
         Normal = 1,
 		Expon = 2,

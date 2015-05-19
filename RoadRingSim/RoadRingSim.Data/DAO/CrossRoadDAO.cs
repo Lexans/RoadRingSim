@@ -70,6 +70,9 @@ namespace RoadRingSim.Data.DAO
                 "DELETE FROM `CrossRoad` WHERE `ID` = {0}",
                 cr.ID)
                 );
+            ExecuteQuery(
+                String.Format("DELETE FROM `CrossRoadLaw` WHERE IDCrossRoad = {0}", cr.ID));
+
             if (cr.ID != maxId)
                 ExecuteQuery(
                     string.Format("UPDATE CrossRoad SET ID={0} WHERE ID={1}", cr.ID, maxId));

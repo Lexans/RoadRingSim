@@ -50,7 +50,7 @@
           <relativeChildShapes />
         </useCaseShape>
         <useCaseShape Id="e52ebe33-fbfd-4a24-8997-00c6d08e3622" absoluteBounds="3.5, 6.75, 1.75, 0.625" customColor="238, 237, 131" heightOffset="0">
-          <useCaseMoniker Id="865a2c03-f9e5-4aaa-9a9f-97f49b601d0d" LastKnownName="изменение закона распределения машин" />
+          <useCaseMoniker Id="865a2c03-f9e5-4aaa-9a9f-97f49b601d0d" LastKnownName="изменение закона распределения автомобилей" />
           <relativeChildShapes />
         </useCaseShape>
         <useCaseShape Id="7fd8f4fa-ed71-47e5-bd40-d8de9ad6584e" absoluteBounds="5.625, 6.75, 1.75, 0.625" customColor="238, 237, 131" heightOffset="0">
@@ -81,11 +81,11 @@
           <useCaseMoniker Id="fd6f775f-e186-4e7c-9090-a3e33fda4bdd" LastKnownName="добавление светофора" />
           <relativeChildShapes />
         </useCaseShape>
-        <useCaseShape Id="112d57b4-67b5-4bc5-b567-7db4abd42698" absoluteBounds="9.375, 5.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
-          <useCaseMoniker Id="30e83a99-1572-47f2-9a46-a7f365af023f" LastKnownName="добавление знаков" />
+        <useCaseShape Id="112d57b4-67b5-4bc5-b567-7db4abd42698" absoluteBounds="9.375, 5.875, 1.125, 0.875" customColor="238, 237, 131" heightOffset="0">
+          <useCaseMoniker Id="30e83a99-1572-47f2-9a46-a7f365af023f" LastKnownName="задание типа приоритетов" />
           <relativeChildShapes />
         </useCaseShape>
-        <useCaseShape Id="98113046-02ff-4b06-b74e-f0dfbece1199" absoluteBounds="8.5, 6.5, 1.25, 0.625" customColor="238, 237, 131" heightOffset="0">
+        <useCaseShape Id="98113046-02ff-4b06-b74e-f0dfbece1199" absoluteBounds="8.125, 6.625, 1.25, 0.625" customColor="238, 237, 131" heightOffset="0">
           <useCaseMoniker Id="642a80ed-36e5-43d7-830e-9e2c1643e0d9" LastKnownName="задание количества полос" />
           <relativeChildShapes />
         </useCaseShape>
@@ -162,7 +162,7 @@
         <useCaseShapeMoniker Id="5aa19331-00d7-444e-a0c2-640121c8cfc2" />
       </nodes>
     </extendConnector>
-    <extendConnector edgePoints="[(9.15214826517269 : 6.50029495051404); (9.22828138786185 : 5.62476403958877)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="Black" useCaseStereotype="«расширить»">
+    <extendConnector edgePoints="[(8.84874406319167 : 6.62892480252603); (9.17100474944666 : 5.62186015797918)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«расширить»">
       <extendMoniker Id="2740f093-2926-4c49-aa84-9f22278f0c4c" />
       <relativeChildShapes />
       <nodes>
@@ -170,7 +170,7 @@
         <useCaseShapeMoniker Id="5aa19331-00d7-444e-a0c2-640121c8cfc2" />
       </nodes>
     </extendConnector>
-    <extendConnector edgePoints="[(9.68269230769231 : 5.89423076923077); (9.44230769230769 : 5.60576923076923)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="Black" useCaseStereotype="«расширить»">
+    <extendConnector edgePoints="[(9.65881170988445 : 5.9324705134788); (9.42212732457921 : 5.60971907897165)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«расширить»">
       <extendMoniker Id="b591337c-79b7-4bd9-845d-a4113b428055" />
       <relativeChildShapes />
       <nodes>
@@ -250,7 +250,7 @@
         <useCaseShapeMoniker Id="1afc75f0-ef96-409b-ba5f-47b850383c99" />
       </nodes>
     </useCaseAssociationConnector>
-    <extendConnector edgePoints="[(6.44821278591531 : 5.85806676104909); (8.77731350918686 : 5.45649767082985)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«расширить»">
+    <extendConnector edgePoints="[(6.44821278591531 : 5.85806676104909); (8.77731350918686 : 5.45649767082985)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="Black" useCaseStereotype="«расширить»">
       <extendMoniker Id="7606de9f-21ad-4578-ac7d-736d4e8ad187" />
       <relativeChildShapes />
       <nodes>
