@@ -59,7 +59,7 @@ namespace RoadRingSim.Forms
                 obj.DistribustionCars = new CrossRoadLaw(comboBoxCarLaw.SelectedIndex) { Parametr1 = (double)numericUpDownCarLawParam1.Value, Parametr2 = (double)numericUpDownCarLawParam2.Value };
                 obj.DistributionHumans = new CrossRoadLaw(comboBoxHumanLaw.SelectedIndex) { Parametr1 = (double)numericUpDownHumanLawParam1.Value, Parametr2 = (double)numericUpDownHumanLawParam2.Value };
                 obj.IsLights = checkBoxIsLight.Checked;
-                obj.LightsTime = checkBoxIsLight.Checked ? (uint)numericUpDownTimeLightSwitch.Value : 0;
+                obj.LightsTime = checkBoxIsLight.Checked ? (uint)numericUpDownTimeLightSwitch.Value : 1;
                 obj.LinesHorisontal = (int)numericUpDownNumHorisontal.Value;
                 obj.LinesRing = (int)numericUpDownNumRing.Value;
                 obj.LinesVertical = (int)numericUpDownNumVertical.Value;

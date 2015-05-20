@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="9acec9bb-9eb7-40a9-a597-2c265b126894" name="UMLUseCaseDiagram1" linkedPackageId="55a81fd0-7b78-44af-b1ba-4f460a8f9b97" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="9acec9bb-9eb7-40a9-a597-2c265b126894" name="UMLUseCaseDiagram1" linkedPackageId="55a81fd0-7b78-44af-b1ba-4f460a8f9b97" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="db0aaf67-b7b4-4313-8aaf-cee52626f41a" name="namespace" profile="CSharpProfile">
       <elementDefinition Id="7f0fdd35-91d0-40f2-9689-12d9d60c3097" />
@@ -72,20 +72,6 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="57c967f8-9aae-48f8-9fbd-196738bbeb8f">
-      <profileInstance Id="6cc08c49-46a9-4ed4-a1c3-f28fd98d1d10" name="CSharpProfile">
-        <elementDefinition Id="94d9819e-107c-4a1c-8c92-35127552ba61" />
-      </profileInstance>
-      <elementDefinition Id="7fe610c8-1ab0-4534-be90-890f7c2bf0e6" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="49bd9b2b-8518-4baa-a31c-5939300fec16">
-      <profileInstance Id="4463a4f0-a2a8-4d8a-b6a4-1555bee6d6a6" name="TextTemplateBindings">
-        <elementDefinition Id="fb78ae51-99cb-4b56-8286-28c34d0f812a" />
-      </profileInstance>
-      <elementDefinition Id="f800ef5b-24e4-4fd9-9c25-f229d1679e33" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <useCaseModelRootHasTypes>
       <subsystem Id="e46aafa3-ffac-454b-86f6-6a5d5428c383" name="RoadRingSim" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -450,6 +436,18 @@
           <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
         </profileInstance>
         <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="57c967f8-9aae-48f8-9fbd-196738bbeb8f">
+        <profileInstance Id="6cc08c49-46a9-4ed4-a1c3-f28fd98d1d10" name="CSharpProfile">
+          <elementDefinition Id="94d9819e-107c-4a1c-8c92-35127552ba61" />
+        </profileInstance>
+        <elementDefinition Id="7fe610c8-1ab0-4534-be90-890f7c2bf0e6" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="49bd9b2b-8518-4baa-a31c-5939300fec16">
+        <profileInstance Id="4463a4f0-a2a8-4d8a-b6a4-1555bee6d6a6" name="TextTemplateBindings">
+          <elementDefinition Id="fb78ae51-99cb-4b56-8286-28c34d0f812a" />
+        </profileInstance>
+        <elementDefinition Id="f800ef5b-24e4-4fd9-9c25-f229d1679e33" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>
